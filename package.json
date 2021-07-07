@@ -1,0 +1,26 @@
+{
+	"name": "mc-uni-admin",
+	"version": "1.0.0",
+	"repository": "https://gitee.com/mc-uniapp/mc-uni-admin.git",
+	"author": "姜彦汐 <jiangyanxi@live.com>",
+	"license": "MIT",
+	"dependencies": {
+		"element-ui": "^2.15.3",
+		"keyboardjs": "^2.6.4",
+		"luch-request": "^3.0.6",
+		"nprogress": "^0.2.0",
+		"screenfull": "^5.1.0",
+		"uni-read-pages": "^1.0.5",
+		"uni-simple-router": "^2.0.6",
+		"vue-count-to": "^1.0.13",
+		"vuedraggable": "^2.24.3",
+		"vxe-table": "^3.3.9",
+		"vxe-table-plugin-element": "^1.11.2",
+		"xe-utils": "^3.3.0",
+		"xgplayer": "^2.24.3"
+	},
+	"devDependencies": {
+		"compression-webpack-plugin": "^6.1.1",
+		"webpack": "^4.46.0"
+	}
+}
