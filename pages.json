@@ -8,11 +8,28 @@
 				"topWindow": false,
 				"leftWindow": false
 			}
+		}, {
+			"path": "pages/richeditor/richeditor"
 		}
 	],
 	"globalStyle": {
 		"navigationBarTitleText": "mc-uniAdmin",
 		"backgroundColor": "#F8F8F8",
 		"navigationStyle": "custom"
+	},
+	"topWindow": {
+		"path": "windows/topWindow",
+		"style": {
+			"height": "40px"
+		},
+		"matchMedia": {
+			"minWidth": 0
+		}
+	},
+	"leftWindow": {
+		"path": "windows/leftWindow",
+		"style": {
+			"width": "auto"
+		}
 	}
 }

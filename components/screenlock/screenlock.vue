@@ -3,7 +3,7 @@
 		<el-tooltip content="锁屏" placement="bottom">
 			<i @click="lock" class="el-icon-lock"></i>
 		</el-tooltip>
-		<el-dialog title="MC-framework" :visible="isLock" center append-to-body :close-on-click-modal="false"
+		<el-dialog title="mc-uniAdmin" :visible="isLock" center append-to-body :close-on-click-modal="false"
 			:close-on-press-escape="false" :show-close="false">
 			<view class="flex flex-column flex-align-center margin-bottom-lg">
 				<el-avatar :size="80" src="https://undsky.com/public/img/logo.png"></el-avatar>

@@ -1,52 +1,35 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
-	</view>
+	<scroll-view class="main" scroll-y>
+		<el-row>
+			<el-col class="container padding" :offset="0" :xs="{ span: 24 }" :sm="{ span: 24 }" :md="{ span: 12 }" :lg="{ span: 12 }" :xl="{ span: 12 }">
+				<iframe class="report-box" src="https://www.undsky.com/public/h5/report/index.html#/pages/main/index" frameborder="0"></iframe>
+			</el-col>
+			<el-col class="container padding" :offset="0" :xs="{ span: 24 }" :sm="{ span: 24 }" :md="{ span: 12 }" :lg="{ span: 12 }" :xl="{ span: 12 }">
+				<iframe class="report-box" src="https://www.undsky.com/public/h5/report/index.html#/pages/school/index" frameborder="0"></iframe>
+			</el-col>
+			<el-col class="container padding" :offset="0" :xs="{ span: 24 }" :sm="{ span: 24 }" :md="{ span: 12 }" :lg="{ span: 12 }" :xl="{ span: 12 }">
+				<iframe class="report-box" src="https://www.undsky.com/public/h5/report/index.html#/myPackageA/pages/sport/index" frameborder="0"></iframe>
+			</el-col>
+			<el-col class="container padding" :offset="0" :xs="{ span: 24 }" :sm="{ span: 24 }" :md="{ span: 12 }" :lg="{ span: 12 }" :xl="{ span: 12 }">
+				<iframe class="report-box" src="https://www.undsky.com/public/h5/report/index.html#/pages/finance/index" frameborder="0"></iframe>
+			</el-col>
+		</el-row>
+	</scroll-view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+export default {
+	name: 'index',
+	data() {
+		return {};
+	},
+	methods: {}
+};
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style scoped>
+.report-box {
+	width: 100%;
+	height: 667px;
+}
 </style>

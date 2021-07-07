@@ -75,7 +75,8 @@
         "title" : "mc-uniAdmin",
         "template" : "index.html",
         "router" : {
-            "mode" : "hash"
+            "mode" : "hash",
+            "base" : ""
         },
         "devServer" : {
             "https" : false,
