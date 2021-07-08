@@ -6,7 +6,8 @@
 				<i class="el-icon-s-home"></i>
 				<span slot="title">首页</span>
 			</el-menu-item>
-			<el-menu-item index="richeditor" @click="navigateTo('richeditor', '富文本编辑器', '/pages/richeditor/richeditor')">
+			<el-menu-item index="richeditor"
+				@click="navigateTo('richeditor', '富文本编辑器', '/pages/richeditor/richeditor')">
 				<span slot="title">富文本编辑器</span>
 			</el-menu-item>
 			<template v-for="menu in menus">
@@ -45,7 +46,16 @@
 			navigateTo(name, title, url, keepAlive) {
 				this.activeMenu = name;
 				if (this.showLeftWindow) uni.hideLeftWindow();
-				if (this.$util.navigateTo(url, keepAlive)) {
+				if (0 == url.indexOf('http')) {
+					window.open(url);
+				} else {
+					if (keepAlive) {
+						this.$router.push(url);
+					} else {
+						uni.navigateTo({
+							url
+						})
+					}
 					uni.$emit('activeTab', {
 						name,
 						title,

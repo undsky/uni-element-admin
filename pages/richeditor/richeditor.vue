@@ -1,5 +1,7 @@
 <template>
-	<view>richeditor</view>
+	<view>
+		<tinymce></tinymce>
+	</view>
 </template>
 
 <script>

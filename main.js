@@ -18,8 +18,8 @@ import 'vxe-table/lib/style.css'
 VXETable.use(VXETablePluginElement)
 Vue.use(VXETable)
 
-import util from './common/util.js'
-Vue.prototype.$util = Object.assign(XEUtils, util)
+import utils from './common/utils.js'
+Vue.prototype.$utils = Object.assign(XEUtils, utils)
 
 import http from './common/request.js'
 Vue.prototype.$http = http

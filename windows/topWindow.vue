@@ -72,7 +72,7 @@ export default {
 			}
 		},
 		tabClick({ name }) {
-			const { url } = this.$util.find(this.tabs, tab => tab.name === name);
+			const { url } = this.$utils.find(this.tabs, tab => tab.name === name);
 			this.$router.push(url);
 			uni.$emit('activeMenu', name);
 		},
@@ -112,7 +112,7 @@ export default {
 		});
 
 		uni.$on('activeTab', tab => {
-			if (!this.$util.find(this.tabs, _tab => _tab.name == tab.name)) {
+			if (!this.$utils.find(this.tabs, _tab => _tab.name == tab.name)) {
 				this.tabs.push(
 					Object.assign(
 						{

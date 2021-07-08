@@ -5,11 +5,13 @@
 	"author": "姜彦汐 <jiangyanxi@live.com>",
 	"license": "MIT",
 	"dependencies": {
+		"@npkg/tinymce-plugins": "^0.0.6",
 		"element-ui": "^2.15.3",
 		"keyboardjs": "^2.6.4",
 		"luch-request": "^3.0.6",
 		"nprogress": "^0.2.0",
 		"screenfull": "^5.1.0",
+		"tinymce": "^5.8.2",
 		"uni-read-pages": "^1.0.5",
 		"uni-simple-router": "^2.0.6",
 		"vue-count-to": "^1.0.13",
