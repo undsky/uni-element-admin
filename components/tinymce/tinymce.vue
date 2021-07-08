@@ -54,6 +54,8 @@
 	import 'tinymce/plugins/visualchars';
 	import 'tinymce/plugins/wordcount';
 
+	let _editor;
+
 	export default {
 		name: "tinymce",
 		props: {
@@ -73,8 +75,10 @@
 				tinymceId: this.id
 			};
 		},
-		mounted: function() {
-			tinymce.init({
+		mounted: async function() {
+
+
+			const [editor] = await tinymce.init({
 				selector: `#${this.tinymceId}`,
 				language_url: 'https://cdn.cloud.undsky.com/tinymce/langs/zh_CN.js',
 				language: 'zh_CN',
@@ -125,9 +129,13 @@
 					'wordcount'
 				]
 			});
+
+			_editor = editor
+			editor.setContent('mc')
+
 		},
 		beforeDestroy: function() {
-			tinymce.remove()
+			_editor.destroy()
 		}
 	}
 </script>

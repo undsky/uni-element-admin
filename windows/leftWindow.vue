@@ -10,6 +10,9 @@
 				@click="navigateTo('richeditor', '富文本编辑器', '/pages/richeditor/richeditor')">
 				<span slot="title">富文本编辑器</span>
 			</el-menu-item>
+			<el-menu-item index="form" @click="navigateTo('form', '表单', '/pages/form/form',true)">
+				<span slot="title">表单</span>
+			</el-menu-item>
 			<template v-for="menu in menus">
 				<el-submenu v-if="!menu.pid" :index="menu.id" :key="menu.id">
 					<template slot="title">
@@ -46,20 +49,12 @@
 			navigateTo(name, title, url, keepAlive) {
 				this.activeMenu = name;
 				if (this.showLeftWindow) uni.hideLeftWindow();
-				if (0 == url.indexOf('http')) {
-					window.open(url);
-				} else {
-					if (keepAlive) {
-						this.$router.push(url);
-					} else {
-						uni.navigateTo({
-							url
-						})
-					}
+				if (this.$utils.navigateTo(url, keepAlive ? this : null)) {
 					uni.$emit('activeTab', {
 						name,
 						title,
-						url
+						url,
+						keepAlive
 					});
 				}
 			}

@@ -10,6 +10,8 @@
 			}
 		}, {
 			"path": "pages/richeditor/richeditor"
+		}, {
+			"path": "pages/form/form"
 		}
 	],
 	"globalStyle": {
