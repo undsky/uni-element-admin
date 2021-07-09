@@ -11,15 +11,14 @@ import ElementUI from 'element-ui';
 import './element-ui.scss'
 Vue.use(ElementUI)
 
-import XEUtils from 'xe-utils'
+import utils from './common/utils.js'
+Vue.prototype.$utils = utils
+
 import VXETable from 'vxe-table'
 import VXETablePluginElement from 'vxe-table-plugin-element'
 import 'vxe-table/lib/style.css'
 VXETable.use(VXETablePluginElement)
 Vue.use(VXETable)
-
-import utils from './common/utils.js'
-Vue.prototype.$utils = Object.assign(XEUtils, utils)
 
 import http from './common/request.js'
 Vue.prototype.$http = http
