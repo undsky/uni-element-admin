@@ -11,48 +11,62 @@
 
 	import 'tinymce/plugins/autoresize';
 	import 'tinymce/plugins/advlist';
-	import 'tinymce/plugins/anchor';
+	// import 'tinymce/plugins/anchor';
 	import 'tinymce/plugins/autolink';
 	import 'tinymce/plugins/autosave';
-	import 'tinymce/plugins/bbcode';
+	// import 'tinymce/plugins/bbcode';
 	import 'tinymce/plugins/charmap';
 	import 'tinymce/plugins/code';
 	import 'tinymce/plugins/codesample';
-	import 'tinymce/plugins/colorpicker';
-	import 'tinymce/plugins/contextmenu';
-	import 'tinymce/plugins/directionality';
+	// import 'tinymce/plugins/colorpicker';
+	// import 'tinymce/plugins/contextmenu';
+	// import 'tinymce/plugins/directionality';
 	import 'tinymce/plugins/emoticons';
-	import 'tinymce/plugins/fullpage';
+	// import 'tinymce/plugins/fullpage';
 	import 'tinymce/plugins/fullscreen';
-	import 'tinymce/plugins/help';
+	// import 'tinymce/plugins/help';
 	import 'tinymce/plugins/hr';
 	import 'tinymce/plugins/image';
-	import 'tinymce/plugins/imagetools';
-	import 'tinymce/plugins/importcss';
+	// import 'tinymce/plugins/importcss';
 	import 'tinymce/plugins/insertdatetime';
-	import 'tinymce/plugins/legacyoutput';
+	// import 'tinymce/plugins/legacyoutput';
 	import 'tinymce/plugins/link';
 	import 'tinymce/plugins/lists';
 	import 'tinymce/plugins/media';
-	import 'tinymce/plugins/nonbreaking';
-	import 'tinymce/plugins/noneditable';
+	// import 'tinymce/plugins/nonbreaking';
+	// import 'tinymce/plugins/noneditable';
 	import 'tinymce/plugins/pagebreak';
 	import 'tinymce/plugins/paste';
 	import 'tinymce/plugins/preview';
 	import 'tinymce/plugins/print';
 	import 'tinymce/plugins/quickbars';
-	import 'tinymce/plugins/save';
+	// import 'tinymce/plugins/save';
 	import 'tinymce/plugins/searchreplace';
-	import 'tinymce/plugins/spellchecker';
-	import 'tinymce/plugins/tabfocus';
-	import 'tinymce/plugins/table';
+	// import 'tinymce/plugins/spellchecker';
+	// import 'tinymce/plugins/tabfocus';
 	import 'tinymce/plugins/template';
-	import 'tinymce/plugins/textcolor';
+	// import 'tinymce/plugins/textcolor';
 	import 'tinymce/plugins/textpattern';
-	import 'tinymce/plugins/toc';
-	import 'tinymce/plugins/visualblocks';
-	import 'tinymce/plugins/visualchars';
-	import 'tinymce/plugins/wordcount';
+	// import 'tinymce/plugins/toc';
+	// import 'tinymce/plugins/visualblocks';
+	// import 'tinymce/plugins/visualchars';
+	// import 'tinymce/plugins/wordcount';
+
+	// import 'tinymce/plugins/imagetools';
+	// import 'tinymce/plugins/table';
+	import {
+		imagetools,
+		table,
+		indent2em,
+		importword,
+		layout,
+		letterspacing,
+		lineheight,
+		upfile,
+		bdmap,
+		axupimgs,
+		attachment
+	} from '@npkg/tinymce-plugins'
 
 	let _editor;
 
@@ -68,7 +82,8 @@
 			value: {
 				type: String,
 				default: ''
-			}
+			},
+
 		},
 		data() {
 			return {
@@ -76,63 +91,80 @@
 			};
 		},
 		mounted: async function() {
-
-
-			const [editor] = await tinymce.init({
+			const editors = await tinymce.init({
 				selector: `#${this.tinymceId}`,
-				language_url: 'https://cdn.cloud.undsky.com/tinymce/langs/zh_CN.js',
+				statusbar: false,
+				language_url: this.$config.cdn + 'tinymce/langs/zh_CN.js',
 				language: 'zh_CN',
-				skin_url: 'https://cdn.cloud.undsky.com/tinymce/skins/ui/oxide',
+				skin_url: this.$config.cdn + 'tinymce/skins/ui/oxide',
+				emoticons_database_url: this.$config.cdn + 'tinymce/emoticons/js/emojis.min.js',
+				emoticons_images_url: this.$config.cdn + 'tinymce/emoticons/twemoji/72x72/',
+				quickbars_insert_toolbar: false,
+				toolbar_mode: 'wrap',
+				toolbar: 'code undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link anchor | alignleft aligncenter alignright alignjustify outdent indent | \
+				                     styleselect formatselect fontselect fontsizeselect | bullist numlist | blockquote subscript superscript removeformat | \
+				                     table image media charmap emoticons hr pagebreak insertdatetime print preview | fullscreen | bdmap indent2em lineheight formatpainter axupimgs importword kityformula-editor',
 				plugins: ['autoresize',
 					'advlist',
-					'anchor',
+					// 'anchor',
 					'autolink',
 					'autosave',
-					'bbcode',
+					// 'bbcode',
 					'charmap',
 					'code',
 					'codesample',
-					'colorpicker',
-					'contextmenu',
-					'directionality',
+					// 'colorpicker',
+					// 'contextmenu',
+					// 'directionality',
 					'emoticons',
-					'fullpage',
+					// 'fullpage',
 					'fullscreen',
-					'help',
+					// 'help',
 					'hr',
 					'image',
-					'imagetools',
-					'importcss',
+					// 'importcss',
 					'insertdatetime',
-					'legacyoutput',
+					// 'legacyoutput',
 					'link',
 					'lists',
 					'media',
-					'nonbreaking',
-					'noneditable',
+					// 'nonbreaking',
+					// 'noneditable',
 					'pagebreak',
 					'paste',
 					'preview',
 					'print',
 					'quickbars',
-					'save',
+					// 'save',
 					'searchreplace',
-					'spellchecker',
-					'tabfocus',
-					'table',
+					// 'spellchecker',
+					// 'tabfocus',
 					'template',
-					'textcolor',
+					// 'textcolor',
 					'textpattern',
-					'toc',
-					'visualblocks',
-					'visualchars',
-					'wordcount'
+					// 'toc',
+					// 'visualblocks',
+					// 'visualchars',
+					// 'wordcount',
+					'imagetools',
+					'table',
+					'indent2em',
+					'importword',
+					'layout',
+					'letterspacing',
+					'lineheight',
+					'upfile',
+					'bdmap',
+					'axupimgs',
+					'attachment'
 				]
 			});
 
-			_editor = editor
-			editor.setContent('mc')
-
+			_editor = editors[0]
+			_editor.setContent(this.value)
+			_editor.on('input keyup Change Undo Redo ExecCommand NodeChange', e => {
+				this.$emit('input', _editor.getContent())
+			})
 		},
 		beforeDestroy: function() {
 			_editor.destroy()

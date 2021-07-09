@@ -24,6 +24,9 @@ Vue.prototype.$utils = Object.assign(XEUtils, utils)
 import http from './common/request.js'
 Vue.prototype.$http = http
 
+import config from './common/config.js'
+Vue.prototype.$config = config
+
 import store from './store/index.js'
 Vue.prototype.$store = store
 

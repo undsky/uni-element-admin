@@ -1,15 +1,8 @@
 import Request from 'luch-request'
 import store from '../store/index.js'
+import _config from './config.js'
 
-const defaultConfig = {
-	baseURL: 'development' === process.env.NODE_ENV ? 'http://localhost:7001' : '/',
-	withCredentials: true,
-	custom: {
-		auth: true
-	}
-}
-
-const http = new Request(defaultConfig)
+const http = new Request(_config.request)
 
 http.interceptors.request.use(async config => {
 	// if (config.custom.auth) {
@@ -70,7 +63,6 @@ async function post(url, data, options) {
 }
 
 export default {
-	defaultConfig,
 	get,
 	post
 }
