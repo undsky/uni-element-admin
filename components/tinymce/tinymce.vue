@@ -91,7 +91,7 @@
 			};
 		},
 		mounted: async function() {
-			const base_url = `${this.$config.cdn}tinymce`
+			const cdn = `${this.$config.cdn}tinymce`
 
 			const editors = await tinymce.init({
 				selector: `#${this.tinymceId}`,
@@ -99,10 +99,10 @@
 					menubar: true
 				},
 				statusbar: false,
-				language_url: `${base_url}/langs/zh_CN.js`,
+				language_url: `${cdn}/langs/zh_CN.js`,
 				language: 'zh_CN',
-				skin_url: `${base_url}/skins/ui/oxide`,
-				emoticons_database_url: `${base_url}/plugins/emoticons/js/emojis.min.js`,
+				skin_url: `${cdn}/skins/ui/oxide`,
+				emoticons_database_url: `${cdn}/plugins/emoticons/js/emojis.min.js`,
 				quickbars_insert_toolbar: false,
 				toolbar_mode: 'wrap',
 				toolbar: 'code undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link anchor | alignleft aligncenter alignright alignjustify outdent indent | \
