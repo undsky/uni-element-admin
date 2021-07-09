@@ -91,14 +91,18 @@
 			};
 		},
 		mounted: async function() {
+			const base_url = `${this.$config.cdn}tinymce`
+
 			const editors = await tinymce.init({
 				selector: `#${this.tinymceId}`,
+				mobile: {
+					menubar: true
+				},
 				statusbar: false,
-				language_url: this.$config.cdn + 'tinymce/langs/zh_CN.js',
+				language_url: `${base_url}/langs/zh_CN.js`,
 				language: 'zh_CN',
-				skin_url: this.$config.cdn + 'tinymce/skins/ui/oxide',
-				emoticons_database_url: this.$config.cdn + 'tinymce/emoticons/js/emojis.min.js',
-				emoticons_images_url: this.$config.cdn + 'tinymce/emoticons/twemoji/72x72/',
+				skin_url: `${base_url}/skins/ui/oxide`,
+				emoticons_database_url: `${base_url}/plugins/emoticons/js/emojis.min.js`,
 				quickbars_insert_toolbar: false,
 				toolbar_mode: 'wrap',
 				toolbar: 'code undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link anchor | alignleft aligncenter alignright alignjustify outdent indent | \
