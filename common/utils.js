@@ -22,10 +22,7 @@ XEUtils.mixin({
 					if (dateDiff.time < 86400000) {
 						if (dateDiff.time < 360000) {
 							if (dateDiff.time < 60000) {
-								if (dateDiff.time < 10000) {
-									return `刚刚`
-								}
-								return `${dateDiff.ss}秒之前`
+								return '刚刚'
 							}
 							return `${dateDiff.mm}分钟之前`
 						}
