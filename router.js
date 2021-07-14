@@ -12,10 +12,9 @@ const router = createRouter({
 //全局路由前置守卫
 router.beforeEach((to, from, next) => {
 	if (to.path != from.path) {
-		console.log('跳转开始')
-		console.log(to)
-		console.log(from)
 		NProgress.start()
+		console.log('跳转开始')
+		console.log(from)
 		next();
 	}
 });
@@ -24,6 +23,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from) => {
 	NProgress.done()
 	console.log('跳转结束')
+	console.log(to)
 })
 
 export {
