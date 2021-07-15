@@ -2,6 +2,7 @@
 	<view class="padding">
 		<h3>ID Card</h3>
 		<view>deviceId：{{deviceId}}</view>
+		<view>fingerprint：{{fingerprint}}</view>
 		<view>model：{{model}}</view>
 		<view>platform：{{platform}}</view>
 		<view>system：{{system}}</view>
@@ -13,11 +14,14 @@
 </template>
 
 <script>
+	import FingerprintJS from '@fingerprintjs/fingerprintjs';
+
 	export default {
 		name: 'index',
 		data() {
 			return {
 				deviceId: '',
+				fingerprint: '',
 				model: '',
 				platform: '',
 				system: '',
@@ -41,6 +45,11 @@
 			this.platform = platform;
 			this.system = system;
 			this.env = env;
+
+			const fpPromise = FingerprintJS.load()
+			const fp = await fpPromise
+			const result = await fp.get()
+			this.fingerprint = result.visitorId
 
 			const {
 				ip,
