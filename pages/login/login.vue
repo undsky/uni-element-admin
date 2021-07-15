@@ -147,6 +147,7 @@
 			login: async function() {
 				this.$refs[this.activeTab + 'Form'].validate(valid => {
 					if (valid) {
+						this.$store.commit('setToken', this.deviceId)
 						uni.reLaunch({
 							url: '/'
 						})
