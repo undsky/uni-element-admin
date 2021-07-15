@@ -5,20 +5,16 @@ import _config from './config.js'
 const http = new Request(_config.request)
 
 http.interceptors.request.use(async config => {
-	// if (config.custom.auth) {
-	// 	if (!store.state.token) {
-	// 		const token = uni.getStorageSync('token')
-	// 		if (token) {
-	// 			this.$store.commit('setToken', token)
-	// 		} else {
-	// 			uni.navigateTo({
-	// 				url: '/pages/auth/auth'
-	// 			})
-	// 			return Promise.reject(config)
-	// 		}
-	// 	}
-	// 	config.header.Authorization = 'Bearer ' + store.state.token
-	// }
+	if (config.custom.auth) {
+		const token = store.state.auth.token
+		if (!token) {
+			uni.navigateTo({
+				url: '/pages/login/login'
+			})
+			return Promise.reject(config)
+		}
+		config.header.Authorization = 'Bearer ' + token
+	}
 	return config
 }, async config => {
 	return Promise.reject(config)

@@ -1,13 +1,37 @@
 <script>
 	export default {
 		onLaunch: function() {
-			uni.createMediaQueryObserver(this).observe({
-					maxWidth: 767
-				},
-				matches => {
-					this.globalData.isXS = matches
-				}
-			);
+			let systemInfo = uni.getSystemInfoSync()
+			// #ifdef APP-PLUS
+			systemInfo.env = 'app'
+			// #endif
+			// #ifdef H5
+			if ('micromessenger' == window.navigator.userAgent.toLowerCase().match(/micromessenger/i)) {
+				systemInfo.env = 'gh';
+			} else {
+				systemInfo.env = 'h5'
+			}
+			// #endif
+			// #ifdef MP-360
+			systemInfo.env = '360'
+			// #endif
+			// #ifdef MP-ALIPAY
+			systemInfo.env = 'alipay'
+			// #endif
+			// #ifdef MP-BAIDU
+			systemInfo.env = 'baidu'
+			// #endif
+			// #ifdef MP-QQ
+			systemInfo.env = 'qq'
+			// #endif
+			// #ifdef MP-TOUTIAO
+			systemInfo.env = 'toutiao'
+			// #endif
+			// #ifdef MP-WEIXIN
+			systemInfo.env = 'weixin'
+			// #endif
+			this.globalData.systemInfo = systemInfo
+			console.log(systemInfo)
 			console.log('App Launch')
 		},
 		onShow: function() {

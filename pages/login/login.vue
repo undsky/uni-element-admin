@@ -78,6 +78,7 @@
 		name: 'login',
 		data() {
 			return {
+				deviceId: '',
 				isXS: false,
 				activeTab: 'account',
 				captcha: '',
@@ -128,7 +129,7 @@
 		},
 		methods: {
 			changeCaptcha() {
-				this.captcha = 'https://www.undsky.com/captcha?t=' + new Date().getTime()
+				this.captcha = `${this.$config.request.baseURL}/captcha?deviceId=${this.deviceId}&t=${this.$utils.now()}`
 			},
 			getSmscode() {
 				this.$refs.phoneForm.validateField('phone', err => {
@@ -147,7 +148,7 @@
 				this.$refs[this.activeTab + 'Form'].validate(valid => {
 					if (valid) {
 						uni.reLaunch({
-							url: '/pages/index/index'
+							url: '/'
 						})
 					}
 				})
@@ -157,13 +158,17 @@
 			}
 		},
 		onLoad: function() {
-			this.changeCaptcha()
+			this.$nextTick(() => {
+				const {
+					deviceId,
+					screenWidth
+				} = getApp().globalData.systemInfo
+				this.isXS = screenWidth < 768
+				this.deviceId = deviceId || this.$utils.now()
+				this.changeCaptcha()
+			})
 
 			keyboardJS.bind('enter', this.handleEnter);
-
-			this.$nextTick(() => {
-				this.isXS = getApp().globalData.isXS
-			})
 		},
 		beforeDestroy: function() {
 			keyboardJS.unbind('enter', this.handleEnter);

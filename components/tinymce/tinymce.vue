@@ -68,8 +68,6 @@
 		attachment
 	} from '@npkg/tinymce-plugins'
 
-	let _editor;
-
 	export default {
 		name: "tinymce",
 		props: {
@@ -87,11 +85,12 @@
 		},
 		data() {
 			return {
-				tinymceId: this.id
+				tinymceId: this.id,
+				editor: null
 			};
 		},
 		mounted: async function() {
-			const cdn = `${this.$config.cdn}tinymce`
+			const cdn = `${this.$config.cdn}/tinymce`
 
 			const editors = await tinymce.init({
 				selector: `#${this.tinymceId}`,
@@ -164,14 +163,15 @@
 				]
 			});
 
-			_editor = editors[0]
-			_editor.setContent(this.value)
-			_editor.on('input keyup Change Undo Redo ExecCommand NodeChange', e => {
-				this.$emit('input', _editor.getContent())
+			this.editor = editors[0]
+			this.editor.setContent(this.value)
+			this.editor.on('input keyup Change Undo Redo ExecCommand NodeChange', e => {
+				this.$emit('input', this.editor.getContent())
 			})
 		},
 		beforeDestroy: function() {
-			_editor.destroy()
+			if (this.editor)
+				this.editor.destroy()
 		}
 	}
 </script>

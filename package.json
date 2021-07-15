@@ -5,7 +5,6 @@
 	"author": "姜彦汐 <jiangyanxi@live.com>",
 	"license": "MIT",
 	"dependencies": {
-		"@fingerprintjs/fingerprintjs": "^3.2.0",
 		"@npkg/tinymce-plugins": "^0.0.6",
 		"element-ui": "^2.15.3",
 		"keyboardjs": "^2.6.4",
