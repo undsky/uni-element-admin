@@ -12,6 +12,8 @@
 			"path": "pages/richeditor/richeditor"
 		}, {
 			"path": "pages/form/form"
+		}, {
+			"path": "pages/table/table"
 		}
 	],
 	"globalStyle": {

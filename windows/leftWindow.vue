@@ -12,6 +12,8 @@
 			</el-menu-item>
 			<el-menu-item index="form" @click="navigateTo('form', '表单', '/pages/form/form')"><span
 					slot="title">表单</span></el-menu-item>
+			<el-menu-item index="table" @click="navigateTo('table', '表格', '/pages/table/table')"><span
+					slot="title">表格</span></el-menu-item>
 			<template v-for="menu in menus">
 				<el-submenu v-if="!menu.pid" :index="menu.id" :key="menu.id">
 					<template slot="title">
