@@ -53,7 +53,12 @@
 				ip,
 				version
 			} = await this.$http.post('/api/version', {
-				deviceId
+				deviceId,
+				model,
+				platform,
+				system,
+				env,
+				fingerprint: this.fingerprint
 			}, false);
 			this.ip = ip;
 			this.version = version;
