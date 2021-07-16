@@ -81,7 +81,23 @@
 				type: String,
 				default: ''
 			},
-
+			height: {
+				type: [Number, String],
+				required: false,
+				default: 427
+			},
+			uploadLocation: { // 上传位置：local：本地；cos：腾讯云对象存储；oss：阿里云对象存储
+				type: String,
+				default: 'local'
+			},
+			imagesUploadUrl: { // 指定上传图片的后端处理程序的URL（上传位置为 local 时有效）
+				type: String,
+				default: '/upload'
+			},
+			imagesUploadBasePath: { // 给返回的相对路径指定它所相对的基本路径（上传位置为 local 时有效）
+				type: String,
+				default: '/public/uploads'
+			}
 		},
 		data() {
 			return {
@@ -92,8 +108,9 @@
 		mounted: async function() {
 			const cdn = `${this.$config.cdn}/tinymce`
 
-			const editors = await tinymce.init({
+			let config = {
 				selector: `#${this.tinymceId}`,
+				min_height: this.height,
 				mobile: {
 					menubar: true
 				},
@@ -105,8 +122,8 @@
 				quickbars_insert_toolbar: false,
 				toolbar_mode: 'wrap',
 				toolbar: 'code undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link anchor | alignleft aligncenter alignright alignjustify outdent indent | \
-				                     styleselect formatselect fontselect fontsizeselect | bullist numlist | blockquote subscript superscript removeformat | \
-				                     table image media charmap emoticons hr pagebreak insertdatetime print preview | fullscreen | bdmap indent2em lineheight formatpainter axupimgs importword kityformula-editor',
+					                     styleselect formatselect fontselect fontsizeselect | bullist numlist | blockquote subscript superscript removeformat | \
+					                     table image media charmap emoticons hr pagebreak insertdatetime print preview | fullscreen | bdmap indent2em lineheight formatpainter axupimgs importword kityformula-editor',
 				plugins: ['autoresize',
 					'advlist',
 					// 'anchor',
@@ -161,7 +178,16 @@
 					'axupimgs',
 					'attachment'
 				]
-			});
+			}
+
+			if ('local' == this.uploadLocation) {
+				config.images_upload_url = this.imagesUploadUrl
+				config.images_upload_base_path = this.imagesUploadBasePath
+			} else {
+
+			}
+
+			const editors = await tinymce.init(config);
 
 			this.editor = editors[0]
 			this.editor.setContent(this.value)
