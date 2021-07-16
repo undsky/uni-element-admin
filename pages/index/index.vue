@@ -8,7 +8,6 @@
 		<view>system：{{system}}</view>
 		<view>env：{{env}}</view>
 		<view>ip：{{ip}}</view>
-		<view>token：{{token}}</view>
 		<view>version：{{version}}</view>
 	</view>
 </template>
@@ -27,7 +26,6 @@
 				system: '',
 				env: '',
 				ip: '',
-				token: '',
 				version: ''
 			};
 		},
@@ -53,13 +51,11 @@
 
 			const {
 				ip,
-				token,
 				version
 			} = await this.$http.post('/api/version', {
 				deviceId
 			}, false);
 			this.ip = ip;
-			this.token = token;
 			this.version = version;
 		}
 	};
