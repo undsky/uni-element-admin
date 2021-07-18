@@ -149,7 +149,7 @@
 					if (valid) {
 						this.$store.commit('setToken', this.deviceId)
 						uni.reLaunch({
-							url: '/'
+							url: '/pages/index/index'
 						})
 					}
 				})

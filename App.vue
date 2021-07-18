@@ -1,95 +1,96 @@
 <script>
-	export default {
-		onLaunch: function() {
-			let systemInfo = uni.getSystemInfoSync()
-			// #ifdef APP-PLUS
-			systemInfo.env = 'app'
-			// #endif
-			// #ifdef H5
-			if ('micromessenger' == window.navigator.userAgent.toLowerCase().match(/micromessenger/i)) {
-				systemInfo.env = 'gh';
-			} else {
-				systemInfo.env = 'h5'
-			}
-			// #endif
-			// #ifdef MP-360
-			systemInfo.env = '360'
-			// #endif
-			// #ifdef MP-ALIPAY
-			systemInfo.env = 'alipay'
-			// #endif
-			// #ifdef MP-BAIDU
-			systemInfo.env = 'baidu'
-			// #endif
-			// #ifdef MP-QQ
-			systemInfo.env = 'qq'
-			// #endif
-			// #ifdef MP-TOUTIAO
-			systemInfo.env = 'toutiao'
-			// #endif
-			// #ifdef MP-WEIXIN
-			systemInfo.env = 'weixin'
-			// #endif
-			this.globalData.systemInfo = systemInfo
-			console.log(systemInfo)
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
+export default {
+	onLaunch: function() {
+		let systemInfo = uni.getSystemInfoSync();
+		// #ifdef APP-PLUS
+		systemInfo.env = 'app';
+		// #endif
+		// #ifdef H5
+		if ('micromessenger' == window.navigator.userAgent.toLowerCase().match(/micromessenger/i)) {
+			systemInfo.env = 'gh';
+		} else {
+			systemInfo.env = 'h5';
 		}
+		// #endif
+		// #ifdef MP-360
+		systemInfo.env = '360';
+		// #endif
+		// #ifdef MP-ALIPAY
+		systemInfo.env = 'alipay';
+		// #endif
+		// #ifdef MP-BAIDU
+		systemInfo.env = 'baidu';
+		// #endif
+		// #ifdef MP-QQ
+		systemInfo.env = 'qq';
+		// #endif
+		// #ifdef MP-TOUTIAO
+		systemInfo.env = 'toutiao';
+		// #endif
+		// #ifdef MP-WEIXIN
+		systemInfo.env = 'weixin';
+		// #endif
+		this.globalData.systemInfo = systemInfo;
+		console.log(systemInfo);
+		this.globalData.launchPage = this.$Route.path;
+		console.log('App Launch');
+	},
+	onShow: function() {
+		console.log('App Show');
+	},
+	onHide: function() {
+		console.log('App Hide');
 	}
+};
 </script>
 
 <style lang="scss">
-	@import '@/common/common.scss';
-	@import 'nprogress/nprogress.css';
+@import '@/common/common.scss';
+@import 'nprogress/nprogress.css';
 
-	html,
-	body {
-		user-select: text !important;
+html,
+body {
+	user-select: text !important;
+}
+
+@media only screen and (min-width: 992px) {
+	::-webkit-scrollbar-thumb:horizontal {
+		width: 5px;
+		background-color: #cccccc;
+		-webkit-border-radius: 6px;
 	}
 
-	@media only screen and (min-width: 992px) {
-		::-webkit-scrollbar-thumb:horizontal {
-			width: 5px;
-			background-color: #CCCCCC;
-			-webkit-border-radius: 6px;
-		}
-
-		::-webkit-scrollbar-track-piece {
-			background-color: #FFFFFF;
-			-webkit-border-radius: 0;
-		}
-
-		::-webkit-scrollbar {
-			width: 10px;
-			height: 8px;
-		}
-
-		::-webkit-scrollbar-thumb:vertical {
-			height: 50px;
-			background-color: #999;
-			-webkit-border-radius: 4px;
-			outline: 2px solid #FFFFFF;
-			outline-offset: -2px;
-			border: 2px solid #FFFFFF;
-		}
-
-		::-webkit-scrollbar-thumb:hover {
-			height: 50px;
-			background-color: #9f9f9f;
-			-webkit-border-radius: 4px;
-		}
+	::-webkit-scrollbar-track-piece {
+		background-color: #ffffff;
+		-webkit-border-radius: 0;
 	}
 
-	.main {
-		height: calc(100vh - 40px);
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 8px;
 	}
 
-	#nprogress .spinner {
-		top: 40px !important;
+	::-webkit-scrollbar-thumb:vertical {
+		height: 50px;
+		background-color: #999;
+		-webkit-border-radius: 4px;
+		outline: 2px solid #ffffff;
+		outline-offset: -2px;
+		border: 2px solid #ffffff;
 	}
+
+	::-webkit-scrollbar-thumb:hover {
+		height: 50px;
+		background-color: #9f9f9f;
+		-webkit-border-radius: 4px;
+	}
+}
+
+.main {
+	height: calc(100vh - 40px);
+}
+
+#nprogress .spinner {
+	top: 40px !important;
+}
 </style>

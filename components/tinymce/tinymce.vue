@@ -96,7 +96,7 @@
 			},
 			imagesUploadBasePath: { // 给返回的相对路径指定它所相对的基本路径（上传位置为 local 时有效）
 				type: String,
-				default: '/public/uploads'
+				default: ''
 			}
 		},
 		data() {

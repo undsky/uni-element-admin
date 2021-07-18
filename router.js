@@ -13,12 +13,16 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
 	if (to.path != from.path) {
 		NProgress.start()
+		console.log('路由开始')
+		console.log(from)
 		next();
 	}
 });
 
 // 全局路由后置守卫
 router.afterEach((to, from) => {
+	console.log('路由结束')
+	console.log(to)
 	NProgress.done()
 })
 
