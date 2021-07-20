@@ -46,21 +46,28 @@
 					pid: 'demo',
 					icon: '',
 					text: '富文本编辑器',
-					url: '/pages/richeditor/richeditor',
+					url: '/pages/demo/richeditor/richeditor',
 					keepAlive: false
 				}, {
 					id: 'form',
 					pid: 'demo',
 					icon: '',
 					text: '表单',
-					url: '/pages/form/form',
+					url: '/pages/demo/form/form',
 					keepAlive: true
 				}, {
 					id: 'table',
 					pid: 'demo',
 					icon: '',
 					text: '表格',
-					url: '/pages/table/table',
+					url: '/pages/demo/table/table',
+					keepAlive: true
+				}, {
+					id: 'countto',
+					pid: 'demo',
+					icon: '',
+					text: '数字滚动',
+					url: '/pages/demo/countto/countto',
 					keepAlive: true
 				}]
 			};
