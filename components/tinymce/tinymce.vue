@@ -86,6 +86,10 @@
 				required: false,
 				default: 427
 			},
+			placeholder: {
+				type: String,
+				default: ''
+			},
 			uploadLocation: { // 上传位置：local：本地；cos：腾讯云对象存储；oss：阿里云对象存储
 				type: String,
 				default: 'local'
@@ -105,12 +109,20 @@
 				editor: null
 			};
 		},
+		watch: {
+			value(val) {
+				if (!val && this.editor) {
+					this.editor.setContent('')
+				}
+			}
+		},
 		mounted: async function() {
 			const cdn = `${this.$config.cdn}/tinymce`
 
 			let config = {
 				selector: `#${this.tinymceId}`,
 				min_height: this.height,
+				placeholder: this.placeholder,
 				mobile: {
 					menubar: true
 				},

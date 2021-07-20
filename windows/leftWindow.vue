@@ -9,7 +9,7 @@
 			<template v-for="menu in menus">
 				<el-submenu v-if="!menu.pid" :index="menu.id" :key="menu.id">
 					<template slot="title">
-						<i v-if="menu.icon" class="iconfont icon-add"></i>
+						<i v-if="menu.icon" :class="menu.icon"></i>
 						<span>{{ menu.text }}</span>
 					</template>
 					<el-menu-item-group>
