@@ -1,6 +1,6 @@
 <template>
 	<el-tooltip :content="isFullscreen ? '退出全屏' : '全屏'" placement="bottom">
-		<i @click="click" class="el-icon-full-screen"></i>
+		<i @click="click" :class="isFullscreen ? 'vxe-icon--zoomout' : 'el-icon-full-screen'"></i>
 	</el-tooltip>
 </template>
 
