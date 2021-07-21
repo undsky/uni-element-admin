@@ -16,6 +16,10 @@
 			"path": "pages/demo/table/table"
 		}, {
 			"path": "pages/demo/countto/countto"
+		}, {
+			"path": "pages/demo/signaturepad/signaturepad"
+		}, {
+			"path": "pages/demo/excel/excel"
 		}
 	],
 	"globalStyle": {

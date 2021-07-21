@@ -63,11 +63,25 @@
 					url: '/pages/demo/table/table',
 					keepAlive: true
 				}, {
+					id: 'excel',
+					pid: 'demo',
+					icon: '',
+					text: 'Excel',
+					url: '/pages/demo/excel/excel',
+					keepAlive: true
+				}, {
 					id: 'countto',
 					pid: 'demo',
 					icon: '',
 					text: '数字滚动',
 					url: '/pages/demo/countto/countto',
+					keepAlive: true
+				}, {
+					id: 'signaturepad',
+					pid: 'demo',
+					icon: '',
+					text: '签字板',
+					url: '/pages/demo/signaturepad/signaturepad',
 					keepAlive: true
 				}]
 			};
