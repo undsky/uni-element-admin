@@ -49,6 +49,13 @@
 					url: '/pages/demo/richeditor/richeditor',
 					keepAlive: false
 				}, {
+					id: 'button',
+					pid: 'demo',
+					icon: '',
+					text: '按钮',
+					url: '/pages/demo/button/button',
+					keepAlive: true
+				}, {
 					id: 'form',
 					pid: 'demo',
 					icon: '',

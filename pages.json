@@ -22,6 +22,8 @@
 			"path": "pages/demo/qrcode/qrcode"
 		}, {
 			"path": "pages/demo/clipboard/clipboard"
+		}, {
+			"path": "pages/demo/button/button"
 		}
 	],
 	"globalStyle": {
