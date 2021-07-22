@@ -19,7 +19,9 @@
 		}, {
 			"path": "pages/demo/signaturepad/signaturepad"
 		}, {
-			"path": "pages/demo/excel/excel"
+			"path": "pages/demo/qrcode/qrcode"
+		}, {
+			"path": "pages/demo/clipboard/clipboard"
 		}
 	],
 	"globalStyle": {

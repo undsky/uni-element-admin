@@ -63,13 +63,6 @@
 					url: '/pages/demo/table/table',
 					keepAlive: true
 				}, {
-					id: 'excel',
-					pid: 'demo',
-					icon: '',
-					text: 'Excel',
-					url: '/pages/demo/excel/excel',
-					keepAlive: true
-				}, {
 					id: 'countto',
 					pid: 'demo',
 					icon: '',
@@ -82,6 +75,20 @@
 					icon: '',
 					text: '签字板',
 					url: '/pages/demo/signaturepad/signaturepad',
+					keepAlive: true
+				}, {
+					id: 'qrcode',
+					pid: 'demo',
+					icon: '',
+					text: '二维码',
+					url: '/pages/demo/qrcode/qrcode',
+					keepAlive: true
+				}, {
+					id: 'clipboard',
+					pid: 'demo',
+					icon: '',
+					text: '剪切板',
+					url: '/pages/demo/clipboard/clipboard',
 					keepAlive: true
 				}]
 			};
