@@ -148,7 +148,9 @@
 				this.$refs[this.activeTab + 'Form'].validate(valid => {
 					if (valid) {
 						this.$store.commit('setToken', this.deviceId)
-						window.location.href = '/pages/index/index'
+						uni.reLaunch({
+							url: '/pages/index/index'
+						})
 					}
 				})
 			},
