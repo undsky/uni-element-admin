@@ -97,6 +97,20 @@
 					text: '剪切板',
 					url: '/pages/demo/clipboard/clipboard',
 					keepAlive: true
+				}, {
+					id: 'map',
+					pid: 'demo',
+					icon: '',
+					text: '地图',
+					url: '/pages/demo/map/map',
+					keepAlive: true
+				}, {
+					id: 'webSocket',
+					pid: 'demo',
+					icon: '',
+					text: 'webSocket',
+					url: '/pages/demo/webSocket/webSocket',
+					keepAlive: true
 				}]
 			};
 		},
