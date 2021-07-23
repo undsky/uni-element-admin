@@ -97,10 +97,6 @@
 			imagesUploadUrl: { // 指定上传图片的后端处理程序的URL（上传位置为 local 时有效）
 				type: String,
 				default: '/upload'
-			},
-			imagesUploadBasePath: { // 给返回的相对路径指定它所相对的基本路径（上传位置为 local 时有效）
-				type: String,
-				default: ''
 			}
 		},
 		data() {
@@ -124,6 +120,50 @@
 				}
 			}
 		},
+		methods: {
+			upload(file, filename, success, failure, progress) {
+				failure = failure || success
+				const baseURL = this.$config.request.baseURL
+				const xhr = new XMLHttpRequest();
+				xhr.withCredentials = false;
+				xhr.open('POST', baseURL + this.imagesUploadUrl);
+
+				if (progress)
+					xhr.upload.onprogress = function(e) {
+						progress(e.loaded / e.total * 100);
+					}
+
+				xhr.onload = function() {
+					if (xhr.status == 403) {
+						failure('HTTP Error: ' + xhr.status, {
+							remove: true
+						});
+						return;
+					}
+					if (xhr.status < 200 || xhr.status >= 300) {
+						failure('HTTP Error: ' + xhr.status);
+						return;
+					}
+					const result = JSON.parse(xhr.responseText);
+					if (200 == result.code) {
+						success(baseURL + result.data.url, {
+							text: filename
+						});
+					} else {
+						failure(result)
+					}
+				};
+
+				xhr.onerror = function() {
+					failure('upload failed due to a XHR Transport error. Code: ' + xhr.status);
+				}
+
+				const formData = new FormData();
+				formData.append('file', file, filename);
+
+				xhr.send(formData);
+			}
+		},
 		mounted: async function() {
 			const cdn = `${this.$config.cdn}/tinymce`
 
@@ -141,7 +181,7 @@
 				emoticons_database_url: `${cdn}/plugins/emoticons/js/emojis.min.js`,
 				quickbars_insert_toolbar: false,
 				toolbar_mode: 'wrap',
-				toolbar: 'code undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link anchor | alignleft aligncenter alignright alignjustify outdent indent | \
+				toolbar: 'code undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link | alignleft aligncenter alignright alignjustify outdent indent | \
 					                     styleselect formatselect fontselect fontsizeselect | bullist numlist | blockquote subscript superscript removeformat | \
 					                     table image media charmap emoticons hr pagebreak insertdatetime print preview | fullscreen | bdmap indent2em lineheight formatpainter axupimgs importword kityformula-editor',
 				plugins: ['autoresize',
@@ -197,14 +237,41 @@
 					'bdmap',
 					'axupimgs',
 					'attachment'
-				]
-			}
+				],
+				images_upload_handler: (blobInfo, success, failure, progress) => {
+					if ('local' == this.uploadLocation) {
+						this.upload(blobInfo.blob(), blobInfo.filename(), success, failure, progress)
+					} else {
 
-			if ('local' == this.uploadLocation) {
-				config.images_upload_url = this.imagesUploadUrl
-				config.images_upload_base_path = this.imagesUploadBasePath
-			} else {
+					}
+				},
+				file_picker_callback: (callback, value, meta) => {
+					let accept;
+					switch (meta.filetype) {
+						case 'image':
+							accept = '.jpg, .jpeg, .png, .gif';
+							break;
+						case 'media':
+							accept = '.mp3, .mp4';
+							break;
+						case 'file':
+							accept = '.pdf, .txt, .zip, .rar, .7z, .doc, .docx, .xls, .xlsx, .ppt, .pptx';
+						default:
+					}
+					const input = document.createElement('input');
+					input.setAttribute('type', 'file');
+					input.setAttribute('accept', accept);
+					input.click();
+					const that = this;
+					input.onchange = function() {
+						const file = this.files[0];
+						if ('local' == that.uploadLocation) {
+							that.upload(file, file.name, callback)
+						} else {
 
+						}
+					}
+				}
 			}
 
 			const editors = await tinymce.init(config);

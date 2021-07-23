@@ -58,7 +58,17 @@ async function post(url, data, options) {
 	} : options)
 }
 
+function upload(url, options) {
+	return http.upload(url, options)
+}
+
+function download(url, options) {
+	return http.download(url, options)
+}
+
 export default {
 	get,
-	post
+	post,
+	upload,
+	download
 }
