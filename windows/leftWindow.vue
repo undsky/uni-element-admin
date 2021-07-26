@@ -111,6 +111,13 @@
 					text: 'webSocket',
 					url: '/pages/demo/webSocket/webSocket',
 					keepAlive: true
+				}, {
+					id: 'avatar',
+					pid: 'demo',
+					icon: '',
+					text: '头像',
+					url: '/pages/demo/avatar/avatar',
+					keepAlive: true
 				}]
 			};
 		},

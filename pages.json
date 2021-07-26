@@ -28,6 +28,8 @@
 			"path": "pages/demo/map/map"
 		}, {
 			"path": "pages/demo/webSocket/webSocket"
+		}, {
+			"path": "pages/demo/avatar/avatar"
 		}
 	],
 	"globalStyle": {

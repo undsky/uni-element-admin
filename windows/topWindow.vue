@@ -2,7 +2,7 @@
 	<view class="top-window flex">
 		<view v-if="!isXS" class="nav-header flex flex-justify-center flex-align-center"
 			:style="{ minWidth: (isCollapse ? 64 : 230) + 'px' }">
-			<el-avatar v-if="isCollapse" size="small" src="https://undsky.com/public/img/logo.png"></el-avatar>
+			<el-avatar v-if="isCollapse" size="small" src="/static/logo.png"></el-avatar>
 			<view v-else>mc-uniAdmin</view>
 		</view>
 		<view @click="toggleSidebar" class="toggle-sidebar flex flex-justify-center flex-align-center"><i
@@ -24,7 +24,7 @@
 			</template>
 			<el-dropdown trigger="click" @command="command">
 				<!-- <el-avatar size="small" icon="el-icon-user-solid"></el-avatar> -->
-				<el-avatar size="small" src="https://undsky.com/public/img/logo.png"></el-avatar>
+				<el-avatar size="small" src="/static/logo.png"></el-avatar>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item command="self">个人中心</el-dropdown-item>
 					<el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
