@@ -30,6 +30,8 @@
 			"path": "pages/demo/webSocket/webSocket"
 		}, {
 			"path": "pages/demo/avatar/avatar"
+		}, {
+			"path": "pages/demo/image/image"
 		}
 	],
 	"globalStyle": {

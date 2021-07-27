@@ -56,6 +56,13 @@
 					url: '/pages/demo/button/button',
 					keepAlive: true
 				}, {
+					id: 'image',
+					pid: 'demo',
+					icon: '',
+					text: '图片',
+					url: '/pages/demo/image/image',
+					keepAlive: true
+				}, {
 					id: 'form',
 					pid: 'demo',
 					icon: '',
