@@ -25,6 +25,7 @@
 		"xgplayer": "^2.24.3"
 	},
 	"devDependencies": {
+		"async-validator": "1.11.5",
 		"compression-webpack-plugin": "^6.1.1",
 		"uni-read-pages": "^1.0.5",
 		"webpack": "^4.46.0"
