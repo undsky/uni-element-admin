@@ -56,6 +56,13 @@
 					url: '/pages/demo/button/button',
 					keepAlive: true
 				}, {
+					id: 'datav',
+					pid: 'demo',
+					icon: '',
+					text: '数据可视化大屏',
+					url: '/pages/demo/datav/datav',
+					keepAlive: true
+				}, {
 					id: 'player',
 					pid: 'demo',
 					icon: '',
