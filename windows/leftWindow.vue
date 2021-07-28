@@ -56,6 +56,13 @@
 					url: '/pages/demo/button/button',
 					keepAlive: true
 				}, {
+					id: 'player',
+					pid: 'demo',
+					icon: '',
+					text: '播放器',
+					url: '/pages/demo/player/player',
+					keepAlive: true
+				}, {
 					id: 'image',
 					pid: 'demo',
 					icon: '',

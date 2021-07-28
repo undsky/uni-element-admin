@@ -23,7 +23,10 @@
 		"vxe-table": "^3.3.9",
 		"vxe-table-plugin-element": "^1.11.2",
 		"xe-utils": "^3.3.0",
-		"xgplayer": "^2.24.3"
+		"xgplayer": "^2.24.3",
+		"xgplayer-flv": "^2.4.25",
+		"xgplayer-mp4": "^1.2.3",
+		"xgplayer-music": "^2.3.2"
 	},
 	"devDependencies": {
 		"async-validator": "1.11.5",

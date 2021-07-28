@@ -32,6 +32,8 @@
 			"path": "pages/demo/avatar/avatar"
 		}, {
 			"path": "pages/demo/image/image"
+		}, {
+			"path": "pages/demo/player/player"
 		}
 	],
 	"globalStyle": {
