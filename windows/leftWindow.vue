@@ -1,5 +1,5 @@
 <template>
-	<scroll-view scroll-y class="main left-window" :class="{ 'left-window-unfold': !isCollapse }">
+	<scroll-view id="left-window" scroll-y class="main left-window" :class="{ 'left-window-unfold': !isCollapse }">
 		<el-menu :default-active="activeMenu" :default-openeds="openeds" :collapse="isCollapse"
 			:collapse-transition="false" background-color="#304156" text-color="#FFFFFF" class="side-menu">
 			<el-menu-item index="index" @click="navigateTo('index', '首页', '/pages/index/index')">

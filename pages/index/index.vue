@@ -14,6 +14,8 @@
 
 <script>
 	import FingerprintJS from '@fingerprintjs/fingerprintjs';
+	import Driver from 'driver.js';
+	import 'driver.js/dist/driver.min.css';
 
 	export default {
 		name: 'index',
@@ -29,7 +31,35 @@
 				version: ''
 			};
 		},
-		methods: {},
+		methods: {
+			guide() {
+				const driver = new Driver({
+					prevBtnText: "上一步",
+					nextBtnText: "下一步",
+					doneBtnText: "我知道了",
+					closeBtnText: "关闭",
+					onReset: ele => {
+						uni.setStorageSync('guide', true)
+					}
+				});
+				driver.defineSteps([{
+					element: '#top-window',
+					popover: {
+						title: '导航栏',
+						description: '导航栏',
+						position: 'bottom'
+					}
+				}, {
+					element: '#left-window',
+					popover: {
+						title: '菜单',
+						description: '菜单',
+						position: 'right'
+					}
+				}])
+				driver.start()
+			}
+		},
 		onLoad: async function() {
 			const {
 				deviceId,
@@ -62,6 +92,11 @@
 			}, false);
 			this.ip = ip;
 			this.version = version;
+
+			const hasGuide = uni.getStorageSync('guide')
+			if (!hasGuide) {
+				this.guide()
+			}
 		}
 	};
 </script>

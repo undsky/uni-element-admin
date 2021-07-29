@@ -1,5 +1,5 @@
 <template>
-	<view class="top-window flex">
+	<view id="top-window" class="top-window flex">
 		<view v-if="!isXS" class="nav-header flex flex-justify-center flex-align-center"
 			:style="{ minWidth: (isCollapse ? 64 : 230) + 'px' }">
 			<el-avatar v-if="isCollapse" size="small" src="/static/logo.png"></el-avatar>
