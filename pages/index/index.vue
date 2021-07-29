@@ -66,7 +66,8 @@
 				model,
 				platform,
 				system,
-				env
+				env,
+				screenWidth
 			} = getApp().globalData.systemInfo
 			this.deviceId = deviceId;
 			this.model = model;
@@ -93,9 +94,11 @@
 			this.ip = ip;
 			this.version = version;
 
-			const hasGuide = uni.getStorageSync('guide')
-			if (!hasGuide) {
-				this.guide()
+			if (screenWidth > 767) {
+				const hasGuide = uni.getStorageSync('guide')
+				if (!hasGuide) {
+					this.guide()
+				}
 			}
 		}
 	};
