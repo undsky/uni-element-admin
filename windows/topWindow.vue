@@ -91,6 +91,11 @@
 				}
 
 				this.activeTab = activeName;
+
+				this.tabClick({
+					name: activeName
+				})
+
 				this.tabs = tabs.filter(tab => tab.name !== name);
 				uni.$emit('activeMenu', activeName);
 			},
