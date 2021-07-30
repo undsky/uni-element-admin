@@ -1,10 +1,10 @@
 <template>
 	<scroll-view class="main" scroll-y>
-		<VueCropper ref="cropper" img="https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg" autoCrop>
-		</VueCropper>
 		<el-image v-for="(url,idx) in urls" :key="url" :src="url" @click="index = idx"></el-image>
 		<CoolLightBox :items="urls" :index="index" @close="index = null">
 		</CoolLightBox>
+		<VueCropper ref="cropper" img="https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg" autoCrop>
+		</VueCropper>
 	</scroll-view>
 </template>
 

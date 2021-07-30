@@ -375,6 +375,18 @@
 		&-lg {
 			border-radius: $uni-border-radius-lg;
 		}
+
+		&-xl {
+			border-radius: $uni-border-radius-xl;
+		}
+	}
+
+	&-shadow {
+		box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+	}
+
+	&-shadow-light {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)Ï
 	}
 }
 

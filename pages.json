@@ -15,27 +15,27 @@
 		}, {
 			"path": "pages/demo/table/table"
 		}, {
-			"path": "pages/demo/countto/countto"
-		}, {
 			"path": "pages/demo/signaturepad/signaturepad"
 		}, {
 			"path": "pages/demo/qrcode/qrcode"
 		}, {
 			"path": "pages/demo/clipboard/clipboard"
 		}, {
-			"path": "pages/demo/button/button"
-		}, {
 			"path": "pages/demo/map/map"
 		}, {
 			"path": "pages/demo/webSocket/webSocket"
-		}, {
-			"path": "pages/demo/avatar/avatar"
 		}, {
 			"path": "pages/demo/image/image"
 		}, {
 			"path": "pages/demo/player/player"
 		}, {
 			"path": "pages/demo/datav/datav"
+		}, {
+			"path": "pages/demo/basic/basic"
+		}, {
+			"path": "pages/demo/notice/notice"
+		}, {
+			"path": "pages/demo/other/other"
 		}
 	],
 	"globalStyle": {

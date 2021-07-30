@@ -37,10 +37,45 @@
 				activeMenu: 'index',
 				openeds: ['demo'],
 				menus: [{
+					id: 'basic',
+					pid: 'demo',
+					icon: '',
+					text: '基础组件',
+					url: '/pages/demo/basic/basic',
+					keepAlive: true
+				}, {
+					id: 'notice',
+					pid: 'demo',
+					icon: '',
+					text: '消息组件',
+					url: '/pages/demo/notice/notice',
+					keepAlive: true
+				}, {
+					id: 'other',
+					pid: 'demo',
+					icon: '',
+					text: '其他组件',
+					url: '/pages/demo/other/other',
+					keepAlive: true
+				}, {
 					id: 'demo',
 					pid: '',
 					icon: 'el-icon-s-help',
 					text: 'DEMO'
+				}, {
+					id: 'form',
+					pid: 'demo',
+					icon: '',
+					text: '表单',
+					url: '/pages/demo/form/form',
+					keepAlive: true
+				}, {
+					id: 'table',
+					pid: 'demo',
+					icon: '',
+					text: '表格',
+					url: '/pages/demo/table/table',
+					keepAlive: true
 				}, {
 					id: 'richeditor',
 					pid: 'demo',
@@ -48,13 +83,6 @@
 					text: '富文本编辑器',
 					url: '/pages/demo/richeditor/richeditor',
 					keepAlive: false
-				}, {
-					id: 'button',
-					pid: 'demo',
-					icon: '',
-					text: '按钮',
-					url: '/pages/demo/button/button',
-					keepAlive: true
 				}, {
 					id: 'datav',
 					pid: 'demo',
@@ -75,27 +103,6 @@
 					icon: '',
 					text: '图片',
 					url: '/pages/demo/image/image',
-					keepAlive: true
-				}, {
-					id: 'form',
-					pid: 'demo',
-					icon: '',
-					text: '表单',
-					url: '/pages/demo/form/form',
-					keepAlive: true
-				}, {
-					id: 'table',
-					pid: 'demo',
-					icon: '',
-					text: '表格',
-					url: '/pages/demo/table/table',
-					keepAlive: true
-				}, {
-					id: 'countto',
-					pid: 'demo',
-					icon: '',
-					text: '数字滚动',
-					url: '/pages/demo/countto/countto',
 					keepAlive: true
 				}, {
 					id: 'signaturepad',
@@ -131,13 +138,6 @@
 					icon: '',
 					text: 'webSocket',
 					url: '/pages/demo/webSocket/webSocket',
-					keepAlive: true
-				}, {
-					id: 'avatar',
-					pid: 'demo',
-					icon: '',
-					text: '头像',
-					url: '/pages/demo/avatar/avatar',
 					keepAlive: true
 				}]
 			};
