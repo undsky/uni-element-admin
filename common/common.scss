@@ -216,7 +216,7 @@
 		}
 	}
 
-	&-col {
+	&-col,&-tb {
 		margin-top: $uni-spacing-col-base;
 		margin-bottom: $uni-spacing-col-base;
 
@@ -231,7 +231,7 @@
 		}
 	}
 
-	&-row {
+	&-row,&-lr {
 		margin-right: $uni-spacing-row-base;
 		margin-left: $uni-spacing-row-base;
 
@@ -315,7 +315,7 @@
 		}
 	}
 
-	&-col {
+	&-col,&-tb {
 		padding-top: $uni-spacing-col-base;
 		padding-bottom: $uni-spacing-col-base;
 
@@ -330,7 +330,7 @@
 		}
 	}
 
-	&-row {
+	&-row,&-lr {
 		padding-right: $uni-spacing-row-base;
 		padding-left: $uni-spacing-row-base;
 

@@ -56,11 +56,11 @@ XEUtils.mixin({
 						resource.type = 'text/css';
 					}
 				}
+				(head || document.body).appendChild(resource);
 				resource.onload = resource.onreadystatechange = function() {
-						resource.onreadystatechange = resource.onload = null;
-						handler();
-					}
-					(head || document.body).appendChild(resource);
+					resource.onreadystatechange = resource.onload = null;
+					handler();
+				}
 			}
 		};
 		(function run() {
