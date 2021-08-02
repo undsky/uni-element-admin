@@ -703,14 +703,104 @@
 			<span slot="label">标记<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/badge')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<el-badge :value="12" class="item">
+					<el-button size="small">评论</el-button>
+				</el-badge>
+				<el-badge :value="3" class="item">
+					<el-button size="small">回复</el-button>
+				</el-badge>
+				<el-badge :value="1" class="item" type="primary">
+					<el-button size="small">评论</el-button>
+				</el-badge>
+				<el-badge :value="2" class="item" type="warning">
+					<el-button size="small">回复</el-button>
+				</el-badge>
+
+				<el-dropdown trigger="click">
+					<span class="el-dropdown-link">
+						点我查看<i class="el-icon-caret-bottom el-icon--right"></i>
+					</span>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item class="clearfix">
+							评论
+							<el-badge class="mark" :value="12" />
+						</el-dropdown-item>
+						<el-dropdown-item class="clearfix">
+							回复
+							<el-badge class="mark" :value="3" />
+						</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+				<el-divider content-position="left">最大值</el-divider>
+				<el-badge :value="200" :max="99" class="item">
+					<el-button size="small">评论</el-button>
+				</el-badge>
+				<el-badge :value="100" :max="10" class="item">
+					<el-button size="small">回复</el-button>
+				</el-badge>
+				<el-divider content-position="left">自定义内容</el-divider>
+				<el-badge value="new" class="item">
+					<el-button size="small">评论</el-button>
+				</el-badge>
+				<el-badge value="hot" class="item">
+					<el-button size="small">回复</el-button>
+				</el-badge>
+				<el-divider content-position="left">小红点</el-divider>
+				<el-badge is-dot class="item">数据查询</el-badge>
+				<el-badge is-dot class="item">
+					<el-button class="share-button" icon="el-icon-share" type="primary"></el-button>
+				</el-badge>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="avatar">
 			<span slot="label">头像<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/avatar')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基本用法</el-divider>
+				<el-row class="demo-avatar demo-basic">
+					<el-col :span="12">
+						<div class="sub-title">circle</div>
+						<div class="demo-basic--circle">
+							<div class="block">
+								<el-avatar :size="50" :src="circleUrl"></el-avatar>
+							</div>
+							<div class="block" v-for="size in sizeList" :key="size">
+								<el-avatar :size="size" :src="circleUrl"></el-avatar>
+							</div>
+						</div>
+					</el-col>
+					<el-col :span="12">
+						<div class="sub-title">square</div>
+						<div class="demo-basic--circle">
+							<div class="block">
+								<el-avatar shape="square" :size="50" :src="squareUrl"></el-avatar>
+							</div>
+							<div class="block" v-for="size in sizeList" :key="size">
+								<el-avatar shape="square" :size="size" :src="squareUrl"></el-avatar>
+							</div>
+						</div>
+					</el-col>
+				</el-row>
+				<el-divider content-position="left">展示类型</el-divider>
+				<div>
+					<el-avatar icon="el-icon-user-solid"></el-avatar>
+				</div>
+				<div>
+					<el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+				</div>
+				<div>
+					<el-avatar> user </el-avatar>
+				</div>
+				<el-divider content-position="left">图片加载失败的 fallback 行为</el-divider>
+				<el-avatar :size="60" src="https://empty" @error="errorHandler">
+					<img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
+				</el-avatar>
+				<el-divider content-position="left">图片如何适应容器框</el-divider>
+				<div class="block" v-for="fit in fits" :key="fit">
+					<span class="title">{{ fit }}</span>
+					<el-avatar shape="square" :size="100" :fit="fit" :src="url"></el-avatar>
+				</div>
 				<el-badge :value="200" :max="99">
 					<el-avatar icon="el-icon-user-solid"></el-avatar>
 				</el-badge>
@@ -720,7 +810,18 @@
 			<span slot="label">空状态<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/empty')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<el-empty description="描述文字"></el-empty>
+				<el-divider content-position="left">自定义图片</el-divider>
+				<el-empty
+					image="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png">
+				</el-empty>
+				<el-divider content-position="left">图片尺寸</el-divider>
+				<el-empty :image-size="200"></el-empty>
+				<el-divider content-position="left">底部内容</el-divider>
+				<el-empty>
+					<el-button type="primary">按钮</el-button>
+				</el-empty>
 			</scroll-view>
 		</el-tab-pane>
 	</el-tabs>
@@ -732,6 +833,11 @@
 	export default {
 		data() {
 			return {
+				fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
+				url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+				circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+				squareUrl: "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
+				sizeList: ["large", "medium", "small"],
 				lazyProps: {
 					label: 'name',
 					children: 'zones',
@@ -860,6 +966,9 @@
 			}
 		},
 		methods: {
+			errorHandler() {
+				return true
+			},
 			handleDragStart(node, ev) {
 				console.log('drag start', node);
 			},
@@ -1157,5 +1266,10 @@
 		justify-content: space-between;
 		font-size: 14px;
 		padding-right: 8px;
+	}
+
+	.item {
+		margin-top: 10px;
+		margin-right: 40px;
 	}
 </style>
