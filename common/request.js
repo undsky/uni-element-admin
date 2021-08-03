@@ -24,11 +24,16 @@ http.interceptors.response.use(async response => {
 	if ('development' === process.env.NODE_ENV) {
 		console.log(response)
 	}
-	if (200 == response.data.code) {
-		return response.data.data
-	} else {
-		return Promise.reject(response)
+	const {
+		code,
+		data
+	} = response.data
+
+	if (200 == code) {
+		return data
 	}
+
+	return Promise.reject(response)
 }, async response => {
 	if (response.data && ['credentials_required', 'invalid_token', 'revoked_token'].includes(response
 			.data.code)) {
