@@ -61,35 +61,290 @@
 			<span slot="label">面包屑<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/breadcrumb')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<el-breadcrumb separator="/">
+					<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					<el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
+					<el-breadcrumb-item>活动列表</el-breadcrumb-item>
+					<el-breadcrumb-item>活动详情</el-breadcrumb-item>
+				</el-breadcrumb>
+				<el-divider content-position="left">图标分隔符</el-divider>
+				<el-breadcrumb separator-class="el-icon-arrow-right">
+					<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					<el-breadcrumb-item>活动管理</el-breadcrumb-item>
+					<el-breadcrumb-item>活动列表</el-breadcrumb-item>
+					<el-breadcrumb-item>活动详情</el-breadcrumb-item>
+				</el-breadcrumb>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="pageheader">
 			<span slot="label">页头<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/page-header')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础</el-divider>
+				<el-page-header @back="goBack" content="详情页面">
+				</el-page-header>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="dropdown">
 			<span slot="label">下拉菜单<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/dropdown')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<el-dropdown>
+					<span class="el-dropdown-link">
+						下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+					</span>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>黄金糕</el-dropdown-item>
+						<el-dropdown-item>狮子头</el-dropdown-item>
+						<el-dropdown-item>螺蛳粉</el-dropdown-item>
+						<el-dropdown-item disabled>双皮奶</el-dropdown-item>
+						<el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+				<el-divider content-position="left">触发对象</el-divider>
+				<el-dropdown>
+					<el-button type="primary">
+						更多菜单<i class="el-icon-arrow-down el-icon--right"></i>
+					</el-button>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>黄金糕</el-dropdown-item>
+						<el-dropdown-item>狮子头</el-dropdown-item>
+						<el-dropdown-item>螺蛳粉</el-dropdown-item>
+						<el-dropdown-item>双皮奶</el-dropdown-item>
+						<el-dropdown-item>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+				<el-dropdown split-button type="primary" @click="handleClick">
+					更多菜单
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>黄金糕</el-dropdown-item>
+						<el-dropdown-item>狮子头</el-dropdown-item>
+						<el-dropdown-item>螺蛳粉</el-dropdown-item>
+						<el-dropdown-item>双皮奶</el-dropdown-item>
+						<el-dropdown-item>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+				<el-divider content-position="left">触发方式</el-divider>
+				<el-row class="block-col-2">
+					<el-col :span="12">
+						<span class="demonstration">hover 激活</span>
+						<el-dropdown>
+							<span class="el-dropdown-link">
+								下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+							</span>
+							<el-dropdown-menu slot="dropdown">
+								<el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
+								<el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>
+								<el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
+								<el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
+								<el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item>
+							</el-dropdown-menu>
+						</el-dropdown>
+					</el-col>
+					<el-col :span="12">
+						<span class="demonstration">click 激活</span>
+						<el-dropdown trigger="click">
+							<span class="el-dropdown-link">
+								下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+							</span>
+							<el-dropdown-menu slot="dropdown">
+								<el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
+								<el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>
+								<el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
+								<el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
+								<el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item>
+							</el-dropdown-menu>
+						</el-dropdown>
+					</el-col>
+				</el-row>
+				<el-divider content-position="left">菜单隐藏方式</el-divider>
+				<el-dropdown :hide-on-click="false">
+					<span class="el-dropdown-link">
+						下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+					</span>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>黄金糕</el-dropdown-item>
+						<el-dropdown-item>狮子头</el-dropdown-item>
+						<el-dropdown-item>螺蛳粉</el-dropdown-item>
+						<el-dropdown-item disabled>双皮奶</el-dropdown-item>
+						<el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+				<el-divider content-position="left">指令事件</el-divider>
+				<el-dropdown @command="handleCommand">
+					<span class="el-dropdown-link">
+						下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+					</span>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item command="a">黄金糕</el-dropdown-item>
+						<el-dropdown-item command="b">狮子头</el-dropdown-item>
+						<el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+						<el-dropdown-item command="d" disabled>双皮奶</el-dropdown-item>
+						<el-dropdown-item command="e" divided>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+				<el-divider content-position="left">不同尺寸</el-divider>
+				<el-dropdown split-button type="primary">
+					默认尺寸
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>黄金糕</el-dropdown-item>
+						<el-dropdown-item>狮子头</el-dropdown-item>
+						<el-dropdown-item>螺蛳粉</el-dropdown-item>
+						<el-dropdown-item>双皮奶</el-dropdown-item>
+						<el-dropdown-item>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+
+				<el-dropdown size="medium" split-button type="primary">
+					中等尺寸
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>黄金糕</el-dropdown-item>
+						<el-dropdown-item>狮子头</el-dropdown-item>
+						<el-dropdown-item>螺蛳粉</el-dropdown-item>
+						<el-dropdown-item>双皮奶</el-dropdown-item>
+						<el-dropdown-item>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+
+				<el-dropdown size="small" split-button type="primary">
+					小型尺寸
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>黄金糕</el-dropdown-item>
+						<el-dropdown-item>狮子头</el-dropdown-item>
+						<el-dropdown-item>螺蛳粉</el-dropdown-item>
+						<el-dropdown-item>双皮奶</el-dropdown-item>
+						<el-dropdown-item>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+
+				<el-dropdown size="mini" split-button type="primary">
+					超小尺寸
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>黄金糕</el-dropdown-item>
+						<el-dropdown-item>狮子头</el-dropdown-item>
+						<el-dropdown-item>螺蛳粉</el-dropdown-item>
+						<el-dropdown-item>双皮奶</el-dropdown-item>
+						<el-dropdown-item>蚵仔煎</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="step">
 			<span slot="label">步骤条<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/steps')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<el-steps :active="active" finish-status="success">
+					<el-step title="步骤 1"></el-step>
+					<el-step title="步骤 2"></el-step>
+					<el-step title="步骤 3"></el-step>
+				</el-steps>
+
+				<el-button style="margin-top: 12px;" @click="next">下一步</el-button <el-divider content-position="left">
+				</el-divider>
+				<el-divider content-position="left">含状态步骤条</el-divider>
+				<el-steps :space="200" :active="1" finish-status="success">
+					<el-step title="已完成"></el-step>
+					<el-step title="进行中"></el-step>
+					<el-step title="步骤 3"></el-step>
+				</el-steps>
+				<el-divider content-position="left">有描述的步骤条</el-divider>
+				<el-steps :active="1">
+					<el-step title="步骤 1" description="这是一段很长很长很长的描述性文字"></el-step>
+					<el-step title="步骤 2" description="这是一段很长很长很长的描述性文字"></el-step>
+					<el-step title="步骤 3" description="这段就没那么长了"></el-step>
+				</el-steps>
+				<el-divider content-position="left">居中的步骤条</el-divider>
+				<el-steps :active="2" align-center>
+					<el-step title="步骤1" description="这是一段很长很长很长的描述性文字"></el-step>
+					<el-step title="步骤2" description="这是一段很长很长很长的描述性文字"></el-step>
+					<el-step title="步骤3" description="这是一段很长很长很长的描述性文字"></el-step>
+					<el-step title="步骤4" description="这是一段很长很长很长的描述性文字"></el-step>
+				</el-steps>
+				<el-divider content-position="left">带图标的步骤条</el-divider>
+				<el-steps :active="1">
+					<el-step title="步骤 1" icon="el-icon-edit"></el-step>
+					<el-step title="步骤 2" icon="el-icon-upload"></el-step>
+					<el-step title="步骤 3" icon="el-icon-picture"></el-step>
+				</el-steps>
+				<el-divider content-position="left">竖式步骤条</el-divider>
+				<div style="height: 300px;">
+					<el-steps direction="vertical" :active="1">
+						<el-step title="步骤 1"></el-step>
+						<el-step title="步骤 2"></el-step>
+						<el-step title="步骤 3" description="这是一段很长很长很长的描述性文字"></el-step>
+					</el-steps>
+				</div>
+				<el-divider content-position="left">简洁风格的步骤条</el-divider>
+				<el-steps :active="1" simple>
+					<el-step title="步骤 1" icon="el-icon-edit"></el-step>
+					<el-step title="步骤 2" icon="el-icon-upload"></el-step>
+					<el-step title="步骤 3" icon="el-icon-picture"></el-step>
+				</el-steps>
+
+				<el-steps :active="1" finish-status="success" simple style="margin-top: 20px">
+					<el-step title="步骤 1"></el-step>
+					<el-step title="步骤 2"></el-step>
+					<el-step title="步骤 3"></el-step>
+				</el-steps>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="card">
 			<span slot="label">卡片<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/card')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<el-card class="box-card">
+					<div slot="header" class="clearfix">
+						<span>卡片名称</span>
+						<el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+					</div>
+					<div v-for="o in 4" :key="o" class="text item">
+						{{'列表内容 ' + o }}
+					</div>
+				</el-card>
+				<el-divider content-position="left">简单卡片</el-divider>
+				<el-card class="box-card">
+					<div v-for="o in 4" :key="o" class="text item">
+						{{'列表内容 ' + o }}
+					</div>
+				</el-card>
+				<el-divider content-position="left">带图片</el-divider>
+				<el-row>
+					<el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
+						<el-card :body-style="{ padding: '0px' }">
+							<img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+								class="image">
+							<div style="padding: 14px;">
+								<span>好吃的汉堡</span>
+								<div class="bottom clearfix">
+									<time class="time">{{ currentDate }}</time>
+									<el-button type="text" class="button">操作按钮</el-button>
+								</div>
+							</div>
+						</el-card>
+					</el-col>
+				</el-row>
+				<el-divider content-position="left">卡片阴影</el-divider>
+				<el-row :gutter="12">
+					<el-col :span="8">
+						<el-card shadow="always">
+							总是显示
+						</el-card>
+					</el-col>
+					<el-col :span="8">
+						<el-card shadow="hover">
+							鼠标悬浮时显示
+						</el-card>
+					</el-col>
+					<el-col :span="8">
+						<el-card shadow="never">
+							从不显示
+						</el-card>
+					</el-col>
+				</el-row>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="carousel">
@@ -154,6 +409,7 @@
 		},
 		data() {
 			return {
+				active: 0,
 				setStartVal: 0,
 				setEndVal: 2017,
 				setDuration: 4000,
@@ -209,6 +465,18 @@
 			},
 		},
 		methods: {
+			next() {
+				if (this.active++ > 2) this.active = 0;
+			},
+			handleCommand(command) {
+				this.$message('click on item ' + command);
+			},
+			handleClick() {
+				alert('button click');
+			},
+			goBack() {
+				console.log('go back');
+			},
 			changeExampleEndVal() {
 				this.endVal1 = this.endVal1 + 1000
 			},
@@ -236,6 +504,95 @@
 </script>
 
 <style scoped>
+	.time {
+		font-size: 13px;
+		color: #999;
+	}
+
+	.bottom {
+		margin-top: 13px;
+		line-height: 12px;
+	}
+
+	.button {
+		padding: 0;
+		float: right;
+	}
+
+	.image {
+		width: 100%;
+		display: block;
+	}
+
+	.clearfix:before,
+	.clearfix:after {
+		display: table;
+		content: "";
+	}
+
+	.clearfix:after {
+		clear: both
+	}
+
+	.text {
+		font-size: 14px;
+	}
+
+	.item {
+		margin-bottom: 18px;
+	}
+
+	.clearfix:before,
+	.clearfix:after {
+		display: table;
+		content: "";
+	}
+
+	.clearfix:after {
+		clear: both
+	}
+
+	.box-card {
+		width: 480px;
+	}
+
+	.el-dropdown-link {
+		cursor: pointer;
+		color: #409EFF;
+	}
+
+	.el-icon-arrow-down {
+		font-size: 12px;
+	}
+
+	.demonstration {
+		display: block;
+		color: #8492a6;
+		font-size: 14px;
+		margin-bottom: 20px;
+	}
+
+	.el-dropdown-link {
+		cursor: pointer;
+		color: #409EFF;
+	}
+
+	.el-icon-arrow-down {
+		font-size: 12px;
+	}
+
+	.el-dropdown {
+		vertical-align: top;
+	}
+
+	.el-dropdown+.el-dropdown {
+		margin-left: 15px;
+	}
+
+	.el-icon-arrow-down {
+		font-size: 12px;
+	}
+
 	.countto-container {
 		width: 980px;
 		margin-right: auto;
