@@ -192,10 +192,12 @@
 		<el-tab-pane name="dialog">
 			<span slot="label">对话框<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/dialog')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
+			<!-- ios 中如果不设置 append-to-body 弹窗会被遮罩遮挡。手机中弹窗默认 50% 宽度太窄，可设置为 90% -->
 			<scroll-view class="main" scroll-y>
 				<el-divider content-position="left">基本用法</el-divider>
 				<el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
-				<el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+				<el-dialog title="提示" append-to-body :visible.sync="dialogVisible" width="30%"
+					:before-close="handleClose">
 					<span>这是一段信息</span>
 					<span slot="footer" class="dialog-footer">
 						<el-button @click="dialogVisible = false">取 消</el-button>
@@ -205,7 +207,7 @@
 				<el-divider content-position="left">自定义内容</el-divider>
 				<el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
 
-				<el-dialog title="收货地址" :visible.sync="dialogTableVisible">
+				<el-dialog title="收货地址" width="90%" append-to-body :visible.sync="dialogTableVisible">
 					<el-table :data="gridData">
 						<el-table-column property="date" label="日期" width="150"></el-table-column>
 						<el-table-column property="name" label="姓名" width="200"></el-table-column>
@@ -214,7 +216,7 @@
 				</el-dialog>
 				<el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button>
 
-				<el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+				<el-dialog title="收货地址" append-to-body :visible.sync="dialogFormVisible">
 					<el-form :model="form">
 						<el-form-item label="活动名称" :label-width="formLabelWidth">
 							<el-input v-model="form.name" autocomplete="off"></el-input>
@@ -234,8 +236,8 @@
 				<el-divider content-position="left">嵌套的 Dialog</el-divider>
 				<el-button type="text" @click="outerVisible = true">点击打开外层 Dialog</el-button>
 
-				<el-dialog title="外层 Dialog" :visible.sync="outerVisible">
-					<el-dialog width="30%" title="内层 Dialog" :visible.sync="innerVisible" append-to-body>
+				<el-dialog title="外层 Dialog" append-to-body :visible.sync="outerVisible">
+					<el-dialog width="30%" title="内层 Dialog" append-to-body :visible.sync="innerVisible">
 					</el-dialog>
 					<div slot="footer" class="dialog-footer">
 						<el-button @click="outerVisible = false">取 消</el-button>
@@ -245,7 +247,7 @@
 				<el-divider content-position="left">居中布局</el-divider>
 				<el-button type="text" @click="centerDialogVisible = true">点击打开 Dialog</el-button>
 
-				<el-dialog title="提示" :visible.sync="centerDialogVisible" width="30%" center>
+				<el-dialog title="提示" append-to-body :visible.sync="centerDialogVisible" width="30%" center>
 					<span>需要注意的是内容是默认不居中的</span>
 					<span slot="footer" class="dialog-footer">
 						<el-button @click="centerDialogVisible = false">取 消</el-button>
