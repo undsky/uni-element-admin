@@ -351,50 +351,283 @@
 			<span slot="label">走马灯<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/carousel')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<el-row :gutter="24">
+					<el-col :span="12">
+						<span class="demonstration">默认 Hover 指示器触发</span>
+						<el-carousel :autoplay="false" height="150px">
+							<el-carousel-item v-for="item in 4" :key="item">
+								<h3 class="small">{{ item }}</h3>
+							</el-carousel-item>
+						</el-carousel>
+					</el-col>
+					<el-col :span="12">
+						<span class="demonstration">Click 指示器触发</span>
+						<el-carousel trigger="click" height="150px">
+							<el-carousel-item v-for="item in 4" :key="item">
+								<h3 class="small">{{ item }}</h3>
+							</el-carousel-item>
+						</el-carousel>
+					</el-col>
+				</el-row>
+				<el-divider content-position="left">指示器</el-divider>
+				<el-carousel indicator-position="outside">
+					<el-carousel-item v-for="item in 4" :key="item">
+						<h3>{{ item }}</h3>
+					</el-carousel-item>
+				</el-carousel>
+				<el-divider content-position="left">切换箭头</el-divider>
+				<el-carousel :interval="5000" arrow="always">
+					<el-carousel-item v-for="item in 4" :key="item">
+						<h3>{{ item }}</h3>
+					</el-carousel-item>
+				</el-carousel>
+				<el-divider content-position="left">卡片化</el-divider>
+				<el-carousel :interval="4000" type="card" height="200px">
+					<el-carousel-item v-for="item in 6" :key="item">
+						<h3 class="medium">{{ item }}</h3>
+					</el-carousel-item>
+				</el-carousel>
+				<el-divider content-position="left">方向</el-divider>
+				<el-carousel height="200px" direction="vertical" :autoplay="false">
+					<el-carousel-item v-for="item in 3" :key="item">
+						<h3 class="medium">{{ item }}</h3>
+					</el-carousel-item>
+				</el-carousel>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="collapse">
 			<span slot="label">折叠面板<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/collapse')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<el-collapse v-model="activeNames" @change="handleChange">
+					<el-collapse-item title="一致性 Consistency" name="1">
+						<div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+						<div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+					</el-collapse-item>
+					<el-collapse-item title="反馈 Feedback" name="2">
+						<div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+						<div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+					</el-collapse-item>
+					<el-collapse-item title="效率 Efficiency" name="3">
+						<div>简化流程：设计简洁直观的操作流程；</div>
+						<div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+						<div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+					</el-collapse-item>
+					<el-collapse-item title="可控 Controllability" name="4">
+						<div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+						<div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+					</el-collapse-item>
+				</el-collapse>
+				<el-divider content-position="left">手风琴效果</el-divider>
+				<el-collapse v-model="activeName" accordion>
+					<el-collapse-item title="一致性 Consistency" name="1">
+						<div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+						<div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+					</el-collapse-item>
+					<el-collapse-item title="反馈 Feedback" name="2">
+						<div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+						<div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+					</el-collapse-item>
+					<el-collapse-item title="效率 Efficiency" name="3">
+						<div>简化流程：设计简洁直观的操作流程；</div>
+						<div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+						<div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+					</el-collapse-item>
+					<el-collapse-item title="可控 Controllability" name="4">
+						<div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+						<div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+					</el-collapse-item>
+				</el-collapse>
+				<el-divider content-position="left">自定义面板标题</el-divider>
+				<el-collapse accordion>
+					<el-collapse-item>
+						<template slot="title">
+							一致性 Consistency<i class="header-icon el-icon-info"></i>
+						</template>
+						<div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+						<div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+					</el-collapse-item>
+					<el-collapse-item title="反馈 Feedback">
+						<div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+						<div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+					</el-collapse-item>
+					<el-collapse-item title="效率 Efficiency">
+						<div>简化流程：设计简洁直观的操作流程；</div>
+						<div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+						<div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+					</el-collapse-item>
+					<el-collapse-item title="可控 Controllability">
+						<div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+						<div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+					</el-collapse-item>
+				</el-collapse>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="timeline">
 			<span slot="label">时间线<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/timeline')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<div class="radio">
+					排序：
+					<el-radio-group v-model="reverse">
+						<el-radio :label="true">倒序</el-radio>
+						<el-radio :label="false">正序</el-radio>
+					</el-radio-group>
+				</div>
+
+				<el-timeline :reverse="reverse">
+					<el-timeline-item v-for="(activity, index) in activities" :key="index"
+						:timestamp="activity.timestamp">
+						{{activity.content}}
+					</el-timeline-item>
+				</el-timeline>
+				<el-divider content-position="left">⾃定义节点样式</el-divider>
+				<el-timeline>
+					<el-timeline-item v-for="(activity, index) in activities1" :key="index" :icon="activity.icon"
+						:type="activity.type" :color="activity.color" :size="activity.size"
+						:timestamp="activity.timestamp">
+						{{activity.content}}
+					</el-timeline-item>
+				</el-timeline>
+				<el-divider content-position="left">⾃定义时间戳</el-divider>
+				<el-timeline>
+					<el-timeline-item timestamp="2018/4/12" placement="top">
+						<el-card>
+							<h4>更新 Github 模板</h4>
+							<p>王小虎 提交于 2018/4/12 20:46</p>
+						</el-card>
+					</el-timeline-item>
+					<el-timeline-item timestamp="2018/4/3" placement="top">
+						<el-card>
+							<h4>更新 Github 模板</h4>
+							<p>王小虎 提交于 2018/4/3 20:46</p>
+						</el-card>
+					</el-timeline-item>
+					<el-timeline-item timestamp="2018/4/2" placement="top">
+						<el-card>
+							<h4>更新 Github 模板</h4>
+							<p>王小虎 提交于 2018/4/2 20:46</p>
+						</el-card>
+					</el-timeline-item>
+				</el-timeline>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="divider">
 			<span slot="label">分割线<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/divider')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基础用法</el-divider>
+				<div>
+					<span>青春是一个短暂的美梦, 当你醒来时, 它早已消失无踪</span>
+					<el-divider></el-divider>
+					<span>少量的邪恶足以抵消全部高贵的品质, 害得人声名狼藉</span>
+				</div>
+				<el-divider content-position="left">设置文案</el-divider>
+				<div>
+					<span>头上一片晴天，心中一个想念</span>
+					<el-divider content-position="left">少年包青天</el-divider>
+					<span>饿了别叫妈, 叫饿了么</span>
+					<el-divider><i class="el-icon-mobile-phone"></i></el-divider>
+					<span>为了无法计算的价值</span>
+					<el-divider content-position="right">阿里云</el-divider>
+				</div>
+				<el-divider content-position="left">垂直分割</el-divider>
+				<div>
+					<span>雨纷纷</span>
+					<el-divider direction="vertical"></el-divider>
+					<span>旧故里</span>
+					<el-divider direction="vertical"></el-divider>
+					<span>草木深</span>
+				</div>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="backtop">
 			<span slot="label">回到顶部<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/backtop')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
-			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
-			</scroll-view>
-		</el-tab-pane>
-		<el-tab-pane name="infiniteScroll">
-			<span slot="label">无限滚动<i
-					@click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/infiniteScroll')"
-					class="el-icon-question margin-left text-color-grey"></i></span>
-			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+			<scroll-view class="main scroll-backtop" scroll-y>
+				<div style="height: 2000px;">
+					Scroll down to see the bottom-right button.
+				</div>
+				<el-backtop target=".scroll-backtop>.uni-scroll-view>.uni-scroll-view"></el-backtop>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="drawer">
 			<span slot="label">抽屉<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/drawer')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<el-divider content-position="left"></el-divider>
+				<el-divider content-position="left">基本用法</el-divider>
+				<el-radio-group v-model="direction">
+					<el-radio label="ltr">从左往右开</el-radio>
+					<el-radio label="rtl">从右往左开</el-radio>
+					<el-radio label="ttb">从上往下开</el-radio>
+					<el-radio label="btt">从下往上开</el-radio>
+				</el-radio-group>
+
+				<el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
+					点我打开
+				</el-button>
+
+				<el-drawer append-to-body title="我是标题" :visible.sync="drawer" :direction="direction" :before-close="handleClose1">
+					<span>我来啦!</span>
+				</el-drawer>
+				<el-divider content-position="left">不添加 Title</el-divider>
+				<el-button @click="drawer1 = true" type="primary" style="margin-left: 16px;">
+					点我打开
+				</el-button>
+
+				<el-drawer append-to-body title="我是标题" :visible.sync="drawer1" :with-header="false">
+					<span>我来啦!</span>
+				</el-drawer>
+				<el-divider content-position="left">自定义内容</el-divider>
+				<el-button type="text" @click="table = true">打开嵌套表格的 Drawer</el-button>
+				<el-button type="text" @click="dialog = true">打开嵌套 Form 的 Drawer</el-button>
+				<el-drawer append-to-body title="我嵌套了表格!" :visible.sync="table" direction="rtl" size="50%">
+					<el-table :data="gridData">
+						<el-table-column property="date" label="日期" width="150"></el-table-column>
+						<el-table-column property="name" label="姓名" width="200"></el-table-column>
+						<el-table-column property="address" label="地址"></el-table-column>
+					</el-table>
+				</el-drawer>
+
+				<el-drawer append-to-body title="我嵌套了 Form !" :before-close="handleClose" :visible.sync="dialog" direction="ltr"
+					custom-class="demo-drawer" ref="drawer">
+					<div class="demo-drawer__content">
+						<el-form :model="form">
+							<el-form-item label="活动名称" :label-width="formLabelWidth">
+								<el-input v-model="form.name" autocomplete="off"></el-input>
+							</el-form-item>
+							<el-form-item label="活动区域" :label-width="formLabelWidth">
+								<el-select v-model="form.region" placeholder="请选择活动区域">
+									<el-option label="区域一" value="shanghai"></el-option>
+									<el-option label="区域二" value="beijing"></el-option>
+								</el-select>
+							</el-form-item>
+						</el-form>
+						<div class="demo-drawer__footer">
+							<el-button @click="cancelForm">取 消</el-button>
+							<el-button type="primary" @click="$refs.drawer.closeDrawer()" :loading="loading">
+								{{ loading ? '提交中 ...' : '确 定' }}
+							</el-button>
+						</div>
+					</div>
+				</el-drawer>
+				<el-divider content-position="left">多层嵌套</el-divider>
+				<el-button @click="drawer2 = true" type="primary" style="margin-left: 16px;">
+					点我打开
+				</el-button>
+
+				<el-drawer append-to-body title="我是外面的 Drawer" :visible.sync="drawer2" size="50%">
+					<div>
+						<el-button @click="innerDrawer = true">打开里面的!</el-button>
+						<el-drawer append-to-body title="我是里面的" :append-to-body="true" :before-close="handleClose2"
+							:visible.sync="innerDrawer">
+							<p>_(:зゝ∠)_</p>
+						</el-drawer>
+					</div>
+				</el-drawer>
 			</scroll-view>
 		</el-tab-pane>
 	</el-tabs>
@@ -409,6 +642,74 @@
 		},
 		data() {
 			return {
+				drawer2: false,
+				innerDrawer: false,
+				table: false,
+				dialog: false,
+				loading: false,
+				gridData: [{
+					date: '2016-05-02',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1518 弄'
+				}, {
+					date: '2016-05-04',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1518 弄'
+				}, {
+					date: '2016-05-01',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1518 弄'
+				}, {
+					date: '2016-05-03',
+					name: '王小虎',
+					address: '上海市普陀区金沙江路 1518 弄'
+				}],
+				form: {
+					name: '',
+					region: '',
+					date1: '',
+					date2: '',
+					delivery: false,
+					type: [],
+					resource: '',
+					desc: ''
+				},
+				formLabelWidth: '80px',
+				timer: null,
+				drawer1: false,
+				drawer: false,
+				direction: 'rtl',
+				activities1: [{
+					content: '支持使用图标',
+					timestamp: '2018-04-12 20:46',
+					size: 'large',
+					type: 'primary',
+					icon: 'el-icon-more'
+				}, {
+					content: '支持自定义颜色',
+					timestamp: '2018-04-03 20:46',
+					color: '#0bbd87'
+				}, {
+					content: '支持自定义尺寸',
+					timestamp: '2018-04-03 20:46',
+					size: 'large'
+				}, {
+					content: '默认样式的节点',
+					timestamp: '2018-04-03 20:46'
+				}],
+				reverse: true,
+				activities: [{
+					content: '活动按期开始',
+					timestamp: '2018-04-15'
+				}, {
+					content: '通过审核',
+					timestamp: '2018-04-13'
+				}, {
+					content: '创建成功',
+					timestamp: '2018-04-11'
+				}],
+				activeName: '1',
+				activeNames: ['1'],
 				active: 0,
 				setStartVal: 0,
 				setEndVal: 2017,
@@ -418,7 +719,8 @@
 				setSuffix: ' rmb',
 				setPrefix: '¥ ',
 				startVal1: 0,
-				endVal1: 2017
+				endVal1: 2017,
+				currentDate: new Date()
 			}
 		},
 		computed: {
@@ -465,6 +767,45 @@
 			},
 		},
 		methods: {
+			handleClose2(done) {
+				this.$confirm('还有未保存的工作哦确定关闭吗？')
+					.then(_ => {
+						done();
+					})
+					.catch(_ => {});
+			},
+			handleClose(done) {
+				if (this.loading) {
+					return;
+				}
+				this.$confirm('确定要提交表单吗？')
+					.then(_ => {
+						this.loading = true;
+						this.timer = setTimeout(() => {
+							done();
+							// 动画关闭需要一定的时间
+							setTimeout(() => {
+								this.loading = false;
+							}, 400);
+						}, 2000);
+					})
+					.catch(_ => {});
+			},
+			cancelForm() {
+				this.loading = false;
+				this.dialog = false;
+				clearTimeout(this.timer);
+			},
+			handleClose1(done) {
+				this.$confirm('确认关闭？')
+					.then(_ => {
+						done();
+					})
+					.catch(_ => {});
+			},
+			handleChange(val) {
+				console.log(val);
+			},
 			next() {
 				if (this.active++ > 2) this.active = 0;
 			},
@@ -504,9 +845,20 @@
 </script>
 
 <style scoped>
-	.time {
-		font-size: 13px;
-		color: #999;
+	.el-carousel__item h3 {
+		color: #475669;
+		font-size: 14px;
+		opacity: 0.75;
+		line-height: 150px;
+		margin: 0;
+	}
+
+	.el-carousel__item:nth-child(2n) {
+		background-color: #99a9bf;
+	}
+
+	.el-carousel__item:nth-child(2n+1) {
+		background-color: #d3dce6;
 	}
 
 	.bottom {
@@ -594,7 +946,7 @@
 	}
 
 	.countto-container {
-		width: 980px;
+		width: 100%;
 		margin-right: auto;
 		margin-left: auto;
 	}

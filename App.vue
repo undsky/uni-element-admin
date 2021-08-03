@@ -104,4 +104,13 @@
 	.uni-body .driver-fix-stacking {
 		z-index: 999999999 !important;
 	}
+
+	.el-carousel__indicator.is-active .el-carousel__button {
+		opacity: 1;
+	}
+
+	.el-carousel__indicators--outside .el-carousel__button {
+		background-color: #c0c4cc;
+		opacity: .24;
+	}
 </style>
