@@ -84,6 +84,13 @@
 					url: '/pages/demo/richeditor/richeditor',
 					keepAlive: false
 				}, {
+					id: 'chart',
+					pid: 'demo',
+					icon: '',
+					text: '图表',
+					url: '/pages/demo/chart/chart',
+					keepAlive: true
+				}, {
 					id: 'datav',
 					pid: 'demo',
 					icon: '',

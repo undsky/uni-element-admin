@@ -570,7 +570,8 @@
 					点我打开
 				</el-button>
 
-				<el-drawer append-to-body title="我是标题" :visible.sync="drawer" :direction="direction" :before-close="handleClose1">
+				<el-drawer append-to-body title="我是标题" :visible.sync="drawer" :direction="direction"
+					:before-close="handleClose1">
 					<span>我来啦!</span>
 				</el-drawer>
 				<el-divider content-position="left">不添加 Title</el-divider>
@@ -592,8 +593,8 @@
 					</el-table>
 				</el-drawer>
 
-				<el-drawer append-to-body title="我嵌套了 Form !" :before-close="handleClose" :visible.sync="dialog" direction="ltr"
-					custom-class="demo-drawer" ref="drawer">
+				<el-drawer append-to-body title="我嵌套了 Form !" :before-close="handleClose" :visible.sync="dialog"
+					direction="ltr" custom-class="demo-drawer" ref="drawer">
 					<div class="demo-drawer__content">
 						<el-form :model="form">
 							<el-form-item label="活动名称" :label-width="formLabelWidth">
@@ -720,7 +721,7 @@
 				setPrefix: '¥ ',
 				startVal1: 0,
 				endVal1: 2017,
-				currentDate: new Date()
+				currentDate: this.$utils.toDateString(new Date(), 'yyyy-MM-dd')
 			}
 		},
 		computed: {

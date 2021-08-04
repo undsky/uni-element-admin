@@ -1,10 +1,11 @@
 <template>
 	<view>
-		<VueSignaturePad height="500px" ref="signaturePad"></VueSignaturePad>
-		<div>
-			<button @click="save">保存</button>
-			<button @click="undo">撤销</button>
-		</div>
+		<VueSignaturePad height="500px" ref="signaturePad" :options="{ backgroundColor : 'lightgray' }">
+		</VueSignaturePad>
+		<el-row type="flex" justify="center" class="margin-top">
+			<el-button type="primary" @click="save">保存</el-button>
+			<el-button @click="undo">撤销</el-button>
+		</el-row>
 	</view>
 </template>
 
@@ -32,7 +33,7 @@
 					isEmpty,
 					data
 				} = this.$refs.signaturePad.saveSignature();
-				console.log(isEmpty);
+				console.log(`isEmpty:${isEmpty}`);
 				console.log(data);
 			}
 		}
