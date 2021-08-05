@@ -216,7 +216,8 @@
 		}
 	}
 
-	&-col,&-tb {
+	&-col,
+	&-tb {
 		margin-top: $uni-spacing-col-base;
 		margin-bottom: $uni-spacing-col-base;
 
@@ -231,7 +232,8 @@
 		}
 	}
 
-	&-row,&-lr {
+	&-row,
+	&-lr {
 		margin-right: $uni-spacing-row-base;
 		margin-left: $uni-spacing-row-base;
 
@@ -315,7 +317,8 @@
 		}
 	}
 
-	&-col,&-tb {
+	&-col,
+	&-tb {
 		padding-top: $uni-spacing-col-base;
 		padding-bottom: $uni-spacing-col-base;
 
@@ -330,7 +333,8 @@
 		}
 	}
 
-	&-row,&-lr {
+	&-row,
+	&-lr {
 		padding-right: $uni-spacing-row-base;
 		padding-left: $uni-spacing-row-base;
 
@@ -365,6 +369,52 @@
 	border-style: solid;
 	border-color: $uni-border-color;
 
+	&-top {
+		border-style: solid;
+		border-color: $uni-border-color;
+		border-width: 0;
+		border-top-width: 1px;
+	}
+
+	&-right {
+		border-style: solid;
+		border-color: $uni-border-color;
+		border-width: 0;
+		border-right-width: 1px;
+	}
+
+	&-bottom {
+		border-style: solid;
+		border-color: $uni-border-color;
+		border-width: 0;
+		border-bottom-width: 1px;
+	}
+
+	&-left {
+		border-style: solid;
+		border-color: $uni-border-color;
+		border-width: 0;
+		border-left-width: 1px;
+	}
+
+	&-col,
+	&-tb {
+		border-style: solid;
+		border-color: $uni-border-color;
+		border-width: 0;
+		border-top-width: 1px;
+		border-bottom-width: 1px;
+	}
+
+	&-row,
+	&-lr {
+		border-style: solid;
+		border-color: $uni-border-color;
+		border-width: 0;
+		border-left-width: 1px;
+		border-right-width: 1px;
+	}
+
 	&-radius {
 		border-radius: $uni-border-radius-base;
 
@@ -397,7 +447,9 @@
 }
 
 .lines {
-	&-one {
+
+	&-one,
+	&1 {
 		lines: 1;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -407,7 +459,8 @@
 		/* #endif */
 	}
 
-	&-two {
+	&-two,
+	&2 {
 		overflow: hidden;
 		/* #ifdef APP-NVUE */
 		lines: 2;
@@ -420,7 +473,8 @@
 		/* #endif */
 	}
 
-	&-three {
+	&-three,
+	&3 {
 		overflow: hidden;
 		/* #ifdef APP-NVUE */
 		lines: 3;
@@ -433,7 +487,8 @@
 		/* #endif */
 	}
 
-	&-four {
+	&-four,
+	&4 {
 		overflow: hidden;
 		/* #ifdef APP-NVUE */
 		lines: 4;
@@ -446,7 +501,8 @@
 		/* #endif */
 	}
 
-	&-five {
+	&-five,
+	&5 {
 		overflow: hidden;
 		/* #ifdef APP-NVUE */
 		lines: 5;
@@ -459,7 +515,8 @@
 		/* #endif */
 	}
 
-	&-six {
+	&-six,
+	&6 {
 		overflow: hidden;
 		/* #ifdef APP-NVUE */
 		lines: 6;
