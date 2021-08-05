@@ -21,8 +21,15 @@
 				</el-tooltip>
 				<screenfull></screenfull>
 				<screenlock></screenlock>
+				<el-dropdown trigger="click" @command="langCommand">
+					<i class="iconfont icon-fanyi"></i>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item command="zh">中文</el-dropdown-item>
+						<el-dropdown-item command="en" divided>English</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
 			</template>
-			<el-dropdown trigger="click" @command="command">
+			<el-dropdown trigger="click" @command="userCommand">
 				<!-- <el-avatar size="small" icon="el-icon-user-solid"></el-avatar> -->
 				<el-avatar size="small" src="/static/logo.png"></el-avatar>
 				<el-dropdown-menu slot="dropdown">
@@ -99,7 +106,15 @@
 				this.tabs = tabs.filter(tab => tab.name !== name);
 				uni.$emit('activeMenu', activeName);
 			},
-			command(command) {
+			langCommand(command) {
+				switch (command) {
+					case 'zh':
+						break;
+					case 'en':
+						break;
+				}
+			},
+			userCommand(command) {
 				switch (command) {
 					case 'self':
 						break;

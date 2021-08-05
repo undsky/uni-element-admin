@@ -37,6 +37,11 @@
 				activeMenu: 'index',
 				openeds: ['demo'],
 				menus: [{
+					id: 'demo',
+					pid: '',
+					icon: 'el-icon-s-help',
+					text: '示例'
+				}, {
 					id: 'basic',
 					pid: 'demo',
 					icon: '',
@@ -57,11 +62,6 @@
 					text: '其他组件',
 					url: '/pages/demo/other/other',
 					keepAlive: true
-				}, {
-					id: 'demo',
-					pid: '',
-					icon: 'el-icon-s-help',
-					text: 'DEMO'
 				}, {
 					id: 'form',
 					pid: 'demo',
