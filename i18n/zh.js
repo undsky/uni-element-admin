@@ -1,6 +1,18 @@
 export default {
 	login: {
-
+		accountLogin: '账号密码登录',
+		phoneLogin: '手机号登录',
+		scanLogin: '扫码登录',
+		login: '登录',
+		account: '账号',
+		password: '密码',
+		captcha: '验证码',
+		please: '请输入',
+		phone: '手机号',
+		realPhone: '正确的手机号',
+		smsCode: '短信验证码',
+		getCode: '获取验证码',
+		reGetCode: '秒后重新获取'
 	},
 	index: {
 		home: '首页',
@@ -23,9 +35,9 @@ export default {
 		self: '个人中心',
 		logout: '退出登录',
 		message: '消息',
-		fullscreen: '全屏',
-		exitfullscreen: '退出全屏',
-		lockscreen: '锁屏',
-		changlanguage: '切换语言'
+		fullScreen: '全屏',
+		exitFullScreen: '退出全屏',
+		lockScreen: '锁屏',
+		changLanguage: '切换语言'
 	}
 }

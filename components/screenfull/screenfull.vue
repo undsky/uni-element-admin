@@ -1,5 +1,5 @@
 <template>
-	<el-tooltip :content="isFullscreen ? i18n.exitfullscreen : i18n.fullscreen" placement="bottom">
+	<el-tooltip :content="isFullscreen ? i18n.exitFullScreen : i18n.fullScreen" placement="bottom">
 		<i @click="click" :class="isFullscreen ? 'vxe-icon--zoomout' : 'el-icon-full-screen'"></i>
 	</el-tooltip>
 </template>

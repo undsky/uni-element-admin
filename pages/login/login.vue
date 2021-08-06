@@ -11,20 +11,21 @@
 					<el-tab-pane name="account">
 						<span slot="label">
 							<i class="el-icon-user margin-right-sm"></i>
-							账号密码登录
+							{{i18n.accountLogin}}
 						</span>
 						<el-form ref="accountForm" :model="accountForm" :rules="accountRules" size="medium"
 							label-width="70px" label-position="left">
-							<el-form-item label="账号" prop="account">
-								<el-input v-model="accountForm.account" placeholder="请输入账号"></el-input>
-							</el-form-item>
-							<el-form-item label="密码" prop="password">
-								<el-input v-model="accountForm.password" type="password" placeholder="请输入密码"
-									show-password>
+							<el-form-item :label="i18n.account" prop="account">
+								<el-input v-model="accountForm.account" :placeholder="i18n.please+i18n.account">
 								</el-input>
 							</el-form-item>
-							<el-form-item label="验证码" prop="captcha">
-								<el-input v-model="accountForm.captcha" placeholder="请输入验证码">
+							<el-form-item :label="i18n.password" prop="password">
+								<el-input v-model="accountForm.password" type="password"
+									:placeholder="i18n.please+i18n.password" show-password>
+								</el-input>
+							</el-form-item>
+							<el-form-item :label="i18n.captcha" prop="captcha">
+								<el-input v-model="accountForm.captcha" :placeholder="i18n.please+i18n.captcha">
 									<img slot="suffix" @click="changeCaptcha" :src="captcha" class="captcha" />
 								</el-input>
 							</el-form-item>
@@ -33,17 +34,17 @@
 					<el-tab-pane name="phone">
 						<span slot="label">
 							<i class="el-icon-mobile-phone margin-right-sm"></i>
-							手机号登录
+							{{i18n.phoneLogin}}
 						</span>
 						<el-form ref="phoneForm" :model="phoneForm" :rules="phoneRules" size="medium" label-width="70px"
 							label-position="left">
-							<el-form-item label="手机号" prop="phone">
-								<el-input v-model="phoneForm.phone" placeholder="请输入手机号"></el-input>
+							<el-form-item :label="i18n.phone" prop="phone">
+								<el-input v-model="phoneForm.phone" :placeholder="i18n.please+i18n.phone"></el-input>
 							</el-form-item>
-							<el-form-item label="验证码" prop="smscode">
-								<el-input v-model="phoneForm.smscode" placeholder="请输入短信验证码">
+							<el-form-item :label="i18n.captcha" prop="smscode">
+								<el-input v-model="phoneForm.smscode" :placeholder="i18n.please+i18n.smsCode">
 									<el-button @click="getSmscode" :disabled="0!=smsCount" slot="suffix" type="text">
-										{{smsCount ? smsCount+'秒后重新获取' : '获取验证码'}}
+										{{smsCount ? smsCount+i18n.reGetCode : i18n.getCode}}
 									</el-button>
 								</el-input>
 							</el-form-item>
@@ -52,7 +53,7 @@
 					<el-tab-pane v-if="!isXS" name="qrcode">
 						<span slot="label">
 							<i class="el-icon-full-screen margin-right-sm"></i>
-							扫码登录
+							{{i18n.scanLogin}}
 						</span>
 						<view class="flex flex-justify-center">
 							<img src="https://undsky.com/public/img/wx-undsky.jpeg" />
@@ -60,7 +61,7 @@
 					</el-tab-pane>
 				</el-tabs>
 				<view v-show="'qrcode' != activeTab" class="flex">
-					<el-button class="flex1" type="primary" @click="login">登录</el-button>
+					<el-button class="flex1" type="primary" @click="login">{{i18n.login}}</el-button>
 				</view>
 			</el-col>
 		</el-row>
@@ -88,44 +89,13 @@
 					password: '',
 					captcha: ''
 				},
-				accountRules: {
-					account: [{
-						required: true,
-						message: '请输入账号',
-						trigger: 'blur'
-					}],
-					password: [{
-						required: true,
-						message: '请输入密码',
-						trigger: 'blur'
-					}],
-					captcha: [{
-						required: true,
-						message: '请输入验证码',
-						trigger: 'blur'
-					}]
-				},
+				accountRules: undefined,
 				smsCount: 0,
 				phoneForm: {
 					phone: '',
 					smscode: ''
 				},
-				phoneRules: {
-					phone: [{
-						required: true,
-						message: '请输入手机号',
-						trigger: 'blur'
-					}, {
-						pattern: /^(?:(?:\+|00)86)?1\d{10}$/,
-						message: '请输入正确的手机号',
-						trigger: ['blur', 'change']
-					}],
-					smscode: [{
-						required: true,
-						message: '请输入短信验证码',
-						trigger: 'blur'
-					}],
-				},
+				phoneRules: undefined
 			};
 		},
 		computed: {
@@ -133,7 +103,49 @@
 				return this.$t('login')
 			}
 		},
+		watch: {
+			i18n() {
+				this.changeLanguage()
+			}
+		},
 		methods: {
+			changeLanguage() {
+				const _i18n = this.$t('login')
+				this.accountRules = {
+					account: [{
+						required: true,
+						message: _i18n.please + _i18n.account,
+						trigger: 'blur'
+					}],
+					password: [{
+						required: true,
+						message: _i18n.please + _i18n.password,
+						trigger: 'blur'
+					}],
+					captcha: [{
+						required: true,
+						message: _i18n.please + _i18n.captcha,
+						trigger: 'blur'
+					}]
+				}
+
+				this.phoneRules = {
+					phone: [{
+						required: true,
+						message: _i18n.please + _i18n.phone,
+						trigger: 'blur'
+					}, {
+						pattern: /^(?:(?:\+|00)86)?1\d{10}$/,
+						message: _i18n.please + _i18n.realPhone,
+						trigger: ['blur', 'change']
+					}],
+					smscode: [{
+						required: true,
+						message: _i18n.please + _i18n.smsCode,
+						trigger: 'blur'
+					}],
+				}
+			},
 			changeCaptcha() {
 				this.captcha = `${this.$config.request.baseURL}/captcha?deviceId=${this.deviceId}&t=${this.$utils.now()}`
 			},
@@ -165,6 +177,8 @@
 			}
 		},
 		onLoad: function() {
+			this.changeLanguage()
+
 			this.$nextTick(() => {
 				const {
 					deviceId,

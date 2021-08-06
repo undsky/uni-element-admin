@@ -1,4 +1,19 @@
 export default {
+	login: {
+		accountLogin: 'account login',
+		phoneLogin: 'phone login',
+		scanLogin: 'scan login',
+		login: 'login',
+		account: 'account',
+		password: 'password',
+		captcha: 'captcha',
+		please: 'please enter ',
+		phone: 'phone',
+		realPhone: 'real phone',
+		smsCode: 'sms code',
+		getCode: 'get code',
+		reGetCode: ' second reacquire'
+	},
 	index: {
 		home: 'home',
 		demo: 'demo',
@@ -20,9 +35,9 @@ export default {
 		self: 'user center',
 		logout: 'logout',
 		message: 'message',
-		fullscreen: 'full screen',
-		exitfullscreen: 'exit full screen',
-		lockscreen: 'lock screen',
-		changlanguage: 'change language'
+		fullScreen: 'full screen',
+		exitFullScreen: 'exit full screen',
+		lockScreen: 'lock screen',
+		changLanguage: 'change language'
 	}
 }
