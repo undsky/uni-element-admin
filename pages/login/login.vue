@@ -5,6 +5,7 @@
 				:md="{ span: 12, offset: 6 }" :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
 				<view class="title">
 					mc-uniAdmin
+					<langselect style="float: right;"></langselect>
 				</view>
 				<el-tabs v-model="activeTab" stretch>
 					<el-tab-pane name="account">
@@ -126,6 +127,11 @@
 					}],
 				},
 			};
+		},
+		computed: {
+			i18n() {
+				return this.$t('login')
+			}
 		},
 		methods: {
 			changeCaptcha() {

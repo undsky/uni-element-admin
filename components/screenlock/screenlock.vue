@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<el-tooltip content="锁屏" placement="bottom">
+		<el-tooltip :content="i18n.lockscreen" placement="bottom">
 			<i @click="lock" class="el-icon-lock"></i>
 		</el-tooltip>
 		<el-dialog title="mc-uniAdmin" :visible="isLock" center append-to-body :close-on-click-modal="false"
@@ -41,6 +41,11 @@
 					}]
 				},
 			};
+		},
+		computed: {
+			i18n() {
+				return this.$t('index')
+			}
 		},
 		methods: {
 			lock() {

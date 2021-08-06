@@ -16,25 +16,19 @@
 		</view>
 		<view class="nav-right flex flex-align-center">
 			<template v-if="!isXS">
-				<el-tooltip content="消息" placement="bottom">
+				<el-tooltip :content="i18n.message" placement="bottom">
 					<el-badge is-dot><i class="el-icon-message"></i></el-badge>
 				</el-tooltip>
 				<screenfull></screenfull>
 				<screenlock></screenlock>
-				<el-dropdown trigger="click" @command="langCommand">
-					<i class="iconfont icon-fanyi"></i>
-					<el-dropdown-menu slot="dropdown">
-						<el-dropdown-item command="zh">中文</el-dropdown-item>
-						<el-dropdown-item command="en" divided>English</el-dropdown-item>
-					</el-dropdown-menu>
-				</el-dropdown>
+				<langselect></langselect>
 			</template>
 			<el-dropdown trigger="click" @command="userCommand">
 				<!-- <el-avatar size="small" icon="el-icon-user-solid"></el-avatar> -->
 				<el-avatar size="small" src="/static/logo.png"></el-avatar>
 				<el-dropdown-menu slot="dropdown">
-					<el-dropdown-item command="self">个人中心</el-dropdown-item>
-					<el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
+					<el-dropdown-item command="self">{{ i18n.self }}</el-dropdown-item>
+					<el-dropdown-item command="logout" divided>{{ i18n.logout }}</el-dropdown-item>
 				</el-dropdown-menu>
 			</el-dropdown>
 		</view>
@@ -50,16 +44,28 @@
 			return {
 				isXS: false,
 				isCollapse: false,
-				activeTab: 'index',
+				activeTab: 'home',
 				tabs: [{
-					title: '首页',
-					name: 'index',
+					title: this.$t('index').home,
+					name: 'home',
 					url: '/pages/index/index',
 					closable: false
 				}]
 			};
 		},
-
+		computed: {
+			i18n() {
+				return this.$t('index')
+			}
+		},
+		watch: {
+			i18n() {
+				this.tabs = this.$utils.map(this.tabs, tab => {
+					tab.title = this.i18n[tab.name]
+					return tab
+				})
+			}
+		},
 		methods: {
 			toggleSidebar() {
 				this.isCollapse = !this.isCollapse;
@@ -105,14 +111,6 @@
 
 				this.tabs = tabs.filter(tab => tab.name !== name);
 				uni.$emit('activeMenu', activeName);
-			},
-			langCommand(command) {
-				switch (command) {
-					case 'zh':
-						break;
-					case 'en':
-						break;
-				}
 			},
 			userCommand(command) {
 				switch (command) {
