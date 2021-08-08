@@ -34,7 +34,7 @@
 					<template v-if="isXS">
 						<el-dropdown-item icon="el-icon-message" command="message">{{ i18n.message }}</el-dropdown-item>
 						<screenlock ref="screenlock"></screenlock>
-						<langselect></langselect>
+						<langselect ref="langselect"></langselect>
 					</template>
 					<el-dropdown-item icon="el-icon-back" command="logout" divided>{{ i18n.logout }}</el-dropdown-item>
 				</el-dropdown-menu>
@@ -131,6 +131,12 @@ export default {
 					this.$refs.screenlock.lock();
 					break;
 				case 'fanyi':
+					uni.showActionSheet({
+						itemList: this.$utils.map(this.$refs.langselect.langs, lang => lang.text),
+						success: res => {
+							this.$refs.langselect.changeLanguage(res.tapIndex);
+						}
+					});
 					break;
 				case 'logout':
 					uni.reLaunch({
@@ -142,7 +148,7 @@ export default {
 	},
 	mounted: function() {
 		this.$nextTick(() => {
-			this.isXS = getApp().globalData.systemInfo.screenWidth < 768;
+			this.isXS = getApp().globalData.systemInfo.isXS;
 		});
 
 		uni.$on('activeTab', tab => {

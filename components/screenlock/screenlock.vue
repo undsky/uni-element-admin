@@ -68,7 +68,7 @@ export default {
 	},
 	mounted: function() {
 		this.$nextTick(() => {
-			this.isXS = getApp().globalData.systemInfo.screenWidth < 768;
+			this.isXS = getApp().globalData.systemInfo.isXS;
 		});
 
 		keyboardJS.bind('enter', this.unLock);

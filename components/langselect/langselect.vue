@@ -1,10 +1,9 @@
 <template>
 	<el-dropdown-item v-if="isXS" icon="iconfont icon-fanyi" command="fanyi">{{ i18n.changLanguage }}</el-dropdown-item>
-	<el-dropdown v-else trigger="click" @command="langCommand">
+	<el-dropdown v-else trigger="click" @command="changeLanguage">
 		<el-tooltip :content="i18n.changLanguage" placement="bottom"><i class="iconfont icon-fanyi"></i></el-tooltip>
 		<el-dropdown-menu slot="dropdown">
-			<el-dropdown-item :disabled="language === 'zh'" command="zh">中文</el-dropdown-item>
-			<el-dropdown-item :disabled="language === 'en'" command="en" divided>English</el-dropdown-item>
+			<el-dropdown-item v-for="(item, index) in langs" :key="item.id" :disabled="language === item.id" :command="item.id">{{ item.text }}</el-dropdown-item>
 		</el-dropdown-menu>
 	</el-dropdown>
 </template>
@@ -14,7 +13,17 @@ export default {
 	name: 'langselect',
 	data() {
 		return {
-			isXS: false
+			isXS: false,
+			langs: [
+				{
+					id: 'zh',
+					text: '中文'
+				},
+				{
+					id: 'en',
+					text: 'English'
+				}
+			]
 		};
 	},
 	computed: {
@@ -26,14 +35,17 @@ export default {
 		}
 	},
 	methods: {
-		langCommand(command) {
+		changeLanguage(command) {
+			if (this.$utils.isNumber(command)) {
+				command = this.langs[command].id;
+			}
 			this.$i18n.locale = command;
 			this.$store.commit('setLanguage', command);
 		}
 	},
 	mounted: function() {
 		this.$nextTick(() => {
-			this.isXS = getApp().globalData.systemInfo.screenWidth < 768;
+			this.isXS = getApp().globalData.systemInfo.isXS;
 		});
 	}
 };
