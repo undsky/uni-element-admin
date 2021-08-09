@@ -552,7 +552,7 @@
 					{{tag.name}}
 				</el-tag>
 				<el-divider content-position="left">动态编辑标签</el-divider>
-				<el-tag :key="tag" v-for="tag in dynamicTags" closable :disable-transitions="false"
+				<el-tag :key="index" v-for="(tag,index) in dynamicTags" closable :disable-transitions="false"
 					@close="handleClose(tag)">
 					{{tag}}
 				</el-tag>
