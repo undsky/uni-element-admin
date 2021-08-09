@@ -5,7 +5,7 @@
 				:md="{ span: 12, offset: 6 }" :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
 				<view class="title">
 					mc-uniAdmin
-					<langselect style="float: right;"></langselect>
+					<langselect dropMenu style="float: right;"></langselect>
 				</view>
 				<el-tabs v-model="activeTab" stretch>
 					<el-tab-pane name="account">
@@ -14,7 +14,7 @@
 							{{i18n.accountLogin}}
 						</span>
 						<el-form ref="accountForm" :model="accountForm" :rules="accountRules" size="medium"
-							label-width="70px" label-position="left">
+							label-width="75px" label-position="left">
 							<el-form-item :label="i18n.account" prop="account">
 								<el-input v-model="accountForm.account" :placeholder="i18n.please+i18n.account">
 								</el-input>
@@ -36,7 +36,7 @@
 							<i class="el-icon-mobile-phone margin-right-sm"></i>
 							{{i18n.phoneLogin}}
 						</span>
-						<el-form ref="phoneForm" :model="phoneForm" :rules="phoneRules" size="medium" label-width="70px"
+						<el-form ref="phoneForm" :model="phoneForm" :rules="phoneRules" size="medium" label-width="75px"
 							label-position="left">
 							<el-form-item :label="i18n.phone" prop="phone">
 								<el-input v-model="phoneForm.phone" :placeholder="i18n.please+i18n.phone"></el-input>

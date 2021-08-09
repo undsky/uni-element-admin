@@ -130,12 +130,7 @@
 						this.$refs.screenlock.lock();
 						break;
 					case 'fanyi':
-						uni.showActionSheet({
-							itemList: this.$utils.map(this.$refs.langselect.langs, lang => lang.text),
-							success: res => {
-								this.$refs.langselect.changeLanguage(res.tapIndex);
-							}
-						});
+						this.$refs.langselect.selectLanguage()
 						break;
 					case 'logout':
 						uni.reLaunch({

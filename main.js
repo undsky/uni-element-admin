@@ -24,6 +24,10 @@ import VXETablePluginElement from 'vxe-table-plugin-element'
 import 'vxe-table-plugin-element/dist/style.css'
 VXETable.use(VXETablePluginElement)
 
+VXETable.setup({
+	i18n: (key, args) => i18n.t(key, args)
+})
+
 // 自定义全局的格式化处理函数
 VXETable.formats.mixin({
 	formatSex({
