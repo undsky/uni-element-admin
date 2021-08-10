@@ -178,16 +178,14 @@
 		},
 		onLoad: function() {
 			this.changeLanguage()
+			this.changeCaptcha()
 
-			this.$nextTick(() => {
-				const {
-					deviceId,
-					screenWidth
-				} = getApp().globalData.systemInfo
-				this.isXS = screenWidth < 768
-				this.deviceId = deviceId || this.$utils.now()
-				this.changeCaptcha()
-			})
+			const {
+				deviceId,
+				isXS
+			} = getApp().globalData.systemInfo
+			this.isXS = isXS
+			this.deviceId = deviceId || this.$utils.now()
 
 			keyboardJS.bind('enter', this.handleEnter);
 		},

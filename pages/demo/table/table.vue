@@ -1,7 +1,5 @@
 <template>
-	<scroll-view scroll-y="true" class="main">
-
-	</scroll-view>
+	<web-view src="https://xuliangzhan_admin.gitee.io/vxe-table/#/"></web-view>
 </template>
 
 <script>
