@@ -153,21 +153,24 @@
 			uni.$on('activeMenu', name => (this.activeMenu = name));
 			uni.$on('collapseMenu', isCollapse => (this.isCollapse = isCollapse));
 
-			const {
-				launchPage
-			} = getApp().globalData
-
-			if (launchPage && -1 == this.$utils.indexOf(['/pages/index/index', '/pages/login/login'], launchPage)) {
+			this.$nextTick(() => {
 				const {
-					id,
-					text,
-					url,
-					keepAlive
-				} = this.$utils.find(this.menus, menu => launchPage == menu.url)
-				if (id) {
-					this.navigateTo(id, text, url, keepAlive)
+					launchPage
+				} = getApp().globalData
+
+				if (launchPage && -1 == this.$utils.indexOf(['/pages/index/index', '/pages/login/login'],
+						launchPage)) {
+					const {
+						id,
+						text,
+						url,
+						keepAlive
+					} = this.$utils.find(this.menus, menu => launchPage == menu.url)
+					if (id) {
+						this.navigateTo(id, text, url, keepAlive)
+					}
 				}
-			}
+			})
 		}
 	};
 </script>
