@@ -17,7 +17,7 @@
 		data() {
 			return {
 				isXS: false,
-				messageNum: 100
+				messageNum: 0
 			};
 		},
 		computed: {

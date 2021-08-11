@@ -38,6 +38,8 @@ export default {
 		fullScreen: '全屏',
 		exitFullScreen: '退出全屏',
 		lockScreen: '锁屏',
+		unlock: '解锁',
+		lockPlaceholder: '请输入您的密码解锁屏幕',
 		changLanguage: '切换语言'
 	}
 }

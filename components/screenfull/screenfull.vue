@@ -1,6 +1,6 @@
 <template>
 	<el-tooltip :content="isFullscreen ? i18n.exitFullScreen : i18n.fullScreen" placement="bottom">
-		<i @click="click" :class="isFullscreen ? 'vxe-icon--zoomout' : 'el-icon-full-screen'"></i>
+		<i @click="toggle" :class="isFullscreen ? 'vxe-icon--zoomout' : 'el-icon-full-screen'"></i>
 	</el-tooltip>
 </template>
 
@@ -23,7 +23,7 @@
 			change() {
 				this.isFullscreen = screenfull.isFullscreen
 			},
-			click() {
+			toggle() {
 				screenfull.toggle();
 			},
 		},

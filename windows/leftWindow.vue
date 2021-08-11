@@ -124,12 +124,6 @@
 					icon: '',
 					url: '/pages/demo/map/map',
 					keepAlive: true
-				}, {
-					id: 'webSocket',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/webSocket/webSocket',
-					keepAlive: true
 				}]
 			};
 		},

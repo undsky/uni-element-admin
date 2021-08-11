@@ -38,6 +38,8 @@ export default {
 		fullScreen: 'full screen',
 		exitFullScreen: 'exit full screen',
 		lockScreen: 'lock screen',
+		unlock: 'unlock',
+		lockPlaceholder: 'Please enter your password to unlock',
 		changLanguage: 'change language'
 	}
 }

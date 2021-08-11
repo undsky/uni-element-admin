@@ -23,8 +23,6 @@
 		}, {
 			"path": "pages/demo/map/map"
 		}, {
-			"path": "pages/demo/webSocket/webSocket"
-		}, {
 			"path": "pages/demo/image/image"
 		}, {
 			"path": "pages/demo/player/player"

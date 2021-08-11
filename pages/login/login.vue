@@ -110,21 +110,30 @@
 		},
 		methods: {
 			changeLanguage() {
-				const _i18n = this.$t('login')
+				const {
+					please,
+					account,
+					password,
+					captcha,
+					phone,
+					realPhone,
+					smsCode
+				} = this.i18n
+
 				this.accountRules = {
 					account: [{
 						required: true,
-						message: _i18n.please + _i18n.account,
+						message: please + account,
 						trigger: 'blur'
 					}],
 					password: [{
 						required: true,
-						message: _i18n.please + _i18n.password,
+						message: please + password,
 						trigger: 'blur'
 					}],
 					captcha: [{
 						required: true,
-						message: _i18n.please + _i18n.captcha,
+						message: please + captcha,
 						trigger: 'blur'
 					}]
 				}
@@ -132,16 +141,16 @@
 				this.phoneRules = {
 					phone: [{
 						required: true,
-						message: _i18n.please + _i18n.phone,
+						message: please + phone,
 						trigger: 'blur'
 					}, {
 						pattern: /^(?:(?:\+|00)86)?1\d{10}$/,
-						message: _i18n.please + _i18n.realPhone,
+						message: please + realPhone,
 						trigger: ['blur', 'change']
 					}],
 					smscode: [{
 						required: true,
-						message: _i18n.please + _i18n.smsCode,
+						message: please + smsCode,
 						trigger: 'blur'
 					}],
 				}
