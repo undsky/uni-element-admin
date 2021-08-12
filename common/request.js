@@ -8,7 +8,7 @@ http.interceptors.request.use(async config => {
 	if (config.custom.auth) {
 		const token = store.state.auth.token
 		if (!token) {
-			uni.navigateTo({
+			uni.reLaunch({
 				url: '/pages/login/login'
 			})
 			return Promise.reject(config)
@@ -38,8 +38,8 @@ http.interceptors.response.use(async response => {
 	if (response.data && ['credentials_required', 'invalid_token', 'revoked_token'].includes(response
 			.data.code)) {
 		store.commit('clearToken')
-		uni.navigateTo({
-			url: '/pages/auth/auth'
+		uni.reLaunch({
+			url: '/pages/login/login'
 		})
 	}
 	return Promise.reject(response)
