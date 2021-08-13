@@ -16,6 +16,9 @@ export default {
 	},
 	index: {
 		home: 'home',
+		system: 'system',
+		role: 'role',
+		user: 'user',
 		demo: 'demo',
 		basic: 'basic',
 		notice: 'notice',

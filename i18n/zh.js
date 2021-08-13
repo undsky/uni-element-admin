@@ -16,6 +16,9 @@ export default {
 	},
 	index: {
 		home: '首页',
+		system: '系统管理',
+		role: '角色管理',
+		user: '用户管理',
 		demo: '示例',
 		basic: '基础组件',
 		notice: '消息组件',

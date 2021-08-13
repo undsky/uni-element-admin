@@ -36,6 +36,10 @@
 			"path": "pages/demo/other/other"
 		}, {
 			"path": "pages/demo/chart/chart"
+		}, {
+			"path": "pages/system/role/role"
+		}, {
+			"path": "pages/system/user/user"
 		}
 	],
 	"globalStyle": {
