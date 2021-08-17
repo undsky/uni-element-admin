@@ -9,7 +9,7 @@
 		"@jiaminghi/data-view": "^2.10.0",
 		"@npkg/tinymce-plugins": "^0.0.6",
 		"driver.js": "^0.9.8",
-		"element-ui": "^2.15.3",
+		"element-ui": "^2.15.5",
 		"jsbarcode": "^3.11.4",
 		"keyboardjs": "^2.6.4",
 		"luch-request": "^3.0.6",
