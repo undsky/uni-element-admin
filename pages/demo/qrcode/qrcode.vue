@@ -11,11 +11,15 @@
 			<el-form-item>
 				<image :src="qrcode" style="width: 200px; height: 200px;"></image>
 			</el-form-item>
+			<el-form-item>
+				<svg id="barcode"></svg>
+			</el-form-item>
 		</el-form>
 	</div>
 </template>
 <script>
 	import QRCode from 'qrcode'
+	import JsBarcode from 'jsbarcode'
 
 	export default {
 		components: {},
@@ -49,6 +53,7 @@
 				this.$refs['elForm'].validate(async valid => {
 					if (!valid) return
 					this.qrcode = await QRCode.toDataURL(this.formData.content)
+					JsBarcode("#barcode", this.formData.content);
 				})
 			}
 		}

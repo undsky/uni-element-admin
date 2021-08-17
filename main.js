@@ -54,6 +54,10 @@ VXETable.formats.mixin({
 
 Vue.use(VXETable)
 
+Vue.prototype.$print = VXETable.print
+Vue.prototype.$readFile = VXETable.readFile
+Vue.prototype.$saveFile = VXETable.saveFile
+
 import http from './common/request.js'
 Vue.prototype.$http = http
 
