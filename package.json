@@ -19,6 +19,7 @@
 		"qrcode": "^1.4.4",
 		"screenfull": "^5.1.0",
 		"sortablejs": "^1.14.0",
+		"svga": "^2.0.1",
 		"tinymce": "^5.8.2",
 		"uni-simple-router": "^2.0.6",
 		"vue-cool-lightbox": "^2.7.4",
