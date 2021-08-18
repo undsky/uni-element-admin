@@ -632,109 +632,112 @@
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="descriptions">
-			<span slot="label">描述列表<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/descriptions')"
+			<span slot="label">描述列表<i
+					@click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/descriptions')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
 				<el-divider content-position="left">基础用法</el-divider>
 				<el-descriptions title="用户信息">
-				    <el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
-				    <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
-				    <el-descriptions-item label="居住地">苏州市</el-descriptions-item>
-				    <el-descriptions-item label="备注">
-				      <el-tag size="small">学校</el-tag>
-				    </el-descriptions-item>
-				    <el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
+					<el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
+					<el-descriptions-item label="手机号">18100000000</el-descriptions-item>
+					<el-descriptions-item label="居住地">苏州市</el-descriptions-item>
+					<el-descriptions-item label="备注">
+						<el-tag size="small">学校</el-tag>
+					</el-descriptions-item>
+					<el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
 				</el-descriptions>
 				<el-divider content-position="left">不同尺寸</el-divider>
 				<el-radio-group v-model="size">
-				    <el-radio label="">默认</el-radio>
-				    <el-radio label="medium">中等</el-radio>
-				    <el-radio label="small">小型</el-radio>
-				    <el-radio label="mini">超小</el-radio>
-				  </el-radio-group>
-				
-				  <el-descriptions class="margin-top" title="带边框列表" :column="3" :size="size" border>
-				    <template slot="extra">
-				      <el-button type="primary" size="small">操作</el-button>
-				    </template>
-				    <el-descriptions-item>
-				      <template slot="label">
-				        <i class="el-icon-user"></i>
-				        用户名
-				      </template>
-				      kooriookami
-				    </el-descriptions-item>
-				    <el-descriptions-item>
-				      <template slot="label">
-				        <i class="el-icon-mobile-phone"></i>
-				        手机号
-				      </template>
-				      18100000000
-				    </el-descriptions-item>
-				    <el-descriptions-item>
-				      <template slot="label">
-				        <i class="el-icon-location-outline"></i>
-				        居住地
-				      </template>
-				      苏州市
-				    </el-descriptions-item>
-				    <el-descriptions-item>
-				      <template slot="label">
-				        <i class="el-icon-tickets"></i>
-				        备注
-				      </template>
-				      <el-tag size="small">学校</el-tag>
-				    </el-descriptions-item>
-				    <el-descriptions-item>
-				      <template slot="label">
-				        <i class="el-icon-office-building"></i>
-				        联系地址
-				      </template>
-				      江苏省苏州市吴中区吴中大道 1188 号
-				    </el-descriptions-item>
-				  </el-descriptions>
-				
-				  <el-descriptions class="margin-top" title="无边框列表" :column="3" :size="size">
-				    <template slot="extra">
-				      <el-button type="primary" size="small">操作</el-button>
-				    </template>
-				    <el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
-				    <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
-				    <el-descriptions-item label="居住地">苏州市</el-descriptions-item>
-				    <el-descriptions-item label="备注">
-				      <el-tag size="small">学校</el-tag>
-				    </el-descriptions-item>
-				    <el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
-				  </el-descriptions>
+					<el-radio label="">默认</el-radio>
+					<el-radio label="medium">中等</el-radio>
+					<el-radio label="small">小型</el-radio>
+					<el-radio label="mini">超小</el-radio>
+				</el-radio-group>
+
+				<el-descriptions class="margin-top" title="带边框列表" :column="3" :size="size" border>
+					<template slot="extra">
+						<el-button type="primary" size="small">操作</el-button>
+					</template>
+					<el-descriptions-item>
+						<template slot="label">
+							<i class="el-icon-user"></i>
+							用户名
+						</template>
+						kooriookami
+					</el-descriptions-item>
+					<el-descriptions-item>
+						<template slot="label">
+							<i class="el-icon-mobile-phone"></i>
+							手机号
+						</template>
+						18100000000
+					</el-descriptions-item>
+					<el-descriptions-item>
+						<template slot="label">
+							<i class="el-icon-location-outline"></i>
+							居住地
+						</template>
+						苏州市
+					</el-descriptions-item>
+					<el-descriptions-item>
+						<template slot="label">
+							<i class="el-icon-tickets"></i>
+							备注
+						</template>
+						<el-tag size="small">学校</el-tag>
+					</el-descriptions-item>
+					<el-descriptions-item>
+						<template slot="label">
+							<i class="el-icon-office-building"></i>
+							联系地址
+						</template>
+						江苏省苏州市吴中区吴中大道 1188 号
+					</el-descriptions-item>
+				</el-descriptions>
+
+				<el-descriptions class="margin-top" title="无边框列表" :column="3" :size="size">
+					<template slot="extra">
+						<el-button type="primary" size="small">操作</el-button>
+					</template>
+					<el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
+					<el-descriptions-item label="手机号">18100000000</el-descriptions-item>
+					<el-descriptions-item label="居住地">苏州市</el-descriptions-item>
+					<el-descriptions-item label="备注">
+						<el-tag size="small">学校</el-tag>
+					</el-descriptions-item>
+					<el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
+				</el-descriptions>
 				<el-divider content-position="left">垂直列表</el-divider>
 				<el-descriptions title="垂直带边框列表" direction="vertical" :column="4" border>
-				  <el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
-				  <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
-				  <el-descriptions-item label="居住地" :span="2">苏州市</el-descriptions-item>
-				  <el-descriptions-item label="备注">
-				    <el-tag size="small">学校</el-tag>
-				  </el-descriptions-item>
-				  <el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
+					<el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
+					<el-descriptions-item label="手机号">18100000000</el-descriptions-item>
+					<el-descriptions-item label="居住地" :span="2">苏州市</el-descriptions-item>
+					<el-descriptions-item label="备注">
+						<el-tag size="small">学校</el-tag>
+					</el-descriptions-item>
+					<el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
 				</el-descriptions>
-				
+
 				<el-descriptions class="margin-top" title="垂直无边框列表" :column="4" direction="vertical">
-				  <el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
-				  <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
-				  <el-descriptions-item label="居住地" :span="2">苏州市</el-descriptions-item>
-				  <el-descriptions-item label="备注">
-				    <el-tag size="small">学校</el-tag>
-				  </el-descriptions-item>
-				  <el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
+					<el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
+					<el-descriptions-item label="手机号">18100000000</el-descriptions-item>
+					<el-descriptions-item label="居住地" :span="2">苏州市</el-descriptions-item>
+					<el-descriptions-item label="备注">
+						<el-tag size="small">学校</el-tag>
+					</el-descriptions-item>
+					<el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
 				</el-descriptions>
 				<el-divider content-position="left">自定义样式</el-divider>
 				<el-descriptions title="自定义样式列表" :column="3" border>
-				  <el-descriptions-item label="用户名" label-class-name="my-label" content-class-name="my-content">kooriookami</el-descriptions-item>
-				  <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
-				  <el-descriptions-item label="居住地">苏州市</el-descriptions-item>
-				  <el-descriptions-item label="备注">
-				    <el-tag size="small">学校</el-tag>
-				  </el-descriptions-item>
-				  <el-descriptions-item label="联系地址" :contentStyle="{'text-align': 'right'}">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
+					<el-descriptions-item label="用户名" label-class-name="my-label" content-class-name="my-content">
+						kooriookami</el-descriptions-item>
+					<el-descriptions-item label="手机号">18100000000</el-descriptions-item>
+					<el-descriptions-item label="居住地">苏州市</el-descriptions-item>
+					<el-descriptions-item label="备注">
+						<el-tag size="small">学校</el-tag>
+					</el-descriptions-item>
+					<el-descriptions-item label="联系地址" :contentStyle="{'text-align': 'right'}">江苏省苏州市吴中区吴中大道 1188 号
+					</el-descriptions-item>
 				</el-descriptions>
 			</scroll-view>
 		</el-tab-pane>
@@ -744,43 +747,45 @@
 			<scroll-view class="main" scroll-y>
 				<el-divider content-position="left">基础用法</el-divider>
 				<el-row>
-				  <el-col :sm="12" :lg="6">
-				    <el-result icon="success" title="成功提示" subTitle="请根据提示进行操作">
-				      <template slot="extra">
-				        <el-button type="primary" size="medium">返回</el-button>
-				      </template>
-				    </el-result>
-				  </el-col>
-				  <el-col :sm="12" :lg="6">
-				    <el-result icon="warning" title="警告提示" subTitle="请根据提示进行操作">
-				      <template slot="extra">
-				        <el-button type="primary" size="medium">返回</el-button>
-				      </template>
-				    </el-result>
-				  </el-col>
-				  <el-col :sm="12" :lg="6">
-				    <el-result icon="error" title="错误提示" subTitle="请根据提示进行操作">
-				      <template slot="extra">
-				        <el-button type="primary" size="medium">返回</el-button>
-				      </template>
-				    </el-result>
-				  </el-col>
-				  <el-col :sm="12" :lg="6">
-				    <el-result icon="info" title="信息提示" subTitle="请根据提示进行操作">
-				      <template slot="extra">
-				        <el-button type="primary" size="medium">返回</el-button>
-				      </template>
-				    </el-result>
-				  </el-col>
+					<el-col :sm="12" :lg="6">
+						<el-result icon="success" title="成功提示" subTitle="请根据提示进行操作">
+							<template slot="extra">
+								<el-button type="primary" size="medium">返回</el-button>
+							</template>
+						</el-result>
+					</el-col>
+					<el-col :sm="12" :lg="6">
+						<el-result icon="warning" title="警告提示" subTitle="请根据提示进行操作">
+							<template slot="extra">
+								<el-button type="primary" size="medium">返回</el-button>
+							</template>
+						</el-result>
+					</el-col>
+					<el-col :sm="12" :lg="6">
+						<el-result icon="error" title="错误提示" subTitle="请根据提示进行操作">
+							<template slot="extra">
+								<el-button type="primary" size="medium">返回</el-button>
+							</template>
+						</el-result>
+					</el-col>
+					<el-col :sm="12" :lg="6">
+						<el-result icon="info" title="信息提示" subTitle="请根据提示进行操作">
+							<template slot="extra">
+								<el-button type="primary" size="medium">返回</el-button>
+							</template>
+						</el-result>
+					</el-col>
 				</el-row>
 				<el-divider content-position="left">自定义内容</el-divider>
 				<el-result title="404" subTitle="抱歉，请求错误">
-				  <template slot="icon">
-				    <el-image src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"></el-image>
-				  </template>
-				  <template slot="extra">
-				    <el-button type="primary" size="medium">返回</el-button>
-				  </template>
+					<template slot="icon">
+						<el-image
+							src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png">
+						</el-image>
+					</template>
+					<template slot="extra">
+						<el-button type="primary" size="medium">返回</el-button>
+					</template>
 				</el-result>
 			</scroll-view>
 		</el-tab-pane>
@@ -793,13 +798,11 @@
 				</el-calendar>
 				<el-divider content-position="left">自定义内容</el-divider>
 				<el-calendar>
-				  <template
-				    slot="dateCell"
-				    slot-scope="{date, data}">
-				    <p :class="data.isSelected ? 'is-selected' : ''">
-				      {{ data.day.split('-').slice(1).join('-') }} {{ data.isSelected ? '✔️' : ''}}
-				    </p>
-				  </template>
+					<template slot="dateCell" slot-scope="{date, data}">
+						<p :class="data.isSelected ? 'is-selected' : ''">
+							{{ data.day.split('-').slice(1).join('-') }} {{ data.isSelected ? '✔️' : ''}}
+						</p>
+					</template>
 				</el-calendar>
 				<el-divider content-position="left">自定义范围</el-divider>
 				<el-calendar :range="['2019-03-04', '2019-03-24']">
@@ -812,46 +815,40 @@
 			<scroll-view class="main" scroll-y>
 				<el-divider content-position="left">基础用法</el-divider>
 				<div class="block" v-for="fit in fits" :key="fit">
-				    <span class="demonstration">{{ fit }}</span>
-				    <el-image
-				      style="width: 100px; height: 100px"
-				      :src="url"
-				      :fit="fit"></el-image>
-				  </div>
+					<span class="demonstration">{{ fit }}</span>
+					<el-image style="width: 100px; height: 100px" :src="url" :fit="fit"></el-image>
+				</div>
 				<el-divider content-position="left">占位内容</el-divider>
-				 <div class="block">
-				    <span class="demonstration">默认</span>
-				    <el-image :src="src"></el-image>
-				  </div>
-				  <div class="block">
-				    <span class="demonstration">自定义</span>
-				    <el-image :src="src">
-				      <div slot="placeholder" class="image-slot">
-				        加载中<span class="dot">...</span>
-				      </div>
-				    </el-image>
-				  </div>
+				<div class="block">
+					<span class="demonstration">默认</span>
+					<el-image :src="src"></el-image>
+				</div>
+				<div class="block">
+					<span class="demonstration">自定义</span>
+					<el-image :src="src">
+						<div slot="placeholder" class="image-slot">
+							加载中<span class="dot">...</span>
+						</div>
+					</el-image>
+				</div>
 				<el-divider content-position="left">加载失败</el-divider>
-				 <div class="block">
-				    <span class="demonstration">默认</span>
-				    <el-image></el-image>
-				  </div>
-				  <div class="block">
-				    <span class="demonstration">自定义</span>
-				    <el-image>
-				      <div slot="error" class="image-slot">
-				        <i class="el-icon-picture-outline"></i>
-				      </div>
-				    </el-image>
-				  </div>
+				<div class="block">
+					<span class="demonstration">默认</span>
+					<el-image></el-image>
+				</div>
+				<div class="block">
+					<span class="demonstration">自定义</span>
+					<el-image>
+						<div slot="error" class="image-slot">
+							<i class="el-icon-picture-outline"></i>
+						</div>
+					</el-image>
+				</div>
 				<el-divider content-position="left">懒加载</el-divider>
 				<el-image v-for="(url,idx) in urls" :key="url" :src="url"></el-image>
 				<el-divider content-position="left">大图预览</el-divider>
-				 <el-image 
-				    style="width: 100px; height: 100px"
-				    :src="url" 
-				    :preview-src-list="srcList">
-				  </el-image>
+				<el-image style="width: 100px; height: 100px" :src="url" :preview-src-list="srcList">
+				</el-image>
 			</scroll-view>
 		</el-tab-pane>
 	</el-tabs>
@@ -867,21 +864,21 @@
 		data() {
 			return {
 				src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-				 srcList: [
-				          'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-				          'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg'
-				        ],
+				srcList: [
+					'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
+					'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg'
+				],
 				urls: [
-				          'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-				          'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
-				          'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
-				          'https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg',
-				          'https://fuss10.elemecdn.com/d/e6/c4d93a3805b3ce3f323f7974e6f78jpeg.jpeg',
-				          'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg',
-				          'https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg'
-				        ],
-				 fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
-				        url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+					'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+					'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
+					'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
+					'https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg',
+					'https://fuss10.elemecdn.com/d/e6/c4d93a3805b3ce3f323f7974e6f78jpeg.jpeg',
+					'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg',
+					'https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg'
+				],
+				fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
+				url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
 				value: new Date(),
 				size: '',
 				drawer2: false,
@@ -1303,16 +1300,16 @@
 		color: #fff;
 		border-color: #E65D6E;
 	}
-	
+
 	.my-label {
-	    background: #E1F3D8;
-	  }
-	
-	  .my-content {
-	    background: #FDE2E2;
-	  }
-	  
-	  .is-selected {
-	      color: #1989FA;
-	    }
+		background: #E1F3D8;
+	}
+
+	.my-content {
+		background: #FDE2E2;
+	}
+
+	.is-selected {
+		color: #1989FA;
+	}
 </style>

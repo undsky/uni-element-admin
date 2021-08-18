@@ -40,6 +40,10 @@
 			"path": "pages/system/role/role"
 		}, {
 			"path": "pages/system/user/user"
+		}, {
+			"path": "pages/demo/tencentyun/tencentyun"
+		}, {
+			"path": "pages/demo/aliyun/aliyun"
 		}
 	],
 	"globalStyle": {

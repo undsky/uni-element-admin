@@ -8,6 +8,8 @@
 		"@fingerprintjs/fingerprintjs": "^3.2.0",
 		"@jiaminghi/data-view": "^2.10.0",
 		"@npkg/tinymce-plugins": "^0.0.6",
+		"ali-oss": "^6.16.0",
+		"cos-js-sdk-v5": "^1.2.16",
 		"driver.js": "^0.9.8",
 		"element-ui": "^2.15.5",
 		"jsbarcode": "^3.11.4",

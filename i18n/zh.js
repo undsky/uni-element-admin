@@ -35,6 +35,8 @@ export default {
 		clipboard: '剪切板',
 		map: '地图',
 		webSocket: 'webSocket',
+		aliyun: '阿里云',
+		tencentyun: '腾讯云',
 		self: '个人中心',
 		logout: '退出登录',
 		message: '消息',

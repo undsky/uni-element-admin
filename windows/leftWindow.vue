@@ -140,6 +140,18 @@
 					icon: '',
 					url: '/pages/demo/map/map',
 					keepAlive: true
+				}, {
+					id: 'aliyun',
+					pid: 'demo',
+					icon: '',
+					url: '/pages/demo/aliyun/aliyun',
+					keepAlive: true
+				}, {
+					id: 'tencentyun',
+					pid: 'demo',
+					icon: '',
+					url: '/pages/demo/tencentyun/tencentyun',
+					keepAlive: true
 				}]
 			};
 		},

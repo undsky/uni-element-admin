@@ -35,6 +35,8 @@ export default {
 		clipboard: 'clipboard',
 		map: 'map',
 		webSocket: 'webSocket',
+		aliyun: 'aliyun',
+		tencentyun: 'tencentyun',
 		self: 'user center',
 		logout: 'logout',
 		message: 'message',
