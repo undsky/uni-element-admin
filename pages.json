@@ -11,10 +11,6 @@
 		}, {
 			"path": "pages/demo/richeditor/richeditor"
 		}, {
-			"path": "pages/demo/form/form"
-		}, {
-			"path": "pages/demo/table/table"
-		}, {
 			"path": "pages/demo/signaturepad/signaturepad"
 		}, {
 			"path": "pages/demo/qrcode/qrcode"
@@ -27,15 +23,11 @@
 		}, {
 			"path": "pages/demo/player/player"
 		}, {
-			"path": "pages/demo/datav/datav"
-		}, {
 			"path": "pages/demo/basic/basic"
 		}, {
 			"path": "pages/demo/notice/notice"
 		}, {
 			"path": "pages/demo/other/other"
-		}, {
-			"path": "pages/demo/chart/chart"
 		}, {
 			"path": "pages/system/role/role"
 		}, {

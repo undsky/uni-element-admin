@@ -8,7 +8,7 @@
 		<div id="vs"></div>
 		<el-divider content-position="left">动画</el-divider>
 		<view>
-			<canvas id="svga" style="width: 700px; height: 700px;"></canvas>
+			<canvas id="svga" style="width: 375px; height: 375px;"></canvas>
 		</view>
 	</scroll-view>
 </template>

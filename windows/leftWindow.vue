@@ -78,13 +78,13 @@
 					id: 'form',
 					pid: 'demo',
 					icon: '',
-					url: '/pages/demo/form/form',
+					url: 'https://mrhj.gitee.io/form-generator/#/',
 					keepAlive: true
 				}, {
 					id: 'table',
 					pid: 'demo',
 					icon: '',
-					url: '/pages/demo/table/table',
+					url: 'https://xuliangzhan_admin.gitee.io/vxe-table/#/',
 					keepAlive: true
 				}, {
 					id: 'richeditor',
@@ -96,13 +96,13 @@
 					id: 'chart',
 					pid: 'demo',
 					icon: '',
-					url: '/pages/demo/chart/chart',
+					url: 'https://demo.ucharts.cn/#/',
 					keepAlive: true
 				}, {
 					id: 'datav',
 					pid: 'demo',
 					icon: '',
-					url: '/pages/demo/datav/datav',
+					url: 'http://datav.jiaminghi.com/demo/construction-data/index.html',
 					keepAlive: true
 				}, {
 					id: 'player',
