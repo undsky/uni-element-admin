@@ -213,132 +213,132 @@
 			<scroll-view class="main" scroll-y>
 				<el-divider content-position="left">常见页面布局</el-divider>
 				<el-container>
-				  <el-header>Header</el-header>
-				  <el-main>Main</el-main>
+					<el-header>Header</el-header>
+					<el-main>Main</el-main>
 				</el-container>
-				
+
 				<el-container>
-				  <el-header>Header</el-header>
-				  <el-main>Main</el-main>
-				  <el-footer>Footer</el-footer>
+					<el-header>Header</el-header>
+					<el-main>Main</el-main>
+					<el-footer>Footer</el-footer>
 				</el-container>
-				
+
 				<el-container>
-				  <el-aside width="200px">Aside</el-aside>
-				  <el-main>Main</el-main>
+					<el-aside width="200px">Aside</el-aside>
+					<el-main>Main</el-main>
 				</el-container>
-				
+
 				<el-container>
-				  <el-header>Header</el-header>
-				  <el-container>
-				    <el-aside width="200px">Aside</el-aside>
-				    <el-main>Main</el-main>
-				  </el-container>
+					<el-header>Header</el-header>
+					<el-container>
+						<el-aside width="200px">Aside</el-aside>
+						<el-main>Main</el-main>
+					</el-container>
 				</el-container>
-				
+
 				<el-container>
-				  <el-header>Header</el-header>
-				  <el-container>
-				    <el-aside width="200px">Aside</el-aside>
-				    <el-container>
-				      <el-main>Main</el-main>
-				      <el-footer>Footer</el-footer>
-				    </el-container>
-				  </el-container>
+					<el-header>Header</el-header>
+					<el-container>
+						<el-aside width="200px">Aside</el-aside>
+						<el-container>
+							<el-main>Main</el-main>
+							<el-footer>Footer</el-footer>
+						</el-container>
+					</el-container>
 				</el-container>
-				
+
 				<el-container>
-				  <el-aside width="200px">Aside</el-aside>
-				  <el-container>
-				    <el-header>Header</el-header>
-				    <el-main>Main</el-main>
-				  </el-container>
+					<el-aside width="200px">Aside</el-aside>
+					<el-container>
+						<el-header>Header</el-header>
+						<el-main>Main</el-main>
+					</el-container>
 				</el-container>
-				
+
 				<el-container>
-				  <el-aside width="200px">Aside</el-aside>
-				  <el-container>
-				    <el-header>Header</el-header>
-				    <el-main>Main</el-main>
-				    <el-footer>Footer</el-footer>
-				  </el-container>
+					<el-aside width="200px">Aside</el-aside>
+					<el-container>
+						<el-header>Header</el-header>
+						<el-main>Main</el-main>
+						<el-footer>Footer</el-footer>
+					</el-container>
 				</el-container>
 				<el-divider content-position="left">实例</el-divider>
 				<el-container style="height: 500px; border: 1px solid #eee">
-				  <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-				    <el-menu :default-openeds="['1', '3']">
-				      <el-submenu index="1">
-				        <template slot="title"><i class="el-icon-message"></i>导航一</template>
-				        <el-menu-item-group>
-				          <template slot="title">分组一</template>
-				          <el-menu-item index="1-1">选项1</el-menu-item>
-				          <el-menu-item index="1-2">选项2</el-menu-item>
-				        </el-menu-item-group>
-				        <el-menu-item-group title="分组2">
-				          <el-menu-item index="1-3">选项3</el-menu-item>
-				        </el-menu-item-group>
-				        <el-submenu index="1-4">
-				          <template slot="title">选项4</template>
-				          <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-				        </el-submenu>
-				      </el-submenu>
-				      <el-submenu index="2">
-				        <template slot="title"><i class="el-icon-menu"></i>导航二</template>
-				        <el-menu-item-group>
-				          <template slot="title">分组一</template>
-				          <el-menu-item index="2-1">选项1</el-menu-item>
-				          <el-menu-item index="2-2">选项2</el-menu-item>
-				        </el-menu-item-group>
-				        <el-menu-item-group title="分组2">
-				          <el-menu-item index="2-3">选项3</el-menu-item>
-				        </el-menu-item-group>
-				        <el-submenu index="2-4">
-				          <template slot="title">选项4</template>
-				          <el-menu-item index="2-4-1">选项4-1</el-menu-item>
-				        </el-submenu>
-				      </el-submenu>
-				      <el-submenu index="3">
-				        <template slot="title"><i class="el-icon-setting"></i>导航三</template>
-				        <el-menu-item-group>
-				          <template slot="title">分组一</template>
-				          <el-menu-item index="3-1">选项1</el-menu-item>
-				          <el-menu-item index="3-2">选项2</el-menu-item>
-				        </el-menu-item-group>
-				        <el-menu-item-group title="分组2">
-				          <el-menu-item index="3-3">选项3</el-menu-item>
-				        </el-menu-item-group>
-				        <el-submenu index="3-4">
-				          <template slot="title">选项4</template>
-				          <el-menu-item index="3-4-1">选项4-1</el-menu-item>
-				        </el-submenu>
-				      </el-submenu>
-				    </el-menu>
-				  </el-aside>
-				  
-				  <el-container>
-				    <el-header style="text-align: right; font-size: 12px">
-				      <el-dropdown>
-				        <i class="el-icon-setting" style="margin-right: 15px"></i>
-				        <el-dropdown-menu slot="dropdown">
-				          <el-dropdown-item>查看</el-dropdown-item>
-				          <el-dropdown-item>新增</el-dropdown-item>
-				          <el-dropdown-item>删除</el-dropdown-item>
-				        </el-dropdown-menu>
-				      </el-dropdown>
-				      <span>王小虎</span>
-				    </el-header>
-				    
-				    <el-main>
-				      <el-table :data="tableData">
-				        <el-table-column prop="date" label="日期" width="140">
-				        </el-table-column>
-				        <el-table-column prop="name" label="姓名" width="120">
-				        </el-table-column>
-				        <el-table-column prop="address" label="地址">
-				        </el-table-column>
-				      </el-table>
-				    </el-main>
-				  </el-container>
+					<el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+						<el-menu :default-openeds="['1', '3']">
+							<el-submenu index="1">
+								<template slot="title"><i class="el-icon-message"></i>导航一</template>
+								<el-menu-item-group>
+									<template slot="title">分组一</template>
+									<el-menu-item index="1-1">选项1</el-menu-item>
+									<el-menu-item index="1-2">选项2</el-menu-item>
+								</el-menu-item-group>
+								<el-menu-item-group title="分组2">
+									<el-menu-item index="1-3">选项3</el-menu-item>
+								</el-menu-item-group>
+								<el-submenu index="1-4">
+									<template slot="title">选项4</template>
+									<el-menu-item index="1-4-1">选项4-1</el-menu-item>
+								</el-submenu>
+							</el-submenu>
+							<el-submenu index="2">
+								<template slot="title"><i class="el-icon-menu"></i>导航二</template>
+								<el-menu-item-group>
+									<template slot="title">分组一</template>
+									<el-menu-item index="2-1">选项1</el-menu-item>
+									<el-menu-item index="2-2">选项2</el-menu-item>
+								</el-menu-item-group>
+								<el-menu-item-group title="分组2">
+									<el-menu-item index="2-3">选项3</el-menu-item>
+								</el-menu-item-group>
+								<el-submenu index="2-4">
+									<template slot="title">选项4</template>
+									<el-menu-item index="2-4-1">选项4-1</el-menu-item>
+								</el-submenu>
+							</el-submenu>
+							<el-submenu index="3">
+								<template slot="title"><i class="el-icon-setting"></i>导航三</template>
+								<el-menu-item-group>
+									<template slot="title">分组一</template>
+									<el-menu-item index="3-1">选项1</el-menu-item>
+									<el-menu-item index="3-2">选项2</el-menu-item>
+								</el-menu-item-group>
+								<el-menu-item-group title="分组2">
+									<el-menu-item index="3-3">选项3</el-menu-item>
+								</el-menu-item-group>
+								<el-submenu index="3-4">
+									<template slot="title">选项4</template>
+									<el-menu-item index="3-4-1">选项4-1</el-menu-item>
+								</el-submenu>
+							</el-submenu>
+						</el-menu>
+					</el-aside>
+
+					<el-container>
+						<el-header style="text-align: right; font-size: 12px">
+							<el-dropdown>
+								<i class="el-icon-setting" style="margin-right: 15px"></i>
+								<el-dropdown-menu slot="dropdown">
+									<el-dropdown-item>查看</el-dropdown-item>
+									<el-dropdown-item>新增</el-dropdown-item>
+									<el-dropdown-item>删除</el-dropdown-item>
+								</el-dropdown-menu>
+							</el-dropdown>
+							<span>王小虎</span>
+						</el-header>
+
+						<el-main>
+							<el-table :data="tableData">
+								<el-table-column prop="date" label="日期" width="140">
+								</el-table-column>
+								<el-table-column prop="name" label="姓名" width="120">
+								</el-table-column>
+								<el-table-column prop="address" label="地址">
+								</el-table-column>
+							</el-table>
+						</el-main>
+					</el-container>
 				</el-container>
 			</scroll-view>
 		</el-tab-pane>
@@ -953,141 +953,115 @@
 				<el-skeleton :rows="6" animated />
 				<el-divider content-position="left">自定义样式</el-divider>
 				<el-skeleton style="width: 240px">
-				    <template slot="template">
-				      <el-skeleton-item variant="image" style="width: 240px; height: 240px;" />
-				      <div style="padding: 14px;">
-				        <el-skeleton-item variant="p" style="width: 50%" />
-				        <div
-				          style="display: flex; align-items: center; justify-items: space-between;"
-				        >
-				          <el-skeleton-item variant="text" style="margin-right: 16px;" />
-				          <el-skeleton-item variant="text" style="width: 30%;" />
-				        </div>
-				      </div>
-				    </template>
-				  </el-skeleton>
+					<template slot="template">
+						<el-skeleton-item variant="image" style="width: 240px; height: 240px;" />
+						<div style="padding: 14px;">
+							<el-skeleton-item variant="p" style="width: 50%" />
+							<div style="display: flex; align-items: center; justify-items: space-between;">
+								<el-skeleton-item variant="text" style="margin-right: 16px;" />
+								<el-skeleton-item variant="text" style="width: 30%;" />
+							</div>
+						</div>
+					</template>
+				</el-skeleton>
 				<el-divider content-position="left">Loading 状态</el-divider>
 				<div style="width: 240px">
-				    <p>
-				      <label style="margin-right: 16px;">切换 Loading</label>
-				      <el-switch v-model="loading" />
-				    </p>
-				    <el-skeleton style="width: 240px" :loading="loading" animated>
-				      <template slot="template">
-				        <el-skeleton-item
-				          variant="image"
-				          style="width: 240px; height: 240px;"
-				        />
-				        <div style="padding: 14px;">
-				          <el-skeleton-item variant="h3" style="width: 50%;" />
-				          <div
-				            style="display: flex; align-items: center; justify-items: space-between; margin-top: 16px; height: 16px;"
-				          >
-				            <el-skeleton-item variant="text" style="margin-right: 16px;" />
-				            <el-skeleton-item variant="text" style="width: 30%;" />
-				          </div>
-				        </div>
-				      </template>
-				      <template>
-				        <el-card :body-style="{ padding: '0px', marginBottom: '1px' }">
-				          <img
-				            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-				            class="image"
-				          />
-				          <div style="padding: 14px;">
-				            <span>好吃的汉堡</span>
-				            <div class="bottom card-header">
-				              <span class="time">{{ currentDate }}</span>
-				              <el-button type="text" class="button">操作按钮</el-button>
-				            </div>
-				          </div>
-				        </el-card>
-				      </template>
-				    </el-skeleton>
-				  </div>
+					<p>
+						<label style="margin-right: 16px;">切换 Loading</label>
+						<el-switch v-model="loading" />
+					</p>
+					<el-skeleton style="width: 240px" :loading="loading" animated>
+						<template slot="template">
+							<el-skeleton-item variant="image" style="width: 240px; height: 240px;" />
+							<div style="padding: 14px;">
+								<el-skeleton-item variant="h3" style="width: 50%;" />
+								<div
+									style="display: flex; align-items: center; justify-items: space-between; margin-top: 16px; height: 16px;">
+									<el-skeleton-item variant="text" style="margin-right: 16px;" />
+									<el-skeleton-item variant="text" style="width: 30%;" />
+								</div>
+							</div>
+						</template>
+						<template>
+							<el-card :body-style="{ padding: '0px', marginBottom: '1px' }">
+								<img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+									class="image" />
+								<div style="padding: 14px;">
+									<span>好吃的汉堡</span>
+									<div class="bottom card-header">
+										<span class="time">{{ currentDate }}</span>
+										<el-button type="text" class="button">操作按钮</el-button>
+									</div>
+								</div>
+							</el-card>
+						</template>
+					</el-skeleton>
+				</div>
 				<el-divider content-position="left">渲染多条数据</el-divider>
 				<div style="width: 400px">
-				    <p>
-				      <el-button @click="setLoading">点我重新加载</el-button>
-				    </p>
-				    <el-skeleton style="width:400px" :loading="loading" animated :count="3">
-				      <template slot="template">
-				        <el-skeleton-item
-				          variant="image"
-				          style="width: 400px; height: 267px;"
-				        />
-				        <div style="padding: 14px;">
-				          <el-skeleton-item variant="h3" style="width: 50%;" />
-				          <div
-				            style="display: flex; align-items: center; justify-items: space-between; margin-top: 16px; height: 16px;"
-				          >
-				            <el-skeleton-item variant="text" style="margin-right: 16px;" />
-				            <el-skeleton-item variant="text" style="width: 30%;" />
-				          </div>
-				        </div>
-				      </template>
-				      <template>
-				        <el-card
-				          :body-style="{ padding: '0px', marginBottom: '1px' }"
-				          v-for="item in lists"
-				          :key="item.name"
-				        >
-				          <img :src="item.imgUrl" class="image multi-content" />
-				          <div style="padding: 14px;">
-				            <span>{{ item.name }}</span>
-				            <div class="bottom card-header">
-				              <span class="time">{{ currentDate }}</span>
-				              <el-button type="text" class="button">操作按钮</el-button>
-				            </div>
-				          </div>
-				        </el-card>
-				      </template>
-				    </el-skeleton>
-				  </div>
+					<p>
+						<el-button @click="setLoading">点我重新加载</el-button>
+					</p>
+					<el-skeleton style="width:400px" :loading="loading" animated :count="3">
+						<template slot="template">
+							<el-skeleton-item variant="image" style="width: 400px; height: 267px;" />
+							<div style="padding: 14px;">
+								<el-skeleton-item variant="h3" style="width: 50%;" />
+								<div
+									style="display: flex; align-items: center; justify-items: space-between; margin-top: 16px; height: 16px;">
+									<el-skeleton-item variant="text" style="margin-right: 16px;" />
+									<el-skeleton-item variant="text" style="width: 30%;" />
+								</div>
+							</div>
+						</template>
+						<template>
+							<el-card :body-style="{ padding: '0px', marginBottom: '1px' }" v-for="item in lists"
+								:key="item.name">
+								<img :src="item.imgUrl" class="image multi-content" />
+								<div style="padding: 14px;">
+									<span>{{ item.name }}</span>
+									<div class="bottom card-header">
+										<span class="time">{{ currentDate }}</span>
+										<el-button type="text" class="button">操作按钮</el-button>
+									</div>
+								</div>
+							</el-card>
+						</template>
+					</el-skeleton>
+				</div>
 				<el-divider content-position="left">防止渲染抖动</el-divider>
 				<div style="width: 240px">
-				    <p>
-				      <label style="margin-right: 16px;">切换 Loading</label>
-				      <el-switch v-model="loading" />
-				    </p>
-				    <el-skeleton
-				      style="width: 240px"
-				      :loading="loading"
-				      animated
-				      :throttle="500"
-				    >
-				      <template slot="template">
-				        <el-skeleton-item
-				          variant="image"
-				          style="width: 240px; height: 240px;"
-				        />
-				        <div style="padding: 14px;">
-				          <el-skeleton-item variant="h3" style="width: 50%;" />
-				          <div
-				            style="display: flex; align-items: center; justify-items: space-between; margin-top: 16px; height: 16px;"
-				          >
-				            <el-skeleton-item variant="text" style="margin-right: 16px;" />
-				            <el-skeleton-item variant="text" style="width: 30%;" />
-				          </div>
-				        </div>
-				      </template>
-				      <template>
-				        <el-card :body-style="{ padding: '0px', marginBottom: '1px'}">
-				          <img
-				            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-				            class="image"
-				          />
-				          <div style="padding: 14px;">
-				            <span>好吃的汉堡</span>
-				            <div class="bottom card-header">
-				              <span class="time">{{ currentDate }}</span>
-				              <el-button type="text" class="button">操作按钮</el-button>
-				            </div>
-				          </div>
-				        </el-card>
-				      </template>
-				    </el-skeleton>
-				  </div>
+					<p>
+						<label style="margin-right: 16px;">切换 Loading</label>
+						<el-switch v-model="loading" />
+					</p>
+					<el-skeleton style="width: 240px" :loading="loading" animated :throttle="500">
+						<template slot="template">
+							<el-skeleton-item variant="image" style="width: 240px; height: 240px;" />
+							<div style="padding: 14px;">
+								<el-skeleton-item variant="h3" style="width: 50%;" />
+								<div
+									style="display: flex; align-items: center; justify-items: space-between; margin-top: 16px; height: 16px;">
+									<el-skeleton-item variant="text" style="margin-right: 16px;" />
+									<el-skeleton-item variant="text" style="width: 30%;" />
+								</div>
+							</div>
+						</template>
+						<template>
+							<el-card :body-style="{ padding: '0px', marginBottom: '1px'}">
+								<img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+									class="image" />
+								<div style="padding: 14px;">
+									<span>好吃的汉堡</span>
+									<div class="bottom card-header">
+										<span class="time">{{ currentDate }}</span>
+										<el-button type="text" class="button">操作按钮</el-button>
+									</div>
+								</div>
+							</el-card>
+						</template>
+					</el-skeleton>
+				</div>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="empty">
@@ -1114,167 +1088,154 @@
 			<scroll-view class="main" scroll-y>
 				<el-divider content-position="left">顶栏</el-divider>
 				<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-				  <el-menu-item index="1">处理中心</el-menu-item>
-				  <el-submenu index="2">
-				    <template slot="title">我的工作台</template>
-				    <el-menu-item index="2-1">选项1</el-menu-item>
-				    <el-menu-item index="2-2">选项2</el-menu-item>
-				    <el-menu-item index="2-3">选项3</el-menu-item>
-				    <el-submenu index="2-4">
-				      <template slot="title">选项4</template>
-				      <el-menu-item index="2-4-1">选项1</el-menu-item>
-				      <el-menu-item index="2-4-2">选项2</el-menu-item>
-				      <el-menu-item index="2-4-3">选项3</el-menu-item>
-				    </el-submenu>
-				  </el-submenu>
-				  <el-menu-item index="3" disabled>消息中心</el-menu-item>
-				  <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+					<el-menu-item index="1">处理中心</el-menu-item>
+					<el-submenu index="2">
+						<template slot="title">我的工作台</template>
+						<el-menu-item index="2-1">选项1</el-menu-item>
+						<el-menu-item index="2-2">选项2</el-menu-item>
+						<el-menu-item index="2-3">选项3</el-menu-item>
+						<el-submenu index="2-4">
+							<template slot="title">选项4</template>
+							<el-menu-item index="2-4-1">选项1</el-menu-item>
+							<el-menu-item index="2-4-2">选项2</el-menu-item>
+							<el-menu-item index="2-4-3">选项3</el-menu-item>
+						</el-submenu>
+					</el-submenu>
+					<el-menu-item index="3" disabled>消息中心</el-menu-item>
+					<el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
 				</el-menu>
 				<div class="line"></div>
-				<el-menu
-				  :default-active="activeIndex2"
-				  class="el-menu-demo"
-				  mode="horizontal"
-				  @select="handleSelect"
-				  background-color="#545c64"
-				  text-color="#fff"
-				  active-text-color="#ffd04b">
-				  <el-menu-item index="1">处理中心</el-menu-item>
-				  <el-submenu index="2">
-				    <template slot="title">我的工作台</template>
-				    <el-menu-item index="2-1">选项1</el-menu-item>
-				    <el-menu-item index="2-2">选项2</el-menu-item>
-				    <el-menu-item index="2-3">选项3</el-menu-item>
-				    <el-submenu index="2-4">
-				      <template slot="title">选项4</template>
-				      <el-menu-item index="2-4-1">选项1</el-menu-item>
-				      <el-menu-item index="2-4-2">选项2</el-menu-item>
-				      <el-menu-item index="2-4-3">选项3</el-menu-item>
-				    </el-submenu>
-				  </el-submenu>
-				  <el-menu-item index="3" disabled>消息中心</el-menu-item>
-				  <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+				<el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+					background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+					<el-menu-item index="1">处理中心</el-menu-item>
+					<el-submenu index="2">
+						<template slot="title">我的工作台</template>
+						<el-menu-item index="2-1">选项1</el-menu-item>
+						<el-menu-item index="2-2">选项2</el-menu-item>
+						<el-menu-item index="2-3">选项3</el-menu-item>
+						<el-submenu index="2-4">
+							<template slot="title">选项4</template>
+							<el-menu-item index="2-4-1">选项1</el-menu-item>
+							<el-menu-item index="2-4-2">选项2</el-menu-item>
+							<el-menu-item index="2-4-3">选项3</el-menu-item>
+						</el-submenu>
+					</el-submenu>
+					<el-menu-item index="3" disabled>消息中心</el-menu-item>
+					<el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
 				</el-menu>
 				<el-divider content-position="left">侧栏</el-divider>
 				<el-row class="tac">
-				  <el-col :span="12">
-				    <h5>默认颜色</h5>
-				    <el-menu
-				      default-active="2"
-				      class="el-menu-vertical-demo"
-				      @open="handleMenuOpen"
-				      @close="handleMenuClose">
-				      <el-submenu index="1">
-				        <template slot="title">
-				          <i class="el-icon-location"></i>
-				          <span>导航一</span>
-				        </template>
-				        <el-menu-item-group>
-				          <template slot="title">分组一</template>
-				          <el-menu-item index="1-1">选项1</el-menu-item>
-				          <el-menu-item index="1-2">选项2</el-menu-item>
-				        </el-menu-item-group>
-				        <el-menu-item-group title="分组2">
-				          <el-menu-item index="1-3">选项3</el-menu-item>
-				        </el-menu-item-group>
-				        <el-submenu index="1-4">
-				          <template slot="title">选项4</template>
-				          <el-menu-item index="1-4-1">选项1</el-menu-item>
-				        </el-submenu>
-				      </el-submenu>
-				      <el-menu-item index="2">
-				        <i class="el-icon-menu"></i>
-				        <span slot="title">导航二</span>
-				      </el-menu-item>
-				      <el-menu-item index="3" disabled>
-				        <i class="el-icon-document"></i>
-				        <span slot="title">导航三</span>
-				      </el-menu-item>
-				      <el-menu-item index="4">
-				        <i class="el-icon-setting"></i>
-				        <span slot="title">导航四</span>
-				      </el-menu-item>
-				    </el-menu>
-				  </el-col>
-				  <el-col :span="12">
-				    <h5>自定义颜色</h5>
-				    <el-menu
-				      default-active="2"
-				      class="el-menu-vertical-demo"
-				      @open="handleMenuOpen"
-				      @close="handleMenuClose"
-				      background-color="#545c64"
-				      text-color="#fff"
-				      active-text-color="#ffd04b">
-				      <el-submenu index="1">
-				        <template slot="title">
-				          <i class="el-icon-location"></i>
-				          <span>导航一</span>
-				        </template>
-				        <el-menu-item-group>
-				          <template slot="title">分组一</template>
-				          <el-menu-item index="1-1">选项1</el-menu-item>
-				          <el-menu-item index="1-2">选项2</el-menu-item>
-				        </el-menu-item-group>
-				        <el-menu-item-group title="分组2">
-				          <el-menu-item index="1-3">选项3</el-menu-item>
-				        </el-menu-item-group>
-				        <el-submenu index="1-4">
-				          <template slot="title">选项4</template>
-				          <el-menu-item index="1-4-1">选项1</el-menu-item>
-				        </el-submenu>
-				      </el-submenu>
-				      <el-menu-item index="2">
-				        <i class="el-icon-menu"></i>
-				        <span slot="title">导航二</span>
-				      </el-menu-item>
-				      <el-menu-item index="3" disabled>
-				        <i class="el-icon-document"></i>
-				        <span slot="title">导航三</span>
-				      </el-menu-item>
-				      <el-menu-item index="4">
-				        <i class="el-icon-setting"></i>
-				        <span slot="title">导航四</span>
-				      </el-menu-item>
-				    </el-menu>
-				  </el-col>
+					<el-col :span="12">
+						<h5>默认颜色</h5>
+						<el-menu default-active="2" class="el-menu-vertical-demo" @open="handleMenuOpen"
+							@close="handleMenuClose">
+							<el-submenu index="1">
+								<template slot="title">
+									<i class="el-icon-location"></i>
+									<span>导航一</span>
+								</template>
+								<el-menu-item-group>
+									<template slot="title">分组一</template>
+									<el-menu-item index="1-1">选项1</el-menu-item>
+									<el-menu-item index="1-2">选项2</el-menu-item>
+								</el-menu-item-group>
+								<el-menu-item-group title="分组2">
+									<el-menu-item index="1-3">选项3</el-menu-item>
+								</el-menu-item-group>
+								<el-submenu index="1-4">
+									<template slot="title">选项4</template>
+									<el-menu-item index="1-4-1">选项1</el-menu-item>
+								</el-submenu>
+							</el-submenu>
+							<el-menu-item index="2">
+								<i class="el-icon-menu"></i>
+								<span slot="title">导航二</span>
+							</el-menu-item>
+							<el-menu-item index="3" disabled>
+								<i class="el-icon-document"></i>
+								<span slot="title">导航三</span>
+							</el-menu-item>
+							<el-menu-item index="4">
+								<i class="el-icon-setting"></i>
+								<span slot="title">导航四</span>
+							</el-menu-item>
+						</el-menu>
+					</el-col>
+					<el-col :span="12">
+						<h5>自定义颜色</h5>
+						<el-menu default-active="2" class="el-menu-vertical-demo" @open="handleMenuOpen"
+							@close="handleMenuClose" background-color="#545c64" text-color="#fff"
+							active-text-color="#ffd04b">
+							<el-submenu index="1">
+								<template slot="title">
+									<i class="el-icon-location"></i>
+									<span>导航一</span>
+								</template>
+								<el-menu-item-group>
+									<template slot="title">分组一</template>
+									<el-menu-item index="1-1">选项1</el-menu-item>
+									<el-menu-item index="1-2">选项2</el-menu-item>
+								</el-menu-item-group>
+								<el-menu-item-group title="分组2">
+									<el-menu-item index="1-3">选项3</el-menu-item>
+								</el-menu-item-group>
+								<el-submenu index="1-4">
+									<template slot="title">选项4</template>
+									<el-menu-item index="1-4-1">选项1</el-menu-item>
+								</el-submenu>
+							</el-submenu>
+							<el-menu-item index="2">
+								<i class="el-icon-menu"></i>
+								<span slot="title">导航二</span>
+							</el-menu-item>
+							<el-menu-item index="3" disabled>
+								<i class="el-icon-document"></i>
+								<span slot="title">导航三</span>
+							</el-menu-item>
+							<el-menu-item index="4">
+								<i class="el-icon-setting"></i>
+								<span slot="title">导航四</span>
+							</el-menu-item>
+						</el-menu>
+					</el-col>
 				</el-row>
 				<el-divider content-position="left">折叠</el-divider>
 				<el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-				  <el-radio-button :label="false">展开</el-radio-button>
-				  <el-radio-button :label="true">收起</el-radio-button>
+					<el-radio-button :label="false">展开</el-radio-button>
+					<el-radio-button :label="true">收起</el-radio-button>
 				</el-radio-group>
-				<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-				  <el-submenu index="1">
-				    <template slot="title">
-				      <i class="el-icon-location"></i>
-				      <span slot="title">导航一</span>
-				    </template>
-				    <el-menu-item-group>
-				      <span slot="title">分组一</span>
-				      <el-menu-item index="1-1">选项1</el-menu-item>
-				      <el-menu-item index="1-2">选项2</el-menu-item>
-				    </el-menu-item-group>
-				    <el-menu-item-group title="分组2">
-				      <el-menu-item index="1-3">选项3</el-menu-item>
-				    </el-menu-item-group>
-				    <el-submenu index="1-4">
-				      <span slot="title">选项4</span>
-				      <el-menu-item index="1-4-1">选项1</el-menu-item>
-				    </el-submenu>
-				  </el-submenu>
-				  <el-menu-item index="2">
-				    <i class="el-icon-menu"></i>
-				    <span slot="title">导航二</span>
-				  </el-menu-item>
-				  <el-menu-item index="3" disabled>
-				    <i class="el-icon-document"></i>
-				    <span slot="title">导航三</span>
-				  </el-menu-item>
-				  <el-menu-item index="4">
-				    <i class="el-icon-setting"></i>
-				    <span slot="title">导航四</span>
-				  </el-menu-item>
+				<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+					:collapse="isCollapse">
+					<el-submenu index="1">
+						<template slot="title">
+							<i class="el-icon-location"></i>
+							<span slot="title">导航一</span>
+						</template>
+						<el-menu-item-group>
+							<span slot="title">分组一</span>
+							<el-menu-item index="1-1">选项1</el-menu-item>
+							<el-menu-item index="1-2">选项2</el-menu-item>
+						</el-menu-item-group>
+						<el-menu-item-group title="分组2">
+							<el-menu-item index="1-3">选项3</el-menu-item>
+						</el-menu-item-group>
+						<el-submenu index="1-4">
+							<span slot="title">选项4</span>
+							<el-menu-item index="1-4-1">选项1</el-menu-item>
+						</el-submenu>
+					</el-submenu>
+					<el-menu-item index="2">
+						<i class="el-icon-menu"></i>
+						<span slot="title">导航二</span>
+					</el-menu-item>
+					<el-menu-item index="3" disabled>
+						<i class="el-icon-document"></i>
+						<span slot="title">导航三</span>
+					</el-menu-item>
+					<el-menu-item index="4">
+						<i class="el-icon-setting"></i>
+						<span slot="title">导航四</span>
+					</el-menu-item>
 				</el-menu>
 			</scroll-view>
 		</el-tab-pane>
@@ -1284,79 +1245,113 @@
 			<scroll-view class="main" scroll-y>
 				<el-divider content-position="left">基础用法</el-divider>
 				<el-tabs v-model="activeName" @tab-click="handleClick">
-				    <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
-				    <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-				    <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-				    <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
-				  </el-tabs>
+					<el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+					<el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+					<el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+					<el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+				</el-tabs>
 				<el-divider content-position="left">选项卡样式</el-divider>
 				<el-tabs v-model="activeName" type="card" @tab-click="handleClick">
-				    <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
-				    <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-				    <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-				    <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
-				  </el-tabs>
+					<el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+					<el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+					<el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+					<el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+				</el-tabs>
 				<el-divider content-position="left">卡片化</el-divider>
 				<el-tabs type="border-card">
-				  <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-				  <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-				  <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-				  <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+					<el-tab-pane label="用户管理">用户管理</el-tab-pane>
+					<el-tab-pane label="配置管理">配置管理</el-tab-pane>
+					<el-tab-pane label="角色管理">角色管理</el-tab-pane>
+					<el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
 				</el-tabs>
 				<el-divider content-position="left">位置</el-divider>
 				<el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
-				    <el-radio-button label="top">top</el-radio-button>
-				    <el-radio-button label="right">right</el-radio-button>
-				    <el-radio-button label="bottom">bottom</el-radio-button>
-				    <el-radio-button label="left">left</el-radio-button>
-				  </el-radio-group>
-				
-				  <el-tabs :tab-position="tabPosition" style="height: 200px;">
-				    <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-				    <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-				    <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-				    <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-				  </el-tabs>
+					<el-radio-button label="top">top</el-radio-button>
+					<el-radio-button label="right">right</el-radio-button>
+					<el-radio-button label="bottom">bottom</el-radio-button>
+					<el-radio-button label="left">left</el-radio-button>
+				</el-radio-group>
+
+				<el-tabs :tab-position="tabPosition" style="height: 200px;">
+					<el-tab-pane label="用户管理">用户管理</el-tab-pane>
+					<el-tab-pane label="配置管理">配置管理</el-tab-pane>
+					<el-tab-pane label="角色管理">角色管理</el-tab-pane>
+					<el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+				</el-tabs>
 				<el-divider content-position="left">自定义标签页</el-divider>
 				<el-tabs type="border-card">
-				  <el-tab-pane>
-				    <span slot="label"><i class="el-icon-date"></i> 我的行程</span>
-				    我的行程
-				  </el-tab-pane>
-				  <el-tab-pane label="消息中心">消息中心</el-tab-pane>
-				  <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-				  <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+					<el-tab-pane>
+						<span slot="label"><i class="el-icon-date"></i> 我的行程</span>
+						我的行程
+					</el-tab-pane>
+					<el-tab-pane label="消息中心">消息中心</el-tab-pane>
+					<el-tab-pane label="角色管理">角色管理</el-tab-pane>
+					<el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
 				</el-tabs>
 				<el-divider content-position="left">动态增减标签页</el-divider>
 				<el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
-				  <el-tab-pane
-				    :key="item.name"
-				    v-for="(item, index) in editableTabs"
-				    :label="item.title"
-				    :name="item.name"
-				  >
-				    {{item.content}}
-				  </el-tab-pane>
+					<el-tab-pane :key="item.name" v-for="(item, index) in editableTabs" :label="item.title"
+						:name="item.name">
+						{{item.content}}
+					</el-tab-pane>
 				</el-tabs>
 				<el-divider content-position="left">自定义增加标签页触发器</el-divider>
 				<div style="margin-bottom: 20px;">
-				  <el-button
-				    size="small"
-				    @click="addTab(editableTabsValue)"
-				  >
-				    add tab
-				  </el-button>
+					<el-button size="small" @click="addTab(editableTabsValue)">
+						add tab
+					</el-button>
 				</div>
 				<el-tabs v-model="editableTabsValue" type="card" closable @tab-remove="removeTab">
-				  <el-tab-pane
-				    v-for="(item, index) in editableTabs"
-				    :key="item.name"
-				    :label="item.title"
-				    :name="item.name"
-				  >
-				    {{item.content}}
-				  </el-tab-pane>
+					<el-tab-pane v-for="(item, index) in editableTabs" :key="item.name" :label="item.title"
+						:name="item.name">
+						{{item.content}}
+					</el-tab-pane>
 				</el-tabs>
+			</scroll-view>
+		</el-tab-pane>
+		<el-tab-pane name="transition">
+			<span slot="label">过渡动画<i
+					@click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/transition')"
+					class="el-icon-question margin-left text-color-grey"></i></span>
+			<scroll-view class="main" scroll-y>
+				<el-divider content-position="left">fade 淡入淡出</el-divider>
+				<el-button @click="show = !show">Click Me</el-button>
+
+				<div style="display: flex; margin-top: 20px; height: 100px;">
+					<transition name="el-fade-in-linear">
+						<div v-show="show" class="transition-box">.el-fade-in-linear</div>
+					</transition>
+					<transition name="el-fade-in">
+						<div v-show="show" class="transition-box">.el-fade-in</div>
+					</transition>
+				</div>
+				<el-divider content-position="left">zoom 缩放</el-divider>
+				<el-button @click="show2 = !show2">Click Me</el-button>
+
+				<div style="display: flex; margin-top: 20px; height: 100px;">
+					<transition name="el-zoom-in-center">
+						<div v-show="show2" class="transition-box">.el-zoom-in-center</div>
+					</transition>
+
+					<transition name="el-zoom-in-top">
+						<div v-show="show2" class="transition-box">.el-zoom-in-top</div>
+					</transition>
+
+					<transition name="el-zoom-in-bottom">
+						<div v-show="show2" class="transition-box">.el-zoom-in-bottom</div>
+					</transition>
+				</div>
+				<el-divider content-position="left">collapse 展开折叠</el-divider>
+				<el-button @click="show3 = !show3">Click Me</el-button>
+
+				<div style="margin-top: 20px; height: 200px;">
+					<el-collapse-transition>
+						<div v-show="show3">
+							<div class="transition-box">el-collapse-transition</div>
+							<div class="transition-box">el-collapse-transition</div>
+						</div>
+					</el-collapse-transition>
+				</div>
 			</scroll-view>
 		</el-tab-pane>
 	</el-tabs>
@@ -1367,23 +1362,26 @@
 
 	export default {
 		data() {
-			 const item = {
-			        date: '2016-05-02',
-			        name: '王小虎',
-			        address: '上海市普陀区金沙江路 1518 弄'
-			      };
+			const item = {
+				date: '2016-05-02',
+				name: '王小虎',
+				address: '上海市普陀区金沙江路 1518 弄'
+			};
 			return {
+				show: true,
+				show2: true,
+				show3: true,
 				editableTabsValue: '2',
-				        editableTabs: [{
-				          title: 'Tab 1',
-				          name: '1',
-				          content: 'Tab 1 content'
-				        }, {
-				          title: 'Tab 2',
-				          name: '2',
-				          content: 'Tab 2 content'
-				        }],
-				        tabIndex: 2,
+				editableTabs: [{
+					title: 'Tab 1',
+					name: '1',
+					content: 'Tab 1 content'
+				}, {
+					title: 'Tab 2',
+					name: '2',
+					content: 'Tab 2 content'
+				}],
+				tabIndex: 2,
 				tabPosition: 'left',
 				activeName: 'first',
 				isCollapse: true,
@@ -1527,75 +1525,75 @@
 		},
 		methods: {
 			addTab(targetName) {
-			        let newTabName = ++this.tabIndex + '';
-			        this.editableTabs.push({
-			          title: 'New Tab',
-			          name: newTabName,
-			          content: 'New Tab content'
-			        });
-			        this.editableTabsValue = newTabName;
-			      },
-			      removeTab(targetName) {
-			        let tabs = this.editableTabs;
-			        let activeName = this.editableTabsValue;
-			        if (activeName === targetName) {
-			          tabs.forEach((tab, index) => {
-			            if (tab.name === targetName) {
-			              let nextTab = tabs[index + 1] || tabs[index - 1];
-			              if (nextTab) {
-			                activeName = nextTab.name;
-			              }
-			            }
-			          });
-			        }
-			        
-			        this.editableTabsValue = activeName;
-			        this.editableTabs = tabs.filter(tab => tab.name !== targetName);
-			      },
+				let newTabName = ++this.tabIndex + '';
+				this.editableTabs.push({
+					title: 'New Tab',
+					name: newTabName,
+					content: 'New Tab content'
+				});
+				this.editableTabsValue = newTabName;
+			},
+			removeTab(targetName) {
+				let tabs = this.editableTabs;
+				let activeName = this.editableTabsValue;
+				if (activeName === targetName) {
+					tabs.forEach((tab, index) => {
+						if (tab.name === targetName) {
+							let nextTab = tabs[index + 1] || tabs[index - 1];
+							if (nextTab) {
+								activeName = nextTab.name;
+							}
+						}
+					});
+				}
+
+				this.editableTabsValue = activeName;
+				this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+			},
 			handleTabsEdit(targetName, action) {
-			        if (action === 'add') {
-			          let newTabName = ++this.tabIndex + '';
-			          this.editableTabs.push({
-			            title: 'New Tab',
-			            name: newTabName,
-			            content: 'New Tab content'
-			          });
-			          this.editableTabsValue = newTabName;
-			        }
-			        if (action === 'remove') {
-			          let tabs = this.editableTabs;
-			          let activeName = this.editableTabsValue;
-			          if (activeName === targetName) {
-			            tabs.forEach((tab, index) => {
-			              if (tab.name === targetName) {
-			                let nextTab = tabs[index + 1] || tabs[index - 1];
-			                if (nextTab) {
-			                  activeName = nextTab.name;
-			                }
-			              }
-			            });
-			          }
-			          
-			          this.editableTabsValue = activeName;
-			          this.editableTabs = tabs.filter(tab => tab.name !== targetName);
-			        }
-			      },
+				if (action === 'add') {
+					let newTabName = ++this.tabIndex + '';
+					this.editableTabs.push({
+						title: 'New Tab',
+						name: newTabName,
+						content: 'New Tab content'
+					});
+					this.editableTabsValue = newTabName;
+				}
+				if (action === 'remove') {
+					let tabs = this.editableTabs;
+					let activeName = this.editableTabsValue;
+					if (activeName === targetName) {
+						tabs.forEach((tab, index) => {
+							if (tab.name === targetName) {
+								let nextTab = tabs[index + 1] || tabs[index - 1];
+								if (nextTab) {
+									activeName = nextTab.name;
+								}
+							}
+						});
+					}
+
+					this.editableTabsValue = activeName;
+					this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+				}
+			},
 			handleClick(tab, event) {
-			        console.log(tab, event);
-			      },
-			 handleMenuOpen(key, keyPath) {
-			        console.log(key, keyPath);
-			      },
-			      handleMenuClose(key, keyPath) {
-			        console.log(key, keyPath);
-			      },
-			 handleSelect(key, keyPath) {
-			        console.log(key, keyPath);
-			      },
+				console.log(tab, event);
+			},
+			handleMenuOpen(key, keyPath) {
+				console.log(key, keyPath);
+			},
+			handleMenuClose(key, keyPath) {
+				console.log(key, keyPath);
+			},
+			handleSelect(key, keyPath) {
+				console.log(key, keyPath);
+			},
 			setLoading() {
-			        this.loading = true
-			        setTimeout(() => (this.loading = false), 2000)
-			      },
+				this.loading = true
+				setTimeout(() => (this.loading = false), 2000)
+			},
 			errorHandler() {
 				return true
 			},
@@ -1795,25 +1793,21 @@
 			this.$utils.loadResources(['//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css'], () => {
 				console.log('font-awesome loaded')
 			})
-			
+
 			this.loading = false
-			      this.lists = [
-			        {
-			          imgUrl:
-			            'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-			          name: '鹿',
-			        },
-			        {
-			          imgUrl:
-			            'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
-			          name: '马',
-			        },
-			        {
-			          imgUrl:
-			            'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
-			          name: '山狮',
-			        },
-			      ]
+			this.lists = [{
+					imgUrl: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+					name: '鹿',
+				},
+				{
+					imgUrl: 'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
+					name: '马',
+				},
+				{
+					imgUrl: 'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
+					name: '山狮',
+				},
+			]
 		}
 	}
 </script>
@@ -1921,43 +1915,57 @@
 		margin-top: 10px;
 		margin-right: 40px;
 	}
-	
-	.el-header, .el-footer {
-	    background-color: #B3C0D1;
-	    color: #333;
-	    text-align: center;
-	    line-height: 60px;
-	  }
-	  
-	  .el-aside {
-	    background-color: #D3DCE6;
-	    color: #333;
-	    text-align: center;
-	    line-height: 200px;
-	  }
-	  
-	  .el-main {
-	    background-color: #E9EEF3;
-	    color: #333;
-	    text-align: center;
-	    line-height: 160px;
-	  }
-	  
-	  body > .el-container {
-	    margin-bottom: 40px;
-	  }
-	  
-	  .el-container:nth-child(5) .el-aside,
-	  .el-container:nth-child(6) .el-aside {
-	    line-height: 260px;
-	  }
-	  
-	  .el-container:nth-child(7) .el-aside {
-	    line-height: 320px;
-	  }
-	  
-	  .el-menu-vertical-demo:not(.el-menu--collapse) {
-	      width: 200px;
-	      min-height: 400px;
-	    }
+
+	.el-header,
+	.el-footer {
+		background-color: #B3C0D1;
+		color: #333;
+		text-align: center;
+		line-height: 60px;
+	}
+
+	.el-aside {
+		background-color: #D3DCE6;
+		color: #333;
+		text-align: center;
+		line-height: 200px;
+	}
+
+	.el-main {
+		background-color: #E9EEF3;
+		color: #333;
+		text-align: center;
+		line-height: 160px;
+	}
+
+	body>.el-container {
+		margin-bottom: 40px;
+	}
+
+	.el-container:nth-child(5) .el-aside,
+	.el-container:nth-child(6) .el-aside {
+		line-height: 260px;
+	}
+
+	.el-container:nth-child(7) .el-aside {
+		line-height: 320px;
+	}
+
+	.el-menu-vertical-demo:not(.el-menu--collapse) {
+		width: 200px;
+		min-height: 400px;
+	}
+
+	.transition-box {
+		margin-bottom: 10px;
+		width: 200px;
+		height: 100px;
+		border-radius: 4px;
+		background-color: #409EFF;
+		text-align: center;
+		color: #fff;
+		padding: 40px 20px;
+		box-sizing: border-box;
+		margin-right: 20px;
+	}
 </style>
