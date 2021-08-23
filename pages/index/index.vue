@@ -33,11 +33,13 @@
 		},
 		methods: {
 			guide() {
+				const _i18n = this.$t('index');
+
 				const driver = new Driver({
-					prevBtnText: "上一步",
-					nextBtnText: "下一步",
-					doneBtnText: "我知道了",
-					closeBtnText: "关闭",
+					prevBtnText: _i18n.prevBtnText,
+					nextBtnText: _i18n.nextBtnText,
+					doneBtnText: _i18n.doneBtnText,
+					closeBtnText: _i18n.closeBtnText,
 					onReset: ele => {
 						uni.setStorageSync('guide', true)
 					}
@@ -45,15 +47,15 @@
 				driver.defineSteps([{
 					element: '#top-window',
 					popover: {
-						title: '导航栏',
-						description: '导航栏',
+						title: _i18n.navbar,
+						description: _i18n.navbar,
 						position: 'bottom'
 					}
 				}, {
 					element: '#left-window',
 					popover: {
-						title: '菜单',
-						description: '菜单',
+						title: _i18n.menubar,
+						description: _i18n.menubar,
 						position: 'right'
 					}
 				}])

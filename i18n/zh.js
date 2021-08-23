@@ -45,6 +45,12 @@ export default {
 		lockScreen: '锁屏',
 		unlock: '解锁',
 		lockPlaceholder: '请输入您的密码解锁屏幕',
-		changLanguage: '切换语言'
+		changLanguage: '切换语言',
+		prevBtnText: "上一步",
+		nextBtnText: "下一步",
+		doneBtnText: "我知道了",
+		closeBtnText: "关闭",
+		navbar: '导航栏',
+		menubar: '菜单栏'
 	}
 }

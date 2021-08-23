@@ -45,6 +45,12 @@ export default {
 		lockScreen: 'lock screen',
 		unlock: 'unlock',
 		lockPlaceholder: 'Please enter your password to unlock',
-		changLanguage: 'change language'
+		changLanguage: 'change language',
+		prevBtnText: "Previous",
+		nextBtnText: "Next",
+		doneBtnText: "Done",
+		closeBtnText: "Close",
+		navbar: 'navbar',
+		menubar: 'menubar'
 	}
 }
