@@ -15,8 +15,6 @@
 </template>
 
 <script>
-	let _checks = [];
-
 	export default {
 		name: "transfer-paging",
 		props: {
