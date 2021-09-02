@@ -851,6 +851,16 @@
 				</el-image>
 			</scroll-view>
 		</el-tab-pane>
+		<el-tab-pane name="transfer">
+			<span slot="label">穿梭框<i @click="$utils.navigateTo('https://element.eleme.cn/#/zh-CN/component/transfer')"
+					class="el-icon-question margin-left text-color-grey"></i></span>
+			<scroll-view class="main" scroll-y>
+				<el-divider content-position="left">分页搜索</el-divider>
+				<transfer-paging width="300px" :props="tfProps" :currentPage="currentPage" :totalResult="totalResult"
+					v-model="tfValue" :data="tfData" @search="tfSearch" @save="tfSave" :titles="tfTitles">
+				</transfer-paging>
+			</scroll-view>
+		</el-tab-pane>
 	</el-tabs>
 </template>
 
@@ -863,6 +873,15 @@
 		},
 		data() {
 			return {
+				tfProps: {
+					key: 'key',
+					label: 'label'
+				},
+				tfTitles: ['列表 1', '列表 2'],
+				currentPage: 1,
+				totalResult: 0,
+				tfValue: [],
+				tfData: [],
 				src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
 				srcList: [
 					'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
@@ -1006,6 +1025,44 @@
 			},
 		},
 		methods: {
+			tfLoad: async function() {
+				const data = [];
+				const cities = ['上海', '北京', '广州', '深圳', '南京', '西安', '成都'];
+				cities.forEach((city, index) => {
+					data.push({
+						label: city,
+						key: index
+					});
+				});
+
+				this.tfData = data
+				this.tfValue = [1, 3, 5]
+			},
+			tfSearch: async function({
+				keyword,
+				currentPage,
+				pageSize
+			}) {
+				const {
+					rows,
+					total
+				} = await this.$http.post('/ai', {
+					keyword,
+					currentPage,
+					pageSize
+				})
+				this.currentPage = currentPage
+				this.totalResult = result.total
+				const {
+					key
+				} = this.tfProps
+
+				this.tfData = rows.concat(this.tfData.filter(val => this.tfValue.includes(val[key]) && !this.$utils
+					.find(rows, row => row[key] == val[key])))
+			},
+			tfSave: async function() {
+				console.log(this.tfValue)
+			},
 			handleClose2(done) {
 				this.$confirm('还有未保存的工作哦确定关闭吗？')
 					.then(_ => {
@@ -1079,6 +1136,9 @@
 			pauseResume() {
 				this.$refs.example3.pauseResume();
 			}
+		},
+		onLoad: async function() {
+			await this.tfLoad()
 		}
 	}
 </script>
