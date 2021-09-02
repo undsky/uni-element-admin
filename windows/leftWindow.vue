@@ -37,22 +37,6 @@
 				activeMenu: 'home',
 				openeds: ['demo'],
 				menus: [{
-					id: 'system',
-					pid: '',
-					icon: 'el-icon-s-tools',
-				}, {
-					id: 'role',
-					pid: 'system',
-					icon: '',
-					url: '/pages/system/role/role',
-					keepAlive: true
-				}, {
-					id: 'user',
-					pid: 'system',
-					icon: '',
-					url: '/pages/system/user/user',
-					keepAlive: true
-				}, {
 					id: 'demo',
 					pid: '',
 					icon: 'el-icon-s-help',
@@ -73,6 +57,12 @@
 					pid: 'demo',
 					icon: '',
 					url: '/pages/demo/other/other',
+					keepAlive: true
+				}, {
+					id: 'allplatform',
+					pid: 'demo',
+					icon: '',
+					url: '/pages/demo/allplatform/allplatform',
 					keepAlive: true
 				}, {
 					id: 'form',
@@ -151,6 +141,22 @@
 					pid: 'demo',
 					icon: '',
 					url: '/pages/demo/tencentyun/tencentyun',
+					keepAlive: true
+				}, {
+					id: 'system',
+					pid: '',
+					icon: 'el-icon-s-tools',
+				}, {
+					id: 'role',
+					pid: 'system',
+					icon: '',
+					url: '/pages/system/role/role',
+					keepAlive: true
+				}, {
+					id: 'user',
+					pid: 'system',
+					icon: '',
+					url: '/pages/system/user/user',
 					keepAlive: true
 				}]
 			};

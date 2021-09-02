@@ -23,6 +23,7 @@ export default {
 		basic: '基础组件',
 		notice: '消息组件',
 		other: '其他组件',
+		allplatform: '全端组件',
 		form: '表单',
 		table: '表格',
 		richeditor: '富文本编辑器',
