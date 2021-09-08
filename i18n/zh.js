@@ -27,6 +27,7 @@ export default {
 		form: '表单',
 		table: '表格',
 		richeditor: '富文本编辑器',
+		vaptcha: '手势验证码',
 		chart: '图表',
 		datav: '数据可视化大屏',
 		player: '播放器',

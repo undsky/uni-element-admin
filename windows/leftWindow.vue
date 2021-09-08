@@ -83,6 +83,12 @@
 					url: '/pages/demo/richeditor/richeditor',
 					keepAlive: false
 				}, {
+					id: 'vaptcha',
+					pid: 'demo',
+					icon: '',
+					url: '/pages/demo/vaptcha/vaptcha',
+					keepAlive: false
+				}, {
 					id: 'chart',
 					pid: 'demo',
 					icon: '',

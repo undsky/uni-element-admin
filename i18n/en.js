@@ -27,6 +27,7 @@ export default {
 		form: 'form',
 		table: 'table',
 		richeditor: 'richeditor',
+		vaptcha: 'vaptcha',
 		chart: 'chart',
 		datav: 'datav',
 		player: 'player',
