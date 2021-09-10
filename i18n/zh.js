@@ -26,6 +26,7 @@ export default {
 		allplatform: '全端组件',
 		form: '表单',
 		table: '表格',
+		excel: 'Excel',
 		richeditor: '富文本编辑器',
 		vaptcha: '手势验证码',
 		chart: '图表',

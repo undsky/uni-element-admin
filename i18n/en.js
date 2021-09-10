@@ -26,6 +26,7 @@ export default {
 		allplatform: 'allplatform component',
 		form: 'form',
 		table: 'table',
+		excel: 'Excel',
 		richeditor: 'richeditor',
 		vaptcha: 'vaptcha',
 		chart: 'chart',

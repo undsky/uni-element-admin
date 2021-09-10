@@ -77,6 +77,12 @@
 					url: 'https://xuliangzhan_admin.gitee.io/vxe-table/#/',
 					keepAlive: true
 				}, {
+					id: 'excel',
+					pid: 'demo',
+					icon: '',
+					url: '/pages/demo/excel/excel',
+					keepAlive: false
+				}, {
 					id: 'richeditor',
 					pid: 'demo',
 					icon: '',

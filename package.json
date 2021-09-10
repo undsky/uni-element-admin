@@ -15,6 +15,7 @@
 		"jsbarcode": "^3.11.4",
 		"keyboardjs": "^2.6.4",
 		"luch-request": "^3.0.6",
+		"luckyexcel": "^1.0.1",
 		"nprogress": "^0.2.0",
 		"qrcode": "^1.4.4",
 		"screenfull": "^5.1.0",

@@ -40,6 +40,8 @@
 			"path": "pages/demo/allplatform/allplatform"
 		}, {
 			"path": "pages/demo/vaptcha/vaptcha"
+		}, {
+			"path": "pages/demo/excel/excel"
 		}
 	],
 	"globalStyle": {
