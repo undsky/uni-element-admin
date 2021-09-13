@@ -281,6 +281,7 @@
 			this.editor.execCommand("fontSize", false, "15px");
 			this.editor.execCommand("fontName", false, "微软雅黑");
 			this.hasInit = true
+			this.$emit('inited')
 		},
 		beforeDestroy: function() {
 			if (this.editor)
