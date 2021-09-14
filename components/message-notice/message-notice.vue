@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-		name: "messagenotice",
+		name: "message-notice",
 		data() {
 			return {
 				isXS: false,
@@ -28,6 +28,7 @@
 		methods: {
 			show() {
 				console.log('message notice')
+				this.$emit('notice')
 			}
 		},
 		mounted: function() {

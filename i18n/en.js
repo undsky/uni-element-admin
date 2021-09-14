@@ -28,7 +28,7 @@ export default {
 		table: 'table',
 		excel: 'Excel',
 		richeditor: 'richeditor',
-		vaptcha: 'vaptcha',
+		captcha: 'captcha',
 		chart: 'chart',
 		datav: 'datav',
 		player: 'player',

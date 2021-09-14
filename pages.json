@@ -9,6 +9,13 @@
 				"leftWindow": false
 			}
 		}, {
+			"path": "pages/login/login1",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
+
+		}, {
 			"path": "pages/demo/richeditor/richeditor"
 		}, {
 			"path": "pages/demo/signaturepad/signaturepad"
@@ -39,7 +46,7 @@
 		}, {
 			"path": "pages/demo/allplatform/allplatform"
 		}, {
-			"path": "pages/demo/vaptcha/vaptcha"
+			"path": "pages/demo/captcha/captcha"
 		}, {
 			"path": "pages/demo/excel/excel"
 		}

@@ -89,10 +89,10 @@
 					url: '/pages/demo/richeditor/richeditor',
 					keepAlive: false
 				}, {
-					id: 'vaptcha',
+					id: 'captcha',
 					pid: 'demo',
 					icon: '',
-					url: '/pages/demo/vaptcha/vaptcha',
+					url: '/pages/demo/captcha/captcha',
 					keepAlive: false
 				}, {
 					id: 'chart',

@@ -28,7 +28,7 @@ export default {
 		table: '表格',
 		excel: 'Excel',
 		richeditor: '富文本编辑器',
-		vaptcha: '手势验证码',
+		captcha: '验证码',
 		chart: '图表',
 		datav: '数据可视化大屏',
 		player: '播放器',

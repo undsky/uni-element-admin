@@ -861,6 +861,22 @@
 				</transfer-paging>
 			</scroll-view>
 		</el-tab-pane>
+		<el-tab-pane name="dragselect">
+			<span slot="label">拖拽选择器<i
+					@click="$utils.navigateTo('https://github.com/PanJiaChen/vue-element-admin/blob/master/src/components/DragSelect/index.vue')"
+					class="el-icon-question margin-left text-color-grey"></i></span>
+			<scroll-view class="main" scroll-y>
+				<drag-select v-model="dsValue" style="width:500px;" multiple placeholder="请选择">
+					<el-option v-for="item in dsOptions" :key="item.value" :label="item.label" :value="item.value" />
+				</drag-select>
+
+				<div style="margin-top:30px;">
+					<el-tag v-for="item of dsValue" :key="item" style="margin-right:15px;">
+						{{ item }}
+					</el-tag>
+				</div>
+			</scroll-view>
+		</el-tab-pane>
 	</el-tabs>
 </template>
 
@@ -873,6 +889,23 @@
 		},
 		data() {
 			return {
+				dsValue: ['Apple', 'Banana', 'Orange'],
+				dsOptions: [{
+					value: 'Apple',
+					label: 'Apple'
+				}, {
+					value: 'Banana',
+					label: 'Banana'
+				}, {
+					value: 'Orange',
+					label: 'Orange'
+				}, {
+					value: 'Pear',
+					label: 'Pear'
+				}, {
+					value: 'Strawberry',
+					label: 'Strawberry'
+				}],
 				tfProps: {
 					key: 'key',
 					label: 'label'

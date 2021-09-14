@@ -5,7 +5,7 @@
 				:md="{ span: 12, offset: 6 }" :lg="{ span: 8, offset: 8 }" :xl="{ span: 8, offset: 8 }">
 				<view class="title">
 					mc-uniAdmin
-					<langselect dropMenu style="float: right;"></langselect>
+					<lang-select dropMenu style="float: right;"></lang-select>
 				</view>
 				<el-tabs v-model="activeTab" stretch>
 					<el-tab-pane name="account">

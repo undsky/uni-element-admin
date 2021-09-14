@@ -16,10 +16,10 @@
 		</view>
 		<view class="nav-right flex flex-align-center">
 			<template v-if="!isXS">
-				<messagenotice></messagenotice>
+				<message-notice></message-notice>
 				<screenfull></screenfull>
 				<screenlock></screenlock>
-				<langselect></langselect>
+				<lang-select></lang-select>
 			</template>
 			<el-dropdown trigger="click" @command="userCommand">
 				<!-- <el-avatar size="small" icon="el-icon-user-solid"></el-avatar> -->
@@ -27,9 +27,9 @@
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item icon="el-icon-house" command="self">{{ i18n.self }}</el-dropdown-item>
 					<template v-if="isXS">
-						<messagenotice ref="messagenotice"></messagenotice>
+						<message-notice ref="messageNotice"></message-notice>
 						<screenlock ref="screenlock"></screenlock>
-						<langselect ref="langselect"></langselect>
+						<lang-select ref="langSelect"></lang-select>
 					</template>
 					<el-dropdown-item icon="el-icon-back" command="logout" divided>{{ i18n.logout }}</el-dropdown-item>
 				</el-dropdown-menu>
@@ -124,13 +124,13 @@
 					case 'self':
 						break;
 					case 'message':
-						this.$refs.messagenotice.show()
+						this.$refs.messageNotice.show()
 						break;
 					case 'lock':
 						this.$refs.screenlock.lock();
 						break;
 					case 'fanyi':
-						this.$refs.langselect.selectLanguage()
+						this.$refs.langSelect.selectLanguage()
 						break;
 					case 'logout':
 						uni.reLaunch({
