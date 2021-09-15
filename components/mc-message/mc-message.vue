@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-		name: "message-notice",
+		name: "mc-message",
 		data() {
 			return {
 				isXS: false,

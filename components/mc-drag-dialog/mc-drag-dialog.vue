@@ -9,7 +9,7 @@
 
 	import DragDialog from './directive'
 	export default {
-		name: "drag-dialog",
+		name: "mc-drag-dialog",
 		directives: {
 			DragDialog
 		},

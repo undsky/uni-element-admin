@@ -8,7 +8,7 @@
 	import screenfull from 'screenfull';
 
 	export default {
-		name: "screenfull",
+		name: "mc-screenfull",
 		data() {
 			return {
 				isFullscreen: false,

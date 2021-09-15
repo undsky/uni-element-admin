@@ -8,7 +8,7 @@
 	import Sortable from 'sortablejs'
 
 	export default {
-		name: 'drag-select',
+		name: 'mc-drag-select',
 		props: {
 			value: {
 				type: Array,

@@ -6,7 +6,7 @@
 	import S from './shape-shifter';
 
 	export default {
-		name: "shape-shifter",
+		name: "mc-shape-shifter",
 		data() {
 			return {
 

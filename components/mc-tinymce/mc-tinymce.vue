@@ -69,7 +69,7 @@
 	} from '@npkg/tinymce-plugins'
 
 	export default {
-		name: "tinymce",
+		name: "mc-tinymce",
 		props: {
 			id: {
 				type: String,

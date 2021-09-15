@@ -1,7 +1,7 @@
 <template>
 	<view class="login-container">
-		<shape-shifter class="hidden-sm-and-down" ref="shapeShifter" style="width: 60vw; height: 100vh;">
-		</shape-shifter>
+		<mc-shape-shifter class="hidden-sm-and-down" ref="shapeShifter" style="width: 60vw; height: 100vh;">
+		</mc-shape-shifter>
 		<div class="content flex flex-align-center flex-justify-center" :style="{width:(isXS ? '100' : '40') + 'vw'}">
 			<view class="login-box margin-lr-lg">
 				<mc-login theme="warning"></mc-login>

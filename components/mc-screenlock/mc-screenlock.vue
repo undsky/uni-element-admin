@@ -27,7 +27,7 @@
 	import keyboardJS from 'keyboardjs';
 
 	export default {
-		name: 'screenlock',
+		name: 'mc-screenlock',
 		data() {
 			return {
 				isXS: false,

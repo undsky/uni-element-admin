@@ -7,7 +7,7 @@
 
 <script>
 	export default {
-		name: "scroll-paging",
+		name: "mc-scroll-paging",
 		props: {
 			url: String,
 			method: {

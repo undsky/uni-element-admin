@@ -1,6 +1,6 @@
 <template>
 	<scroll-view class="main" scroll-y>
-		<tinymce v-model="content"></tinymce>
+		<mc-tinymce v-model="content"></mc-tinymce>
 		<view class="padding" v-html="content"></view>
 	</scroll-view>
 </template>

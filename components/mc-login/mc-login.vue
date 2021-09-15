@@ -1,14 +1,14 @@
 <template>
 	<view>
-		<lang-select dropMenu style="float: right; z-index: 999999999; cursor: pointer;"></lang-select>
+		<mc-lang dropMenu style="float: right; z-index: 999999999; cursor: pointer;"></mc-lang>
 		<el-tabs v-model="activeTab" stretch>
 			<el-tab-pane name="account">
 				<span slot="label">
 					<i class="el-icon-user margin-right-sm"></i>
 					{{i18n.accountLogin}}
 				</span>
-				<el-form ref="accountForm" :model="accountForm" :rules="accountRules" :validate-on-rule-change="false"
-					size="medium" label-width="75px" label-position="left">
+				<el-form ref="accountForm" :model="accountForm" :rules="accountRules"
+					:validate-on-rule-change="validate" size="medium" label-width="75px" label-position="left">
 					<el-form-item :label="i18n.account" prop="account">
 						<el-input v-model="accountForm.account" :placeholder="i18n.please+i18n.account">
 						</el-input>
@@ -30,7 +30,7 @@
 					<i class="el-icon-mobile-phone margin-right-sm"></i>
 					{{i18n.phoneLogin}}
 				</span>
-				<el-form ref="phoneForm" :model="phoneForm" :rules="phoneRules" :validate-on-rule-change="false"
+				<el-form ref="phoneForm" :model="phoneForm" :rules="phoneRules" :validate-on-rule-change="validate"
 					size="medium" label-width="75px" label-position="left">
 					<el-form-item :label="i18n.phone" prop="phone">
 						<el-input v-model="phoneForm.phone" :placeholder="i18n.please+i18n.phone"></el-input>
@@ -85,6 +85,7 @@
 				isXS: false,
 				activeTab: 'account',
 				captcha: '',
+				validate: false,
 				accountForm: {
 					account: '',
 					password: '',
@@ -113,6 +114,7 @@
 		},
 		watch: {
 			i18n() {
+				this.validate = true
 				this.changeLanguage()
 			}
 		},

@@ -856,9 +856,9 @@
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
 				<el-divider content-position="left">分页搜索</el-divider>
-				<transfer-paging width="300px" :props="tfProps" :currentPage="currentPage" :totalResult="totalResult"
+				<mc-transfer-paging width="300px" :props="tfProps" :currentPage="currentPage" :totalResult="totalResult"
 					v-model="tfValue" :data="tfData" @search="tfSearch" @save="tfSave" :titles="tfTitles">
-				</transfer-paging>
+				</mc-transfer-paging>
 			</scroll-view>
 		</el-tab-pane>
 		<el-tab-pane name="dragselect">
@@ -866,9 +866,9 @@
 					@click="$utils.navigateTo('https://github.com/PanJiaChen/vue-element-admin/blob/master/src/components/DragSelect/index.vue')"
 					class="el-icon-question margin-left text-color-grey"></i></span>
 			<scroll-view class="main" scroll-y>
-				<drag-select v-model="dsValue" style="width:500px;" multiple placeholder="请选择">
+				<mc-drag-select v-model="dsValue" style="width:500px;" multiple placeholder="请选择">
 					<el-option v-for="item in dsOptions" :key="item.value" :label="item.label" :value="item.value" />
-				</drag-select>
+				</mc-drag-select>
 
 				<div style="margin-top:30px;">
 					<el-tag v-for="item of dsValue" :key="item" style="margin-right:15px;">

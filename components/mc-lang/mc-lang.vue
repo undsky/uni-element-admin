@@ -11,7 +11,7 @@
 
 <script>
 	export default {
-		name: 'lang-select',
+		name: 'mc-lang',
 		props: {
 			dropMenu: {
 				type: Boolean,

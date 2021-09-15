@@ -16,7 +16,7 @@
 
 <script>
 	export default {
-		name: "transfer-paging",
+		name: "mc-transfer-paging",
 		props: {
 			value: {
 				type: Array
