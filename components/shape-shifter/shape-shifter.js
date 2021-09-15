@@ -52,7 +52,7 @@ S.Drawing = (function() {
 		},
 
 		adjustCanvas: function() {
-			canvas.width = window.innerWidth;
+			canvas.width = (window.innerWidth * 0.6);
 			canvas.height = window.innerHeight;
 		},
 
@@ -385,7 +385,7 @@ S.ShapeBuilder = (function() {
 		publicPath = '';
 
 	function fit() {
-		shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
+		shapeCanvas.width = Math.floor((window.innerWidth * 0.6) / gap) * gap;
 		shapeCanvas.height = Math.floor(window.innerHeight / gap) * gap;
 		shapeContext.fillStyle = 'red';
 		shapeContext.textBaseline = 'middle';

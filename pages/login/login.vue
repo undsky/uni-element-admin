@@ -77,7 +77,6 @@
 	import keyboardJS from 'keyboardjs';
 
 	export default {
-		name: 'login',
 		data() {
 			return {
 				deviceId: '',
