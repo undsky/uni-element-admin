@@ -14,7 +14,12 @@
 				"topWindow": false,
 				"leftWindow": false
 			}
-
+		}, {
+			"path": "pages/login/login2",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
 		}, {
 			"path": "pages/demo/richeditor/richeditor"
 		}, {

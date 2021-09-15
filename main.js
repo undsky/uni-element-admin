@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import App from './App'
 
+import Particles from "particles.vue";
+Vue.use(Particles);
+
 import {
 	router,
 	RouterMount
