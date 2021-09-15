@@ -1,5 +1,5 @@
 <template>
-	<canvas id="ss"></canvas>
+	<div id="ss"></div>
 </template>
 
 <script>
@@ -13,7 +13,9 @@
 			};
 		},
 		mounted: function() {
-			S.init(document.getElementById('ss').getElementsByTagName('canvas')[0]);
+			const canvas = document.createElement('canvas')
+			document.getElementById('ss').append(canvas)
+			S.init(canvas);
 			S.Drawing.loop(function() {
 				S.Shape.render();
 			});
