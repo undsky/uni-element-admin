@@ -54,13 +54,14 @@
 			} = getApp().globalData.systemInfo
 			this.isXS = isXS
 
-			this.$nextTick(() => {
-				this.$refs.shapeShifter.simulate(this.simulateArr[this.simulateIndex]);
-				this.simulateIndex = (this.simulateIndex + 1) % 3;
-				this.initTimer();
-				// 当页面不可见时，清空定时器
-				document.addEventListener('visibilitychange', this.doVisibilitychange);
-			})
+			if (!this.isXS)
+				this.$nextTick(() => {
+					this.$refs.shapeShifter.simulate(this.simulateArr[this.simulateIndex]);
+					this.simulateIndex = (this.simulateIndex + 1) % 3;
+					this.initTimer();
+					// 当页面不可见时，清空定时器
+					document.addEventListener('visibilitychange', this.doVisibilitychange);
+				})
 		},
 		beforeDestroy: function() {
 			this.clearTimer();

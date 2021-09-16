@@ -155,6 +155,28 @@
 					url: '/pages/demo/tencentyun/tencentyun',
 					keepAlive: true
 				}, {
+					id: 'page',
+					pid: '',
+					icon: 'el-icon-s-platform',
+				}, {
+					id: 'login',
+					pid: 'page',
+					icon: '',
+					url: '/pages/login/login',
+					keepAlive: true
+				}, {
+					id: 'login1',
+					pid: 'page',
+					icon: '',
+					url: '/pages/login/login1',
+					keepAlive: true
+				}, {
+					id: 'login2',
+					pid: 'page',
+					icon: '',
+					url: '/pages/login/login2',
+					keepAlive: true
+				}, {
 					id: 'system',
 					pid: '',
 					icon: 'el-icon-s-tools',
