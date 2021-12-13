@@ -25,7 +25,10 @@
 			},
 			area:{
 				type:String,
-				default:'cn'
+				default:'auto'
+			},
+			url:{
+				type:String,
 			}
 		},
 		data() {
@@ -50,8 +53,7 @@
 		  },
 		methods:{
 			showWebView(){
-				let area = this.area === 'auto' ? 'cn' : this.area
-				this.webViewSrc = 'https://v-'+ area +'.vaptcha.com/uniapp/view.html?vid='+this.vid+'&scene='+this.scene+'&lang='+this.lang+'&area='+area
+				this.webViewSrc = this.url+'?vid='+this.vid+'&scene='+this.scene+'&lang='+this.lang+'&area='+this.area
 			
 			},
 			reciveMessage(event) {
