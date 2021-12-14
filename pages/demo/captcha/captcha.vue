@@ -1,10 +1,6 @@
 <template>
 	<scroll-view class="main" scroll-y>
 		<view class="padding">
-			<el-divider content-position="left">一般验证码</el-divider>
-			<img @click="changeCaptcha" :src="captcha" class="captcha" />
-		</view>
-		<view class="padding">
 			<el-divider content-position="left">滑块验证码</el-divider>
 			<drag-verify
 				ref="dragVerify"
@@ -89,7 +85,6 @@ export default {
 	},
 	data() {
 		return {
-			captcha: '',
 			dragVerifyPassing: false,
 			dragVerifyImgPassing: false,
 			dragVerifyImgChipPassing: false,
@@ -101,7 +96,7 @@ export default {
 			scene: 0,
 			lang: 'zh-CN',
 			area: 'auto',
-			url: 'https://www.undsky.com/auth/vaptcha/verify',
+			url: 'https://www.undsky.com/auth/vaptcha',
 			isShowVaptcha: false //控制组件的显示与隐藏
 		};
 	},
@@ -112,9 +107,6 @@ export default {
 		verifyImgChipPassFail() {
 			console.log('verify img chip pass fail');
 		},
-		changeCaptcha() {
-			this.captcha = `${this.$config.request.baseURL}/captcha?deviceId=${this.deviceId}&t=${this.$utils.now()}`;
-		},
 		reimg() {},
 		pass() {},
 		showVaptcha() {
@@ -122,6 +114,7 @@ export default {
 		},
 		handleMessage(res) {
 			this.isShowVaptcha = false;
+			console.log(res)
 			if (res.signal === 'pass') {
 				//验证通过后获取到token和server进行后续操作
 				console.log('验证通过');
@@ -145,17 +138,10 @@ export default {
 	},
 	onLoad: function() {
 		this.$nextTick(() => {
-			this.changeCaptcha();
-
 			this.$refs.verifyImgChip.show();
 		});
 	}
 };
 </script>
 
-<style scoped>
-.captcha {
-	width: 100px;
-	height: 36px;
-}
-</style>
+<style scoped></style>
