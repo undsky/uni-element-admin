@@ -1,8 +1,4 @@
-// z-paging
-// github地址:https://github.com/SmileZXLee/uni-z-paging
-// dcloud地址:https://ext.dcloud.net.cn/plugin?id=3935
-// 反馈QQ群：790460711
-// z-paging工具类
+// [z-paging]工具类
 
 import zI18n from './z-paging-i18n'
 
@@ -124,6 +120,29 @@ function getRefesrherFormatTimeByKey(key) {
 	return `${zI18n['refresherUpdateTimeText'][zI18n.getLanguage()]}${timeText}`;
 }
 
+//将文本的px或者rpx转为px的值
+function convertTextToPx(text) {
+	const dataType = Object.prototype.toString.call(text);
+	if (dataType === '[object Number]') {
+		return text;
+	}
+	let isRpx = false;
+	if (text.indexOf('rpx') !== -1 || text.indexOf('upx') !== -1) {
+		text = text.replace('rpx', '').replace('upx', '');
+		isRpx = true;
+	} else if (text.indexOf('px') !== -1) {
+		text = text.replace('px', '');
+	}
+	if (!isNaN(text)) {
+		if (isRpx) {
+			return Number(uni.upx2px(text));
+		}
+		return Number(text);
+	}
+	return 0;
+}
+
+//------------------ 私有方法 ------------------------
 function _timeFormat(time) {
 	const date = new Date(time);
 	const currentDate = new Date();
@@ -174,6 +193,7 @@ module.exports = {
 	getCommonTouch,
 	getTouchFromZPaging,
 	getParent,
+	convertTextToPx,
 	consoleErr,
 	consoleWarn
 };

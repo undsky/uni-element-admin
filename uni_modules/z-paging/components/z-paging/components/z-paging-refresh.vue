@@ -1,41 +1,36 @@
-<!-- z-paging -->
-<!-- github地址:https://github.com/SmileZXLee/uni-z-paging -->
-<!-- dcloud地址:https://ext.dcloud.net.cn/plugin?id=3935 -->
-<!-- 反馈QQ群：790460711 -->
+<!-- [z-paging]下拉刷新view -->
 
-<!-- 下拉刷新view -->
 <template>
 	<view style="height: 100%;">
 		<view
-			:class="['zp-custom-refresher-container',{'zp-custom-refresher-container-padding':showRefresherUpdateTime}]"
-			style="height: 100%;">
-			<view class="zp-custom-refresher-left">
-				<image v-if="refresherStatus!==2" :class="refresherLeftImageClass"
-					:style="[{width: showRefresherUpdateTime?'36rpx':'30rpx',height: showRefresherUpdateTime?'36rpx':'30rpx','margin-right': showRefresherUpdateTime?'20rpx':'8rpx'}]"
-					:src="defaultThemeStyle==='white'?base64ArrowWhite:base64Arrow">
+			:class="['zp-r-container',{'zp-r-container-padding':showUpdateTime}]" style="height: 100%;">
+			<view class="zp-r-left">
+				<image v-if="status!==2" :class="refresherLeftImageClass"
+					:style="[{width: showUpdateTime?'36rpx':'30rpx',height: showUpdateTime?'36rpx':'30rpx','margin-right': showUpdateTime?'20rpx':'9rpx'},imgStyle]"
+					:src="defaultThemeStyle==='white'?(status===3?base64SuccessWhite:base64ArrowWhite):(status===3?base64Success:base64Arrow)">
 				</image>
 				<!-- #ifndef APP-NVUE -->
-				<image v-else class="zp-loading-more-line-loading-image zp-custom-refresher-left-image"
-					:style="[{width: showRefresherUpdateTime?'36rpx':'30rpx',height: showRefresherUpdateTime?'36rpx':'30rpx','margin-right': showRefresherUpdateTime?'20rpx':'8rpx'}]"
+				<image v-else class="zp-line-loading-image zp-r-left-image"
+					:style="[{width: showUpdateTime?'36rpx':'30rpx',height: showUpdateTime?'36rpx':'30rpx','margin-right': showUpdateTime?'20rpx':'9rpx'},imgStyle]"
 					:src="defaultThemeStyle==='white'?base64FlowerWhite:base64Flower">
 				</image>
 				<!-- #endif -->
 				<!-- #ifdef APP-NVUE -->
-				<view v-else :style="[{'margin-right':showRefresherUpdateTime?'18rpx':'12rpx'}]">
+				<view v-else :style="[{'margin-right':showUpdateTime?'18rpx':'12rpx'}]">
 					<loading-indicator
 						:class="systemInfo.platform==='ios'?'zp-loading-image-ios':'zp-loading-image-android'"
-						:style="[{color:defaultThemeStyle==='white'?'white':'#777777'}]" :animating="true">
+						:style="[{color:defaultThemeStyle==='white'?'white':'#777777'},imgStyle]" :animating="true">
 					</loading-indicator>
 				</view>
 				<!-- #endif -->
 			</view>
-			<view class="zp-custom-refresher-right">
-				<text class="zp-custom-refresher-right-text"
-					:style="[refresherRightTextStyle]">{{refresherStatusTextMap[refresherStatus]||refresherDefaultText}}
+			<view class="zp-r-right">
+				<text class="zp-r-right-text"
+					:style="[refresherRightTextStyle,titleStyle]">{{refresherStatusTextMap[status]||defaultText}}
 				</text>
-				<text class="zp-custom-refresher-right-text zp-custom-refresher-right-time-text"
-					:style="[refresherRightTextStyle]"
-					v-if="showRefresherUpdateTime&&refresherTimeText.length">{{refresherTimeText}}
+				<text class="zp-r-right-text zp-r-right-time-text"
+					:style="[refresherRightTextStyle,updateTimeStyle]"
+					v-if="showUpdateTime&&refresherTimeText.length">{{refresherTimeText}}
 				</text>
 			</view>
 		</view>
@@ -56,47 +51,61 @@
 				base64ArrowWhite: zStatic.base64ArrowWhite,
 				base64Flower: zStatic.base64Flower,
 				base64FlowerWhite: zStatic.base64FlowerWhite,
+				base64Success: zStatic.base64Success,
+				base64SuccessWhite: zStatic.base64SuccessWhite,
 				refresherTimeText: '',
-				isRefresherLeftImageClassLoaded: false
+				leftImageLoaded: false
 			};
 		},
 		props: {
-			'refresherStatus': {
+			'status': {
 				default: 0
 			},
 			'defaultThemeStyle': {},
-			'refresherDefaultText': {},
-			'refresherPullingText': {},
-			'refresherPullingText': {},
-			'refresherRefreshingText': {},
-			'showRefresherUpdateTime': {
+			'defaultText': {},
+			'pullingText': {},
+			'refreshingText': {},
+			'completeText': {},
+			'showUpdateTime': {
 				default: false
 			},
-			'refresherUpdateTimeKey': {}
+			'updateTimeKey': {},
+			'imgStyle': {
+				default: {}
+			},
+			'titleStyle': {
+				default: {}
+			},
+			'updateTimeStyle': {
+				default: {}
+			},
 		},
 		computed: {
 			refresherStatusTextMap() {
-				this.updateTime(this.refresherUpdateTimeKey);
+				this.updateTime(this.updateTimeKey);
 				return {
-					0: this.refresherDefaultText,
-					1: this.refresherPullingText,
-					2: this.refresherRefreshingText
+					0: this.defaultText,
+					1: this.pullingText,
+					2: this.refreshingText,
+					3: this.completeText
 				};
 			},
 			refresherLeftImageClass() {
-				let refresherLeftImageClass = '';
-				if (this.refresherStatus === 0) {
-					if (this.isRefresherLeftImageClassLoaded) {
-						refresherLeftImageClass = 'zp-custom-refresher-left-image zp-custom-refresher-arrow-down';
+				if(this.status === 3){
+					return 'zp-r-left-image-no-transform .zp-r-left-image-pre-size';
+				}
+				let refresherLeftImageClass = 'zp-r-left-image ';
+				if (this.status === 0) {
+					if (this.leftImageLoaded) {
+						refresherLeftImageClass += 'zp-r-arrow-down';
 					} else {
-						this.isRefresherLeftImageClassLoaded = true;
-						refresherLeftImageClass =
-							'zp-custom-refresher-left-image zp-custom-refresher-arrow-down-no-duration';
+						this.leftImageLoaded = true;
+						refresherLeftImageClass += 'zp-r-arrow-down-no-duration';
 					}
 				} else {
-					refresherLeftImageClass = 'zp-custom-refresher-left-image zp-custom-refresher-arrow-top';
+					refresherLeftImageClass += 'zp-r-arrow-top';
 				}
-				return refresherLeftImageClass;
+				return refresherLeftImageClass + ' zp-r-left-image-pre-size';
 			},
 			refresherRightTextStyle() {
 				let refresherRightTextStyle = {};
@@ -105,7 +114,7 @@
 					color = '#efefef';
 				}
 				// #ifdef APP-NVUE
-				if (this.showRefresherUpdateTime) {
+				if (this.showUpdateTime) {
 					refresherRightTextStyle = {
 						'height': '40rpx',
 						'line-height': '40rpx'
@@ -122,12 +131,12 @@
 			}
 		},
 		methods: {
-			updateTime(refresherUpdateTimeKey) {
-				if (!refresherUpdateTimeKey) {
-					refresherUpdateTimeKey = this.refresherUpdateTimeKey;
+			updateTime(updateTimeKey) {
+				if (!updateTimeKey) {
+					updateTimeKey = this.updateTimeKey;
 				}
-				if (this.showRefresherUpdateTime) {
-					this.refresherTimeText = getRefesrherFormatTimeByKey(refresherUpdateTimeKey);
+				if (this.showUpdateTime) {
+					this.refresherTimeText = getRefesrherFormatTimeByKey(updateTimeKey);
 				}
 			}
 		}
@@ -137,7 +146,7 @@
 <style scoped>
 	@import "../css/z-paging-static.css";
 
-	.zp-custom-refresher-container {
+	.zp-r-container {
 		/* #ifndef APP-NVUE */
 		display: flex;
 		/* #endif */
@@ -146,13 +155,13 @@
 		align-items: center;
 	}
 
-	.zp-custom-refresher-container-padding {
+	.zp-r-container-padding {
 		/* #ifdef APP-NVUE */
 		padding: 15rpx 0rpx;
 		/* #endif */
 	}
 
-	.zp-custom-refresher-left {
+	.zp-r-left {
 		/* #ifndef APP-NVUE */
 		display: flex;
 		/* #endif */
@@ -161,13 +170,10 @@
 		overflow: hidden;
 	}
 
-	.zp-custom-refresher-left-image {
+	.zp-r-left-image {
 		/* #ifndef APP-NVUE */
 		transform: rotate(180deg);
 		margin-top: 2rpx;
-		/* #endif */
-		/* #ifdef MP-ALIPAY */
-		margin-top: 0rpx;
 		/* #endif */
 		/* #ifdef APP-NVUE */
 		transition-duration: .2s;
@@ -175,8 +181,27 @@
 		color: #666666;
 		/* #endif */
 	}
+	
+	.zp-r-left-image-no-transform {
+		/* #ifndef APP-NVUE */
+		margin-top: 2rpx;
+		/* #endif */
+		/* #ifdef APP-NVUE */
+		transition-duration: .2s;
+		transition-property: transform;
+		color: #666666;
+		/* #endif */
+	}
+	
+	.zp-r-left-image-pre-size{
+		/* #ifndef APP-NVUE */
+		width: 30rpx;
+		width: 30rpx;
+		overflow: hidden;
+		/* #endif */
+	}
 
-	.zp-custom-refresher-arrow-top {
+	.zp-r-arrow-top {
 		/* #ifndef APP-NVUE */
 		animation: refresher-arrow-top .2s linear;
 		-webkit-animation: refresher-arrow-top .2s linear;
@@ -188,7 +213,7 @@
 		/* #endif */
 	}
 
-	.zp-custom-refresher-arrow-down {
+	.zp-r-arrow-down {
 		/* #ifndef APP-NVUE */
 		animation: refresher-arrow-down .2s linear;
 		-webkit-animation: refresher-arrow-down .2s linear;
@@ -200,7 +225,7 @@
 		/* #endif */
 	}
 
-	.zp-custom-refresher-arrow-down-no-duration {
+	.zp-r-arrow-down-no-duration {
 		/* #ifndef APP-NVUE */
 		animation: refresher-arrow-down 0s linear;
 		-webkit-animation: refresher-arrow-down 0s linear;
@@ -212,7 +237,7 @@
 		/* #endif */
 	}
 
-	.zp-custom-refresher-right {
+	.zp-r-right {
 		font-size: 27rpx;
 		/* #ifndef APP-NVUE */
 		display: flex;
@@ -222,13 +247,13 @@
 		justify-content: center;
 	}
 
-	.zp-custom-refresher-right-text {
+	.zp-r-right-text {
 		/* #ifdef APP-NVUE */
 		font-size: 28rpx;
 		/* #endif */
 	}
 
-	.zp-custom-refresher-right-time-text {
+	.zp-r-right-time-text {
 		margin-top: 10rpx;
 		font-size: 24rpx;
 	}
