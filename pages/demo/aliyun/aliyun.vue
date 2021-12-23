@@ -19,11 +19,12 @@ export default {
 			console.log(option);
 			const { uid, name, size, type } = option.file;
 			try {
-				await this.oss.upload(`${uid}_${name}`, option.file, {
+				const result = await this.oss.put(`${uid}_${this.$utils.guid(21)}.${name.split('.').pop()}`, option.file, {
 					progress: percent => {
 						option.onProgress(percent * 100);
 					}
 				});
+				console.log(result);
 			} catch (e) {
 				console.log(e);
 			}
