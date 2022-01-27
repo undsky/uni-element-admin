@@ -6,10 +6,13 @@ export default {
 		systemInfo.env = 'app';
 		// #endif
 		// #ifdef H5
-		if ('micromessenger' == window.navigator.userAgent.toLowerCase().match(/micromessenger/i)) {
-			systemInfo.env = 'gh';
+		const ua = window.navigator.userAgent.toLowerCase()
+		if ('micromessenger' == ua.match(/micromessenger/i)) {
+			systemInfo.env = 'wx';
+		} else if ('wxwork' == ua.match(/wxwork/i)) {
+			systemInfo.env = 'wxwork'
 		} else {
-			systemInfo.env = 'h5';
+			systemInfo.env = 'h5'
 		}
 		// #endif
 		// #ifdef MP-360
