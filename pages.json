@@ -54,6 +54,8 @@
 			"path": "pages/demo/captcha/captcha"
 		}, {
 			"path": "pages/demo/excel/excel"
+		}, {
+			"path": "pages/system/self/self"
 		}
 	],
 	"globalStyle": {

@@ -22,8 +22,11 @@
 				<mc-lang></mc-lang>
 			</template>
 			<el-dropdown trigger="click" @command="userCommand">
-				<!-- <el-avatar size="small" icon="el-icon-user-solid"></el-avatar> -->
-				<el-avatar size="small" src="/static/logo.png"></el-avatar>
+				<view class="flex flex-align-center">
+					<!-- <el-avatar size="small" icon="el-icon-user-solid"></el-avatar> -->
+					<el-avatar size="small" src="/static/logo.png"></el-avatar>
+					<!-- <text v-if="!isXS" class="margin-left-sm">管理员</text> -->
+				</view>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item icon="el-icon-house" command="self">{{ i18n.self }}</el-dropdown-item>
 					<template v-if="isXS">
@@ -122,6 +125,16 @@
 			userCommand(command) {
 				switch (command) {
 					case 'self':
+						const url = '/pages/system/self/self';
+						const keepAlive = true
+						if (this.$utils.navigateTo(url, false === keepAlive ? null : this)) {
+							this.handleActiveTab({
+								name: command,
+								title: this.$t('index')[command],
+								url,
+								keepAlive
+							});
+						}
 						break;
 					case 'message':
 						this.$refs.messageNotice.show()
@@ -138,14 +151,8 @@
 						});
 						break;
 				}
-			}
-		},
-		mounted: function() {
-			this.$nextTick(() => {
-				this.isXS = getApp().globalData.systemInfo.isXS;
-			});
-
-			uni.$on('activeTab', tab => {
+			},
+			handleActiveTab(tab) {
 				if (!this.$utils.find(this.tabs, _tab => _tab.name == tab.name)) {
 					this.tabs.push(
 						Object.assign({
@@ -157,7 +164,14 @@
 					this.changeLanguage();
 				}
 				this.activeTab = tab.name;
+			}
+		},
+		mounted: function() {
+			this.$nextTick(() => {
+				this.isXS = getApp().globalData.systemInfo.isXS;
 			});
+
+			uni.$on('activeTab', this.handleActiveTab);
 		}
 	};
 </script>
