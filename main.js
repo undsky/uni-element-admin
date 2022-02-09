@@ -65,6 +65,9 @@ import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
 Vue.use(Avue);
 
+import AvueUeditor from './components/avue-ueditor/avue-ueditor.vue'
+Vue.component(AvueUeditor.name, AvueUeditor)
+
 import http from './common/request.js'
 Vue.prototype.$http = http
 
