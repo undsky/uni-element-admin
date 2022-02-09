@@ -101,23 +101,14 @@
 		},
 		data() {
 			return {
-				hasChange: false,
-				hasInit: false,
 				tinymceId: this.id,
 				editor: null
 			};
 		},
 		watch: {
 			value(val) {
-				if (!this.hasChange && this.hasInit) {
-					this.$nextTick(() => {
-						this.editor.setContent(val || '')
-						this.editor.on('input keyup Change Undo Redo ExecCommand NodeChange', e => {
-							this.hasChange = true
-							this.$emit('input', this.editor.getContent())
-						})
-					})
-				}
+				if (this.editor)
+					this.editor.setContent(val || '')
 			}
 		},
 		methods: {
@@ -278,10 +269,14 @@
 
 			const editors = await tinymce.init(config);
 			this.editor = editors[0]
-			this.editor.execCommand("fontSize", false, "15px");
+			this.editor.execCommand("fontSize", false, "16px");
 			this.editor.execCommand("fontName", false, "微软雅黑");
-			this.hasInit = true
-			this.$emit('inited')
+
+			if (this.value) this.editor.setContent(this.value || '')
+			this.editor.on('input keyup Change Undo Redo ExecCommand NodeChange', e => {
+				this.$emit('input', this.editor.getContent())
+			})
+
 		},
 		beforeDestroy: function() {
 			if (this.editor)
