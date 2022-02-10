@@ -65,10 +65,10 @@
 					url: '/pages/demo/allplatform/allplatform',
 					keepAlive: true
 				}, {
-					id: 'form',
+					id: 'formdesign',
 					pid: 'demo',
 					icon: '',
-					url: 'https://mrhj.gitee.io/form-generator/#/',
+					url: '/pages/demo/formdesign/formdesign',
 					keepAlive: true
 				}, {
 					id: 'table',

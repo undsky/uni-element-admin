@@ -28,7 +28,7 @@ export default {
 		notice: '消息组件',
 		other: '其他组件',
 		allplatform: '全端组件',
-		form: '表单',
+		formdesign: '表单设计器',
 		table: '表格',
 		excel: 'Excel',
 		richeditor: '富文本编辑器',

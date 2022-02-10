@@ -28,7 +28,7 @@ export default {
 		notice: 'notice component',
 		other: 'other component',
 		allplatform: 'allplatform component',
-		form: 'form',
+		formdesign: 'form design',
 		table: 'table',
 		excel: 'Excel',
 		richeditor: 'richeditor',
