@@ -57,7 +57,11 @@
 		}, {
 			"path": "pages/system/self/self"
 		}, {
-			"path": "pages/demo/formdesign/formdesign"
+			"path": "pages/demo/formdesign/formdesign",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
 		}
 	],
 	"globalStyle": {

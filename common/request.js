@@ -33,7 +33,7 @@ http.interceptors.response.use(async response => {
 		return data
 	}
 
-	return Promise.reject(response)
+	return response
 }, async response => {
 	if (response.data && ['credentials_required', 'invalid_token', 'revoked_token'].includes(response
 			.data.code)) {

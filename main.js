@@ -65,7 +65,6 @@ import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
 Vue.use(Avue);
 
-import AvueFormDesign from '@sscfaith/avue-form-design'
 Vue.use(AvueFormDesign)
 
 import AvueUeditor from './components/avue-ueditor/avue-ueditor.vue'
