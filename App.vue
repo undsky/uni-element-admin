@@ -125,4 +125,14 @@
 	.tox-tinymce-aux {
 		z-index: 99999999999 !important;
 	}
+
+	.avue-form-inline {
+		.el-collapse {
+			border: 0 !important;
+		}
+
+		.el-collapse-item__wrap {
+			background-color: transparent !important;
+		}
+	}
 </style>
