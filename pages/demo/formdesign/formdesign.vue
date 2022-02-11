@@ -1,5 +1,5 @@
 <template>
-	<view class="main"><avue-form-design style="height: 100%;" storage :custom-fields="customFields"></avue-form-design></view>
+	<view style="height: 100vh;"><avue-form-design style="height: 100%;" storage :showGithubStar="false" :custom-fields="customFields"></avue-form-design></view>
 </template>
 
 <script>
