@@ -51,6 +51,9 @@
 <style lang="scss">
 	@import '@/common/common.scss';
 	@import 'nprogress/nprogress.css';
+	
+	@import "colorui/main.css";
+	@import "colorui/icon.css";
 
 	html,
 	body {

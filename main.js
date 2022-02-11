@@ -61,9 +61,7 @@ Vue.prototype.$print = VXETable.print
 Vue.prototype.$readFile = VXETable.readFile
 Vue.prototype.$saveFile = VXETable.saveFile
 
-import Avue from '@smallwei/avue';
-import '@smallwei/avue/lib/index.css';
-Vue.use(Avue);
+Vue.use(AVUE);
 
 Vue.use(AvueFormDesign)
 

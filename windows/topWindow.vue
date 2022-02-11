@@ -8,13 +8,15 @@
 		<view @click="toggleSidebar" class="toggle-sidebar flex flex-justify-center flex-align-center"><i
 				:class="[isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold']"></i></view>
 		<view class="flex flex-align-end">
-			<el-tabs :style="{ width: 'calc(100vw - ' + (isXS ? 80 : isCollapse ? 254 : 420) + 'px)' }"
+			<el-tabs
+				:style="{ width: 'calc(100vw - ' + (isXS ? 80 : isCollapse ? (64+40+userPanelWidth) : (230+40+userPanelWidth)) + 'px)' }"
 				tab-position="bottom" v-model="activeTab" type="card" @tab-click="tabClick" @tab-remove="tabRemove">
 				<el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :name="item.name"
 					:closable="item.closable"></el-tab-pane>
 			</el-tabs>
 		</view>
-		<view class="nav-right flex flex-align-center">
+		<view class="nav-right flex flex-align-center"
+			:style="{width:userPanelWidth+'px',minWidth:userPanelWidth+'px'}">
 			<template v-if="!isXS">
 				<mc-message></mc-message>
 				<mc-screenfull></mc-screenfull>
@@ -25,7 +27,7 @@
 				<view class="flex flex-align-center">
 					<!-- <el-avatar size="small" icon="el-icon-user-solid"></el-avatar> -->
 					<el-avatar size="small" src="/static/logo.png"></el-avatar>
-					<!-- <text v-if="!isXS" class="margin-left-sm">管理员</text> -->
+					<text v-if="!isXS" class="margin-left-sm text-sm">管理员</text>
 				</view>
 				<el-dropdown-menu slot="dropdown">
 					<el-dropdown-item icon="el-icon-house" command="self">{{ i18n.self }}</el-dropdown-item>
@@ -56,7 +58,8 @@
 					name: 'home',
 					url: '/pages/index/index',
 					closable: false
-				}]
+				}],
+				userPanelWidth: 200
 			};
 		},
 		computed: {
@@ -169,6 +172,9 @@
 		mounted: function() {
 			this.$nextTick(() => {
 				this.isXS = getApp().globalData.systemInfo.isXS;
+				if (this.isXS) {
+					this.userPanelWidth = 40
+				}
 			});
 
 			uni.$on('activeTab', this.handleActiveTab);
@@ -194,8 +200,6 @@
 			}
 
 			.nav-right {
-				width: 150px;
-				min-width: 150px;
 				justify-content: space-around;
 
 				&>* {
@@ -206,8 +210,6 @@
 
 		@media only screen and (max-width: 767px) {
 			.nav-right {
-				width: 40px;
-				min-width: 40px;
 				justify-content: center;
 			}
 		}

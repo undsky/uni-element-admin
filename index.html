@@ -19,13 +19,15 @@
 				(coverSupport ? ', viewport-fit=cover' : '') + '" />')
 		</script>
 		<link rel="stylesheet" href="<%= BASE_URL %>static/index.<%= VUE_APP_INDEX_CSS_HASH %>.css" />
-	<script src="<%= BASE_URL %>static/afd/index.umd.min.js"></script>
+		<link rel="stylesheet" href="<%= BASE_URL %>static/avue/index.css" />
 	</head>
 	<body>
 		<noscript>
 			<strong>Please enable JavaScript to continue.</strong>
 		</noscript>
 		<div id="app"></div>
+		<script src="<%= BASE_URL %>static/avue/avue.min.js"></script>
+		<script src="<%= BASE_URL %>static/avue/form-design/index.umd.min.js"></script>
 		<!-- built files will be auto injected -->
 	</body>
 	<link rel="stylesheet" href="https://cdn.cloud.undsky.com/iconfont/iconfont.css" />
