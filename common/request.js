@@ -24,13 +24,21 @@ http.interceptors.response.use(async response => {
 	if ('development' === process.env.NODE_ENV) {
 		console.log(response)
 	}
+
 	const {
 		code,
-		data
+		data,
+		message
 	} = response.data
 
 	if (200 == code) {
 		return data
+	}
+
+	if (message) {
+		uni.showToast({
+			title: message
+		})
 	}
 
 	return response
@@ -38,6 +46,9 @@ http.interceptors.response.use(async response => {
 	if (response.data && ['credentials_required', 'invalid_token', 'revoked_token'].includes(response
 			.data.code)) {
 		store.commit('clearToken')
+		uni.showToast({
+			title: '授权已过期，请重新登录'
+		})
 		uni.reLaunch({
 			url: '/pages/login/login'
 		})
