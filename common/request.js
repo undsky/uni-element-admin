@@ -49,6 +49,7 @@ http.interceptors.response.use(async response => {
 			.data.code)) {
 		store.commit('clearToken')
 		uni.showToast({
+			icon: 'error',
 			title: '授权已过期，请重新登录'
 		})
 		uni.reLaunch({
