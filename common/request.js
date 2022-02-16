@@ -32,16 +32,18 @@ http.interceptors.response.use(async response => {
 	} = response.data
 
 	if (200 == code) {
-		return data
+		return data || {}
 	}
 
 	if (message) {
 		uni.showToast({
-			title: message
+			icon: 'error',
+			title: message,
+			mask: true
 		})
 	}
 
-	return response
+	return Promise.reject(response)
 }, async response => {
 	if (response.data && ['credentials_required', 'invalid_token', 'revoked_token'].includes(response
 			.data.code)) {
