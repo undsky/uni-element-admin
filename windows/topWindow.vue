@@ -149,6 +149,7 @@
 						this.$refs.langSelect.selectLanguage()
 						break;
 					case 'logout':
+						this.$store.commit('clearToken');
 						uni.reLaunch({
 							url: '/pages/login/login'
 						});
