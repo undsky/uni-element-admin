@@ -32,16 +32,14 @@ http.interceptors.response.use(async response => {
 	} = response.data
 
 	if (200 == code) {
-		return data || {}
+		return data
 	}
-
-	if (message) {
-		uni.showToast({
-			icon: 'error',
-			title: message,
-			mask: true
-		})
-	}
+	
+	uni.showToast({
+		icon: 'error',
+		title: `${message || code}`,
+		mask: true
+	})
 
 	return Promise.reject(response)
 }, async response => {
