@@ -34,7 +34,7 @@ http.interceptors.response.use(async response => {
 	if (200 == code) {
 		return data
 	}
-	
+
 	uni.showToast({
 		icon: 'error',
 		title: `${message || code}`,
@@ -43,17 +43,23 @@ http.interceptors.response.use(async response => {
 
 	return Promise.reject(response)
 }, async response => {
-	if (response.data && ['credentials_required', 'invalid_token', 'revoked_token'].includes(response
-			.data.code)) {
+	if ('UnauthorizedError' == response.data) {
 		store.commit('clearToken')
-		uni.showToast({
-			icon: 'error',
-			title: '授权已过期，请重新登录'
-		})
-		uni.reLaunch({
-			url: '/pages/login/login'
-		})
+		uni.showModal({
+			title: '',
+			content: '授权已过期，请重新登录',
+			showCancel: false,
+			confirmText: '确定',
+			success: res => {},
+			fail: () => {},
+			complete: () => {
+				uni.reLaunch({
+					url: '/pages/login/login'
+				})
+			}
+		});
 	}
+
 	return Promise.reject(response)
 })
 
