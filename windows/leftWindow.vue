@@ -1,7 +1,8 @@
 <template>
 	<scroll-view id="left-window" scroll-y class="main left-window" :class="{ 'left-window-unfold': !isCollapse }">
 		<el-menu :default-active="activeMenu" :default-openeds="openeds" :collapse="isCollapse"
-			:collapse-transition="false" background-color="#304156" text-color="#FFFFFF" class="side-menu">
+			:collapse-transition="false" :background-color="$config.theme.backgroundColor"
+			:text-color="$config.theme.textColor" :active-text-color="$config.theme.activeTextColor" class="side-menu">
 			<el-menu-item index="home" @click="navigateTo('home', i18n.home, '/pages/index/index')">
 				<i class="el-icon-s-home"></i>
 				<span slot="title">{{ i18n.home }}</span>
@@ -249,8 +250,6 @@
 	}
 
 	.left-window {
-		background-color: #304156;
-
 		.side-menu {
 			height: 100%;
 			border: 0 !important;

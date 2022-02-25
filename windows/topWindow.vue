@@ -1,7 +1,7 @@
 <template>
 	<view id="top-window" class="top-window flex">
 		<view v-if="!isXS" class="nav-header flex flex-justify-center flex-align-center"
-			:style="{ minWidth: (isCollapse ? 64 : 230) + 'px' }">
+			:style="{ minWidth: (isCollapse ? 64 : 230) + 'px','background-color':$config.theme.backgroundColor,color:$config.theme.textColor }">
 			<el-avatar v-if="isCollapse" size="small" src="/static/logo.png"></el-avatar>
 			<view v-else>mc-uniAdmin</view>
 		</view>
@@ -195,10 +195,7 @@
 		}
 
 		@media only screen and (min-width: 768px) {
-			.nav-header {
-				background-color: #304156;
-				color: #ffffff;
-			}
+
 
 			.nav-right {
 				justify-content: space-around;
