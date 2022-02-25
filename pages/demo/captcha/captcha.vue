@@ -96,7 +96,7 @@ export default {
 			scene: 0,
 			lang: 'zh-CN',
 			area: 'auto',
-			url: 'https://www.undsky.com/auth/vaptcha',
+			url: 'https://www.undsky.com/vaptcha',
 			isShowVaptcha: false //控制组件的显示与隐藏
 		};
 	},
