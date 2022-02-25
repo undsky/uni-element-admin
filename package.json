@@ -22,6 +22,7 @@
 		"sortablejs": "^1.14.0",
 		"svga": "^2.0.6",
 		"tinymce": "^5.10.2",
+		"tsparticles": "1.40.1",
 		"uni-simple-router": "^2.0.7",
 		"vue-cool-lightbox": "^2.7.4",
 		"vue-count-to": "^1.0.13",
