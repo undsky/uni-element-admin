@@ -8,7 +8,7 @@
 				<span slot="title">{{ i18n.home }}</span>
 			</el-menu-item>
 			<template v-for="menu in menus">
-				<el-submenu v-if="!menu.pid" :index="menu.id" :key="menu.id">
+				<el-submenu v-if="!menu.pid && false !== menu.show" :index="menu.id" :key="menu.id">
 					<template slot="title">
 						<i v-if="menu.icon" :class="menu.icon"></i>
 						<span>{{ i18n[menu.id] }}</span>
@@ -38,162 +38,178 @@
 				activeMenu: 'home',
 				openeds: ['demo'],
 				menus: [{
-					id: 'demo',
-					pid: '',
-					icon: 'el-icon-s-help',
-				}, {
-					id: 'basic',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/basic/basic',
-					keepAlive: true
-				}, {
-					id: 'notice',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/notice/notice',
-					keepAlive: true
-				}, {
-					id: 'other',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/other/other',
-					keepAlive: true
-				}, {
-					id: 'allplatform',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/allplatform/allplatform',
-					keepAlive: true
-				}, {
-					id: 'formdesign',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/formdesign/formdesign',
-					keepAlive: true
-				}, {
-					id: 'table',
-					pid: 'demo',
-					icon: '',
-					url: 'https://xuliangzhan_admin.gitee.io/vxe-table/#/',
-					keepAlive: true
-				}, {
-					id: 'excel',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/excel/excel',
-					keepAlive: false
-				}, {
-					id: 'richeditor',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/richeditor/richeditor',
-					keepAlive: false
-				}, {
-					id: 'captcha',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/captcha/captcha',
-					keepAlive: false
-				}, {
-					id: 'chart',
-					pid: 'demo',
-					icon: '',
-					url: 'https://demo.ucharts.cn/#/',
-					keepAlive: true
-				}, {
-					id: 'datav',
-					pid: 'demo',
-					icon: '',
-					url: 'http://datav.jiaminghi.com/demo/construction-data/index.html',
-					keepAlive: true
-				}, {
-					id: 'player',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/player/player',
-					keepAlive: true
-				}, {
-					id: 'image',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/image/image',
-					keepAlive: true
-				}, {
-					id: 'signaturepad',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/signaturepad/signaturepad',
-					keepAlive: true
-				}, {
-					id: 'qrcode',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/qrcode/qrcode',
-					keepAlive: true
-				}, {
-					id: 'clipboard',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/clipboard/clipboard',
-					keepAlive: true
-				}, {
-					id: 'map',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/map/map',
-					keepAlive: true
-				}, {
-					id: 'aliyun',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/aliyun/aliyun',
-					keepAlive: true
-				}, {
-					id: 'tencentyun',
-					pid: 'demo',
-					icon: '',
-					url: '/pages/demo/tencentyun/tencentyun',
-					keepAlive: true
-				}, {
-					id: 'page',
-					pid: '',
-					icon: 'el-icon-s-platform',
-				}, {
-					id: 'login',
-					pid: 'page',
-					icon: '',
-					url: '/pages/login/login',
-					keepAlive: true
-				}, {
-					id: 'login1',
-					pid: 'page',
-					icon: '',
-					url: '/pages/login/login1',
-					keepAlive: true
-				}, {
-					id: 'login2',
-					pid: 'page',
-					icon: '',
-					url: '/pages/login/login2',
-					keepAlive: true
-				}, {
-					id: 'system',
-					pid: '',
-					icon: 'el-icon-s-tools',
-				}, {
-					id: 'role',
-					pid: 'system',
-					icon: '',
-					url: '/pages/system/role/role',
-					keepAlive: true
-				}, {
-					id: 'user',
-					pid: 'system',
-					icon: '',
-					url: '/pages/system/user/user',
-					keepAlive: true
-				}]
+						id: 'message',
+						pid: '',
+						icon: '',
+						url: '/pages/system/message/message',
+						keepAlive: true,
+						show: false
+					}, {
+						id: 'self',
+						pid: '',
+						icon: '',
+						url: '/pages/system/self/self',
+						keepAlive: true,
+						show: false
+					},
+					{
+						id: 'demo',
+						pid: '',
+						icon: 'el-icon-s-help',
+					}, {
+						id: 'basic',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/basic/basic',
+						keepAlive: true
+					}, {
+						id: 'notice',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/notice/notice',
+						keepAlive: true
+					}, {
+						id: 'other',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/other/other',
+						keepAlive: true
+					}, {
+						id: 'allplatform',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/allplatform/allplatform',
+						keepAlive: true
+					}, {
+						id: 'formdesign',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/formdesign/formdesign',
+						keepAlive: true
+					}, {
+						id: 'table',
+						pid: 'demo',
+						icon: '',
+						url: 'https://xuliangzhan_admin.gitee.io/vxe-table/v3/',
+						keepAlive: true
+					}, {
+						id: 'excel',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/excel/excel',
+						keepAlive: false
+					}, {
+						id: 'richeditor',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/richeditor/richeditor',
+						keepAlive: false
+					}, {
+						id: 'captcha',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/captcha/captcha',
+						keepAlive: false
+					}, {
+						id: 'chart',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/wv/wv?url=' + encodeURIComponent('https://demo.ucharts.cn'),
+						keepAlive: false
+					}, {
+						id: 'datav',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/datav/datav',
+						keepAlive: false
+					}, {
+						id: 'player',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/player/player',
+						keepAlive: true
+					}, {
+						id: 'image',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/image/image',
+						keepAlive: true
+					}, {
+						id: 'signaturepad',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/signaturepad/signaturepad',
+						keepAlive: true
+					}, {
+						id: 'qrcode',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/qrcode/qrcode',
+						keepAlive: true
+					}, {
+						id: 'clipboard',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/clipboard/clipboard',
+						keepAlive: true
+					}, {
+						id: 'map',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/map/map',
+						keepAlive: true
+					}, {
+						id: 'aliyun',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/aliyun/aliyun',
+						keepAlive: true
+					}, {
+						id: 'tencentyun',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/tencentyun/tencentyun',
+						keepAlive: true
+					}, {
+						id: 'page',
+						pid: '',
+						icon: 'el-icon-s-platform',
+					}, {
+						id: 'login',
+						pid: 'page',
+						icon: '',
+						url: '/pages/login/login',
+						keepAlive: true
+					}, {
+						id: 'login1',
+						pid: 'page',
+						icon: '',
+						url: '/pages/login/login1',
+						keepAlive: true
+					}, {
+						id: 'login2',
+						pid: 'page',
+						icon: '',
+						url: '/pages/login/login2',
+						keepAlive: true
+					}, {
+						id: 'system',
+						pid: '',
+						icon: 'el-icon-s-tools',
+					}, {
+						id: 'role',
+						pid: 'system',
+						icon: '',
+						url: '/pages/system/role/role',
+						keepAlive: true
+					}, {
+						id: 'user',
+						pid: 'system',
+						icon: '',
+						url: '/pages/system/user/user',
+						keepAlive: true
+					}
+				]
 			};
 		},
 		computed: {
@@ -229,13 +245,15 @@
 
 				if (launchPage && -1 == this.$utils.indexOf(['/pages/index/index', '/pages/login/login'],
 						launchPage)) {
-					const {
-						id,
-						text,
-						url,
-						keepAlive
-					} = this.$utils.find(this.menus, menu => launchPage == menu.url)
-					if (id) {
+					const _menu = this.$utils.find(this.menus, menu => launchPage == menu.url)
+					if (_menu) {
+						const {
+							id,
+							text,
+							url,
+							keepAlive
+						} = _menu
+
 						this.navigateTo(id, text, url, keepAlive)
 					}
 				}

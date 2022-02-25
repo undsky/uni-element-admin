@@ -36,7 +36,7 @@
 			systemInfo.isXS = systemInfo.screenWidth < 768;
 			this.globalData.systemInfo = systemInfo;
 			console.log(systemInfo);
-			this.globalData.launchPage = this.$Route.path;
+			this.globalData.launchPage = this.$Route.fullPath;
 			console.log('App Launch');
 		},
 		onShow: function() {

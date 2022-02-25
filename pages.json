@@ -62,6 +62,17 @@
 				"topWindow": false,
 				"leftWindow": false
 			}
+		}, {
+			"path": "pages/system/message/message"
+		}, {
+			"path": "pages/wv/wv"
+		}, {
+			"path": "pages/demo/datav/datav",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
+
 		}
 	],
 	"globalStyle": {

@@ -18,7 +18,7 @@
 		<view class="nav-right flex flex-align-center"
 			:style="{width:userPanelWidth+'px',minWidth:userPanelWidth+'px'}">
 			<template v-if="!isXS">
-				<mc-message></mc-message>
+				<mc-message @message="navigateTo('message', '/pages/system/message/message', true)"></mc-message>
 				<mc-screenfull></mc-screenfull>
 				<mc-screenlock></mc-screenlock>
 				<mc-lang></mc-lang>
@@ -125,22 +125,23 @@
 				this.tabs = tabs.filter(tab => tab.name !== name);
 				uni.$emit('activeMenu', activeName);
 			},
+			navigateTo(name, url, keepAlive) {
+				if (this.$utils.navigateTo(url, false === keepAlive ? null : this)) {
+					this.handleActiveTab({
+						name,
+						title: this.$t('index')[name],
+						url,
+						keepAlive
+					});
+				}
+			},
 			userCommand(command) {
 				switch (command) {
 					case 'self':
-						const url = '/pages/system/self/self';
-						const keepAlive = true
-						if (this.$utils.navigateTo(url, false === keepAlive ? null : this)) {
-							this.handleActiveTab({
-								name: command,
-								title: this.$t('index')[command],
-								url,
-								keepAlive
-							});
-						}
+						this.navigateTo(command, '/pages/system/self/self', true)
 						break;
 					case 'message':
-						this.$refs.messageNotice.show()
+						this.navigateTo(command, '/pages/system/message/message', true)
 						break;
 					case 'lock':
 						this.$refs.screenLock.lock();

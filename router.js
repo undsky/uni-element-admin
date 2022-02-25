@@ -11,7 +11,7 @@ const router = createRouter({
 
 //全局路由前置守卫
 router.beforeEach((to, from, next) => {
-	if (to.path != from.path) {
+	if (to.fullPath != from.fullPath) {
 		NProgress.start()
 		if ('development' === process.env.NODE_ENV) {
 			console.log('路由开始')

@@ -27,8 +27,7 @@
 		},
 		methods: {
 			show() {
-				console.log('message notice')
-				this.$emit('notice')
+				this.$emit('message')
 			}
 		},
 		mounted: function() {
