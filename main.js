@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import App from './App'
 
+import dataV from '@jiaminghi/data-view'
+Vue.use(dataV)
+
 import Particles from "particles.vue";
 Vue.use(Particles);
 

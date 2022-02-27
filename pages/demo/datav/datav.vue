@@ -1,22 +1,19 @@
 <template>
-	<view>
-		
-	</view>
+	<datav />
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				
-			}
-		},
-		methods: {
-			
-		}
-	}
+import datav from '../../../components/datav/index.vue';
+
+export default {
+	components: {
+		datav
+	},
+	data() {
+		return {};
+	},
+	methods: {}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

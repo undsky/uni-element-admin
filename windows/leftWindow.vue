@@ -90,7 +90,7 @@
 						id: 'table',
 						pid: 'demo',
 						icon: '',
-						url: 'https://xuliangzhan_admin.gitee.io/vxe-table/v3/',
+						url: 'https://vxetable.cn/v3/#/table/start/install',
 						keepAlive: true
 					}, {
 						id: 'excel',
@@ -171,24 +171,24 @@
 						url: '/pages/demo/tencentyun/tencentyun',
 						keepAlive: true
 					}, {
-						id: 'page',
+						id: 'login',
 						pid: '',
 						icon: 'el-icon-s-platform',
 					}, {
 						id: 'login',
-						pid: 'page',
+						pid: 'login',
 						icon: '',
 						url: '/pages/login/login',
 						keepAlive: true
 					}, {
 						id: 'login1',
-						pid: 'page',
+						pid: 'login',
 						icon: '',
 						url: '/pages/login/login1',
 						keepAlive: true
 					}, {
 						id: 'login2',
-						pid: 'page',
+						pid: 'login',
 						icon: '',
 						url: '/pages/login/login2',
 						keepAlive: true
