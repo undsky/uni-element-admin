@@ -5,8 +5,6 @@
 </template>
 
 <script>
-	import LuckyExcel from 'luckyexcel'
-
 	export default {
 		name: 'mc-excel',
 		props: {

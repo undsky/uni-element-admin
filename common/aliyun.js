@@ -1,4 +1,3 @@
-import OSS from 'ali-oss'
 import http from './request.js'
 
 async function _OSS(bucket) {

@@ -63,6 +63,7 @@ Vue.use(VXETable)
 Vue.prototype.$print = VXETable.print
 Vue.prototype.$readFile = VXETable.readFile
 Vue.prototype.$saveFile = VXETable.saveFile
+Vue.prototype.$modal = VXETable.modal
 
 Vue.use(AVUE);
 
