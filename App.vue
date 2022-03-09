@@ -135,4 +135,8 @@
 			background-color: transparent !important;
 		}
 	}
+
+	.vxe-modal--wrapper .vxe-modal--content .el-form-item__error {
+		white-space: initial !important;
+	}
 </style>

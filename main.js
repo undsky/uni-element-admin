@@ -31,7 +31,10 @@ import 'vxe-table-plugin-element/dist/style.css'
 VXETable.use(VXETablePluginElement)
 
 VXETable.setup({
-	i18n: (key, args) => i18n.t(key, args)
+	i18n: (key, args) => i18n.t(key, args),
+	modal: {
+		maskClosable: true
+	}
 })
 
 // 自定义全局的格式化处理函数
