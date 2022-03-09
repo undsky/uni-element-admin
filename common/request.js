@@ -36,7 +36,7 @@ http.interceptors.response.use(async response => {
 	}
 
 	uni.showToast({
-		icon: 'error',
+		icon: 'none',
 		title: `${message || code}`,
 		mask: true
 	})
