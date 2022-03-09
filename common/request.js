@@ -89,9 +89,14 @@ function download(url, options) {
 	return http.download(url, options)
 }
 
+function authUrl(api) {
+	return `${_config.request.baseURL}${api}?token=${store.state.auth.token}`
+}
+
 export default {
 	get,
 	post,
 	upload,
-	download
+	download,
+	authUrl
 }

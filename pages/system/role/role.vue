@@ -4,7 +4,7 @@
 			<vxe-toolbar ref="xToolbar">
 				<template #buttons>
 					<view class="margin-left">
-						<el-button @click="add" type="primary">新增</el-button>
+						<el-button @click="add" type="primary" size="small">新增</el-button>
 					</view>
 				</template>
 				<template #tools>
