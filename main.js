@@ -34,6 +34,11 @@ VXETable.setup({
 	i18n: (key, args) => i18n.t(key, args),
 	modal: {
 		maskClosable: true
+	},
+	table: {
+		treeConfig: {
+			parentField: 'pid'
+		}
 	}
 })
 

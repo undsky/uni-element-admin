@@ -10,5 +10,6 @@ export default {
 		custom: {
 			auth: true
 		}
-	}
+	},
+	pageSize: 10, // 10,15,20,50,100
 }
