@@ -5,14 +5,15 @@ export default {
 		scanLogin: '扫码登录',
 		login: '登录',
 		account: '账号',
+		username: '用户名',
+		email: '邮箱',
 		password: '密码',
 		captcha: '验证码',
 		please: '请输入',
 		phone: '手机号',
 		realPhone: '正确的手机号',
-		smsCode: '短信验证码',
-		getCode: '获取验证码',
-		reGetCode: '秒后重新获取'
+		getCaptcha: '获取验证码',
+		reGetCaptcha: '秒后重新获取'
 	},
 	index: {
 		home: '首页',

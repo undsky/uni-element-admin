@@ -4,21 +4,22 @@
 			<div class="login-left hidden-sm-and-down">
 				<div class="login-time">{{ time.txt }}</div>
 				<div class="login-left-box">
-					<div>
+					<div class="response">
 						<div class="logo">mc-uniAdmin</div>
 						<h2 class="title">基于 uniapp 的后台框架</h2>
 						<div class="msg">
 							<div class="msg-txt">{{ quotation.content }}</div>
 							<div class="msg-author">
-								<span>{{ quotation.name }}</span>
-								<span>{{ quotation.comeFrom }}</span>
+								<span>{{ quotation.from }}</span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="login-right" :style="{width:isXS ? 'auto' : '450px'}">
-				<mc-login></mc-login>
+				<div class="response">
+					<mc-login></mc-login>
+				</div>
 			</div>
 		</div>
 		<div class="particles">
@@ -29,7 +30,28 @@
 
 <script>
 	import particles from './particles'
-	import quotations from './quotations'
+	const quotations = [{
+		content: '天行健，君子以自强不息。',
+		from: '《周易》'
+	}, {
+		content: '己所不欲，勿施于人。',
+		from: '《论语》'
+	}, {
+		content: '满招损，谦受益。',
+		from: '《尚书》'
+	}, {
+		content: '学不可以已。',
+		from: '《荀子》'
+	}, {
+		content: '人一能之，己百之；人十能之，己千之。',
+		from: '《中庸》'
+	}, {
+		content: '君子莫大乎与人为善。',
+		from: '《孟子》'
+	}, {
+		content: '强中自有强中手，莫向人前满自夸。',
+		from: '《警世通言》'
+	}]
 
 	export default {
 		data() {

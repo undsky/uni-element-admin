@@ -5,14 +5,15 @@ export default {
 		scanLogin: 'scan login',
 		login: 'login',
 		account: 'account',
+		username: 'username',
+		email: 'email',
 		password: 'password',
 		captcha: 'captcha',
 		please: 'please enter ',
 		phone: 'phone',
 		realPhone: 'real phone',
-		smsCode: 'sms code',
-		getCode: 'get code',
-		reGetCode: ' second reacquire'
+		getCaptcha: 'get captcha',
+		reGetCaptcha: ' second reacquire'
 	},
 	index: {
 		home: 'home',
