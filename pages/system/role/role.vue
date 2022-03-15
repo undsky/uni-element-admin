@@ -6,7 +6,7 @@
 					<vxe-toolbar ref="xToolbarRole">
 						<template #buttons>
 							<view class="margin-left">
-								<el-button @click="addRole" type="primary" size="small">添加角色</el-button>
+								<el-button @click="addRole()" type="primary" size="small">添加角色</el-button>
 							</view>
 						</template>
 						<template #tools>
@@ -54,20 +54,86 @@
 </template>
 
 <script>
-	import {
-		formRoleModal,
-		treeRole,
-		treeMenu
-	} from './role.js'
-
 	export default {
 		data() {
+			const formRoleModal = {
+				formRoleModalShow: false,
+				formRoleModalTitle: ' ',
+				formRoleValue: {},
+				formRoleOption: {
+					column: [{
+						type: 'input',
+						label: '',
+						span: 24,
+						display: false,
+						prop: 'id'
+					}, {
+						type: 'input',
+						label: '',
+						span: 24,
+						display: false,
+						prop: 'pid'
+					}, {
+						type: 'input',
+						label: '',
+						span: 24,
+						display: false,
+						prop: 'pids'
+					}, {
+						type: 'input',
+						label: '上级',
+						span: 24,
+						display: true,
+						prop: 'pname',
+						readonly: true,
+						placeholder: '无'
+					}, {
+						type: 'input',
+						label: '名称',
+						span: 24,
+						display: true,
+						prop: 'name',
+						required: true,
+						rules: [{
+							required: true,
+							message: '名称必须填写'
+						}]
+					}],
+					labelPosition: 'left',
+					labelSuffix: '：',
+					labelWidth: 120,
+					gutter: 0,
+					menuBtn: true,
+					submitBtn: true,
+					submitText: '提交',
+					emptyBtn: false,
+					emptyText: '清空',
+					menuPosition: 'center',
+					menuSpan: 24
+				}
+			}
+
+			const treeRole = {
+				treeRoleLoading: false,
+				treeRoleData: []
+			}
+
+			const treeMenu = {
+				treeMenuLoading: false,
+				treeMenuData: []
+			}
+
 			return Object.assign({
 				pid: 0,
 				pids: '0'
 			}, formRoleModal, treeRole, treeMenu);
 		},
 		methods: {
+			async loadTreeRoleData() {
+				try {
+					this.treeRoleData = await this.$http.post('/api/role/selects')
+				} catch (e) {}
+			},
 			addRole(row) {
 				const _row = row || {
 					id: 0,
@@ -90,8 +156,20 @@
 				this.$refs.formRole.resetForm();
 			},
 			async formRoleSubmit(form, done) {
+				try {
+					const result = await this.$http.post('/api/role/save', form)
 
-				done();
+					this.$message({
+						type: 'success',
+						message: '保存成功',
+						showClose: true
+					})
+
+					this.formRoleModalShow = false
+					await this.loadTreeRoleData()
+				} catch (e) {} finally {
+					done();
+				}
 			},
 			formRoleResetChange() {},
 			async saveAuth() {
@@ -103,8 +181,11 @@
 				this.$refs.xTreeRole.connect(this.$refs.xToolbarRole)
 				this.$refs.xTreeMenu.connect(this.$refs.xToolbarMenu)
 			})
+
+			await this.loadTreeRoleData()
 		}
 	};
 </script>
+<style lang="scss" scoped>
 
-<style></style>
+</style>

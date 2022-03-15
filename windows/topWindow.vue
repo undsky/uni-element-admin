@@ -135,7 +135,7 @@
 					});
 				}
 			},
-			userCommand(command) {
+			async userCommand(command) {
 				switch (command) {
 					case 'self':
 						this.navigateTo(command, '/pages/system/self/self', true)
@@ -150,10 +150,14 @@
 						this.$refs.langSelect.selectLanguage()
 						break;
 					case 'logout':
-						this.$store.commit('clearToken');
-						uni.reLaunch({
-							url: '/pages/login/login'
-						});
+						try {
+							await this.$http.post('/api/user/logout')
+						} catch (e) {} finally {
+							this.$store.commit('clearToken');
+							uni.reLaunch({
+								url: '/pages/login/login'
+							});
+						}
 						break;
 				}
 			},
