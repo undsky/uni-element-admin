@@ -26,9 +26,6 @@ Vue.prototype.$utils = utils
 
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/style.css'
-import VXETablePluginElement from 'vxe-table-plugin-element'
-import 'vxe-table-plugin-element/dist/style.css'
-VXETable.use(VXETablePluginElement)
 
 VXETable.setup({
 	i18n: (key, args) => i18n.t(key, args),
@@ -36,6 +33,9 @@ VXETable.setup({
 		maskClosable: true
 	},
 	table: {
+		rowConfig: {
+			keyField: 'id'
+		},
 		treeConfig: {
 			parentField: 'pid'
 		}
