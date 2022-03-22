@@ -33,6 +33,7 @@ VXETable.setup({
 		maskClosable: true
 	},
 	table: {
+		showOverflow: true,
 		rowConfig: {
 			keyField: 'id'
 		},
