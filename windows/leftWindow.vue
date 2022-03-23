@@ -105,6 +105,18 @@
 						url: '/pages/demo/richeditor/richeditor',
 						keepAlive: false
 					}, {
+						id: 'codeeditor',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/codeeditor/codeeditor',
+						keepAlive: false
+					}, {	
+						id: 'workflow',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/workflow/workflow',
+						keepAlive: false
+					}, {
 						id: 'captcha',
 						pid: 'demo',
 						icon: '',

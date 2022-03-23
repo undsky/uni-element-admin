@@ -73,6 +73,10 @@
 				"leftWindow": false
 			}
 
+		}, {
+			"path": "pages/demo/codeeditor/codeeditor"
+		}, {
+			"path": "pages/demo/workflow/workflow"
 		}
 	],
 	"globalStyle": {

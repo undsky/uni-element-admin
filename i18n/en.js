@@ -33,6 +33,8 @@ export default {
 		table: 'table',
 		excel: 'Excel',
 		richeditor: 'richeditor',
+		codeeditor: 'codeeditor',
+		workflow: 'workflow',
 		captcha: 'captcha',
 		chart: 'chart',
 		datav: 'datav',

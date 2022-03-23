@@ -33,6 +33,8 @@ export default {
 		table: '表格',
 		excel: 'Excel',
 		richeditor: '富文本编辑器',
+		codeeditor: '代码编辑器',
+		workflow: '流程图',
 		captcha: '验证码',
 		chart: '图表',
 		datav: '数据可视化大屏',
