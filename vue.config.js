@@ -1,5 +1,4 @@
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const TransformPages = require('uni-read-pages')
 const {
 	webpack
@@ -8,9 +7,6 @@ const {
 module.exports = {
 	configureWebpack: {
 		plugins: [
-			new MonacoWebpackPlugin({
-				languages: ['javascript']
-			}),
 			new webpack.DefinePlugin({
 				ROUTES: webpack.DefinePlugin.runtimeValue(() => {
 					const tfPages = new TransformPages({
