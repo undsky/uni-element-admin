@@ -1,40 +1,35 @@
 <template>
 	<view>
-		<VueSignaturePad height="500px" ref="signaturePad" :options="{ backgroundColor : 'lightgray' }">
-		</VueSignaturePad>
-		<el-row type="flex" justify="center" class="margin-top">
-			<el-button type="primary" @click="save">保存</el-button>
-			<el-button @click="undo">撤销</el-button>
-		</el-row>
+		<!-- https://ext.dcloud.net.cn/plugin?id=6806 -->
+		<v-sign width="100%" height="500px" @init="onSignInit">
+			<view class="control-area">
+				<view>按钮组件：</view>
+				<view class="section">
+					<v-sign-action></v-sign-action>
+				</view>
+				<view>画笔组件：</view>
+				<view class="section">
+					<v-sign-pen></v-sign-pen>
+				</view>
+				<view>颜色选择器组件：</view>
+				<view class="section">
+					<v-sign-color></v-sign-color>
+				</view>
+			</view>
+		</v-sign>
 	</view>
 </template>
 
 <script>
-	import {
-		VueSignaturePad
-	} from 'vue-signature-pad';
-
 	export default {
-		name: 'signaturepad',
-		components: {
-			VueSignaturePad
-		},
 		data() {
 			return {
 
 			}
 		},
 		methods: {
-			undo() {
-				this.$refs.signaturePad.undoSignature();
-			},
-			save() {
-				const {
-					isEmpty,
-					data
-				} = this.$refs.signaturePad.saveSignature();
-				console.log(`isEmpty:${isEmpty}`);
-				console.log(data);
+			onSignInit(signCtx) {
+				this.signCtx = signCtx
 			}
 		}
 	}
