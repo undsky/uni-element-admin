@@ -8,7 +8,7 @@
 		<view @click="toggleSidebar" class="toggle-sidebar flex flex-justify-center flex-align-center"><i
 				:class="[isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold']"></i></view>
 		<view class="flex flex-align-end">
-			<el-tabs
+			<el-tabs v-contextmenu:contextmenu
 				:style="{ width: 'calc(100vw - ' + (isXS ? 80 : isCollapse ? (64+40+userPanelWidth) : (230+40+userPanelWidth)) + 'px)' }"
 				tab-position="bottom" v-model="activeTab" type="card" @tab-click="tabClick" @tab-remove="tabRemove">
 				<el-tab-pane v-for="item in tabs" :key="item.name" :label="item.title" :name="item.name"
@@ -40,6 +40,23 @@
 				</el-dropdown-menu>
 			</el-dropdown>
 		</view>
+		<v-contextmenu ref="contextmenu">
+			<v-contextmenu-item @click="handleTab('refreshActiveTab')"><text
+					class="cuIcon-refresh margin-right"></text>刷新当前页
+			</v-contextmenu-item>
+			<v-contextmenu-item divider></v-contextmenu-item>
+			<v-contextmenu-item @click="handleTab('closeOther')"><text class="cuIcon-move margin-right"></text>关闭其他
+			</v-contextmenu-item>
+			<v-contextmenu-item divider></v-contextmenu-item>
+			<v-contextmenu-item @click="handleTab('closeLeft')"><text class="cuIcon-back margin-right"></text>关闭左侧
+			</v-contextmenu-item>
+			<v-contextmenu-item divider></v-contextmenu-item>
+			<v-contextmenu-item @click="handleTab('closeRight')"><text class="cuIcon-right margin-right"></text>关闭右侧
+			</v-contextmenu-item>
+			<v-contextmenu-item divider></v-contextmenu-item>
+			<v-contextmenu-item @click="handleTab('closeAll')"><text class="cuIcon-all margin-right"></text>全部关闭
+			</v-contextmenu-item>
+		</v-contextmenu>
 	</view>
 </template>
 
@@ -73,6 +90,58 @@
 			}
 		},
 		methods: {
+			handleTab(action) {
+				switch (action) {
+					case 'refreshActiveTab':
+						const {
+							url,
+							keepAlive
+						} = this.$utils.find(this.tabs, tab => tab.name === this.activeTab);
+						if (url) {
+							uni.redirectTo({
+								url: url + (-1 == url.indexOf('?') ? '?' : '&') + 't=' + new Date().getTime()
+							})
+						}
+						break
+					case 'closeOther':
+						this.tabs = [{
+							title: this.$t('index').home,
+							name: 'home',
+							url: '/pages/index/index',
+							closable: false
+						}, this.$utils.find(this.tabs, tab => tab.name === this.activeTab)];
+						break;
+					case 'closeLeft':
+						this.tabs = [{
+							title: this.$t('index').home,
+							name: 'home',
+							url: '/pages/index/index',
+							closable: false
+						}].concat(this.tabs.slice(parseInt(this.$utils.findKey(this.tabs, tab => tab.name === this
+							.activeTab))));
+						break;
+					case 'closeRight':
+						this.tabs = this.tabs.slice(0, parseInt(this.$utils.findKey(this.tabs, tab => tab.name === this
+							.activeTab)) + 1);
+						break;
+					case 'closeAll':
+						this.tabs = [{
+							title: this.$t('index').home,
+							name: 'home',
+							url: '/pages/index/index',
+							closable: false
+						}];
+						this.activeTab = 'home';
+						uni.$on('activeTab', this.handleActiveTab);
+						this.tabClick({
+							name: this.activeTab
+						});
+						break;
+					default:
+						break
+				}
+
+			},
 			changeLanguage() {
 				const _i18n = this.$t('index');
 				this.tabs = this.$utils.map(this.tabs, tab => {
@@ -123,7 +192,6 @@
 				});
 
 				this.tabs = tabs.filter(tab => tab.name !== name);
-				uni.$emit('activeMenu', activeName);
 			},
 			navigateTo(name, url, keepAlive) {
 				if (this.$utils.navigateTo(url, false === keepAlive ? null : this)) {

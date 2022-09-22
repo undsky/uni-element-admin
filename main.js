@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import App from './App'
 
+import contentmenu from 'v-contextmenu/dist/index.js'
+import 'v-contextmenu/dist/index.css'
+
+Vue.use(contentmenu)
+
 import dataV from '@jiaminghi/data-view'
 Vue.use(dataV)
 
