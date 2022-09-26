@@ -90,7 +90,7 @@ function download(url, options) {
 }
 
 function authUrl(api) {
-	return `${_config.request.baseURL}${api}?token=${store.state.auth.token}`
+	return `${_config.request.baseURL}${api}${-1 == api.indexOf('?') ? '?' : '&'}token=${store.state.auth.token}`
 }
 
 export default {
