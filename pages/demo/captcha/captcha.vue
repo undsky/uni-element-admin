@@ -89,9 +89,9 @@ export default {
 			dragVerifyImgPassing: false,
 			dragVerifyImgChipPassing: false,
 			dragVerifyImgRotatePassing: false,
-			img: 'https://cdn.cloud.undsky.com/img/captcha/1.jpg',
-			imgChip: 'https://cdn.cloud.undsky.com/img/captcha/2.jpg',
-			imgRotate: 'https://cdn.cloud.undsky.com/img/captcha/3.jpg',
+			img: '//d.cloud.undsky.com/lib/img/captcha/1.jpg',
+			imgChip: '//d.cloud.undsky.com/lib/img/captcha/2.jpg',
+			imgRotate: '//d.cloud.undsky.com/lib/img/captcha/3.jpg',
 			vid: '6138796f84ff87a9581a7cde', //验证单元vid,登录vaptcha用户后台创建
 			scene: 0,
 			lang: 'zh-CN',

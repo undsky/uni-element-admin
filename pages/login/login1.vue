@@ -15,7 +15,7 @@
 		data() {
 			return {
 				isXS: false,
-				simulateArr: ['#icon /static/login1.png', 'mc-uniAdmin'],
+				simulateArr: ['#icon ../../static/login1.png', 'mc-uniAdmin'],
 				simulateIndex: 0,
 				timer: null
 			}

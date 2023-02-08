@@ -2,7 +2,7 @@
 	<view id="top-window" class="top-window flex">
 		<view v-if="!isXS" class="nav-header flex flex-justify-center flex-align-center"
 			:style="{ minWidth: (isCollapse ? 64 : 230) + 'px','background-color':$config.theme.backgroundColor,color:$config.theme.textColor }">
-			<el-avatar v-if="isCollapse" size="small" src="/static/logo.png"></el-avatar>
+			<el-avatar v-if="isCollapse" size="small" src="https://und3sky.com/public/img/logo.png"></el-avatar>
 			<view v-else>mc-uniAdmin</view>
 		</view>
 		<view @click="toggleSidebar" class="toggle-sidebar flex flex-justify-center flex-align-center"><i
@@ -26,7 +26,7 @@
 			<el-dropdown trigger="click" @command="userCommand">
 				<view class="flex flex-align-center">
 					<!-- <el-avatar size="small" icon="el-icon-user-solid"></el-avatar> -->
-					<el-avatar size="small" src="/static/logo.png"></el-avatar>
+					<el-avatar size="small" src="//d.cloud.undsky.com/lib/img/logo.png"></el-avatar>
 					<text v-if="!isXS" class="margin-left-sm text-sm">管理员</text>
 				</view>
 				<el-dropdown-menu slot="dropdown">

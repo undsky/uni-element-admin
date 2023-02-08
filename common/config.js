@@ -4,7 +4,7 @@ export default {
 		textColor: '#FFFFFF',
 		activeTextColor: '#409EFF'
 	},
-	cdn: 'https://cdn.cloud.undsky.com',
+	cdn: '//d.cloud.undsky.com/lib',
 	request: {
 		baseURL: 'development' === process.env.NODE_ENV ? 'http://localhost:7001' : window.location.origin,
 		timeout: 600000,

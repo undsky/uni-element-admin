@@ -43,7 +43,7 @@
 			this.$nextTick(async () => {
 				_player = new XGPlayer({
 					id: "mse",
-					url: 'https://undsky.com/public/media/demo.mp4',
+					url: '//d.cloud.undsky.com/lib/media/demo.mp4',
 					autoplay: true,
 					poster: null,
 					playbackRate: [0.5, 0.75, 1, 1.5, 2],
@@ -58,10 +58,10 @@
 				_music = new XGMusic({
 					id: 'vs',
 					url: [{
-						src: 'https://undsky.com/public/media/demo.mp3',
+						src: '//d.cloud.undsky.com/lib/media/demo.mp3',
 						name: '大田俊生仔',
 						vid: '000001',
-						poster: 'https://undsky.com/public/img/demo.gif'
+						poster: '//d.cloud.undsky.com/lib/img/demo.gif'
 					}],
 					volume: 0.8,
 					volumeShow: true,

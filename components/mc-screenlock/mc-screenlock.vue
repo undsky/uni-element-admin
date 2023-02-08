@@ -6,7 +6,7 @@
 		<el-dialog title="mc-uniAdmin" :visible="isLock" center append-to-body :close-on-click-modal="false"
 			:close-on-press-escape="false" :show-close="false" :width="isXS ? '90%' : '50%'">
 			<view class="flex flex-column flex-align-center margin-bottom-lg">
-				<el-avatar :size="80" src="https://undsky.com/public/img/logo.png"></el-avatar>
+				<el-avatar :size="80" src="//d.cloud.undsky.com/lib/img/logo.png"></el-avatar>
 				<view class="margin-top">admin</view>
 			</view>
 			<el-form :model="lockForm" :rules="lockRules" ref="lockForm" @submit.native.prevent>

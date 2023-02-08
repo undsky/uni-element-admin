@@ -17,8 +17,8 @@ export default {
 							alert(JSON.stringify(item));
 						},
 						title: 'undsky',
-						subtitle: '女儿奴、全栈开发者、项目经理',
-						img: 'https://undsky.com/public/img/logo.png',
+						subtitle: '女儿奴、全栈开发者',
+						img: '//d.cloud.undsky.com/lib/img/logo.png',
 						color: '#f39c12',
 						list: [
 							{

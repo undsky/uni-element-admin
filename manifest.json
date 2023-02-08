@@ -76,7 +76,7 @@
         "template" : "index.html",
         "router" : {
             "mode" : "hash",
-            "base" : ""
+            "base" : "/admin/"
         },
         "devServer" : {
             "https" : false,
