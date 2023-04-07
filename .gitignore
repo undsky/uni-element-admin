@@ -82,3 +82,4 @@ typings/
 .DS_Store
 yarn.lock
 unpackage
+package-lock.json
