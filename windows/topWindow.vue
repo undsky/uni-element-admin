@@ -2,7 +2,7 @@
 	<view id="top-window" class="top-window flex">
 		<view v-if="!isXS" class="nav-header flex flex-justify-center flex-align-center"
 			:style="{ minWidth: (isCollapse ? 64 : 230) + 'px','background-color':$config.theme.backgroundColor,color:$config.theme.textColor }">
-			<el-avatar v-if="isCollapse" size="small" src="https://und3sky.com/public/img/logo.png"></el-avatar>
+			<el-avatar v-if="isCollapse" size="small" src="https://undsky.com/public/img/logo.png"></el-avatar>
 			<view v-else>mc-uniAdmin</view>
 		</view>
 		<view @click="toggleSidebar" class="toggle-sidebar flex flex-justify-center flex-align-center"><i
