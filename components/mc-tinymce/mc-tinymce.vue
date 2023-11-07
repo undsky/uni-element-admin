@@ -102,13 +102,15 @@
 		data() {
 			return {
 				tinymceId: this.id,
-				editor: null
+				editor: null,
+				flag: true
 			};
 		},
 		watch: {
 			value(val) {
-				if (this.editor)
+				if (this.editor && this.flag)
 					this.editor.setContent(val || '')
+				this.flag = true;
 			}
 		},
 		methods: {
@@ -274,6 +276,7 @@
 
 			if (this.value) this.editor.setContent(this.value || '')
 			this.editor.on('input keyup Change Undo Redo ExecCommand NodeChange', e => {
+				this.flag = false;
 				this.$emit('input', this.editor.getContent())
 			})
 

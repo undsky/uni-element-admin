@@ -1,142 +1,105 @@
 <!-- [z-paging]下拉刷新view -->
-
 <template>
 	<view style="height: 100%;">
-		<view
-			:class="['zp-r-container',{'zp-r-container-padding':showUpdateTime}]" style="height: 100%;">
+		<view :class="showUpdateTime?'zp-r-container zp-r-container-padding':'zp-r-container'">
 			<view class="zp-r-left">
-				<image v-if="status!==2" :class="refresherLeftImageClass"
-					:style="[{width: showUpdateTime?'36rpx':'30rpx',height: showUpdateTime?'36rpx':'30rpx','margin-right': showUpdateTime?'20rpx':'9rpx'},imgStyle]"
-					:src="defaultThemeStyle==='white'?(status===3?base64SuccessWhite:base64ArrowWhite):(status===3?base64Success:base64Arrow)">
-				</image>
+				<image v-if="status!==R.Loading" :class="leftImageClass" :style="[leftImageStyle,imgStyle]" :src="leftImageSrc" />
 				<!-- #ifndef APP-NVUE -->
-				<image v-else class="zp-line-loading-image zp-r-left-image"
-					:style="[{width: showUpdateTime?'36rpx':'30rpx',height: showUpdateTime?'36rpx':'30rpx','margin-right': showUpdateTime?'20rpx':'9rpx'},imgStyle]"
-					:src="defaultThemeStyle==='white'?base64FlowerWhite:base64Flower">
-				</image>
+				<image v-else class="zp-line-loading-image zp-r-left-image" :style="[leftImageStyle,imgStyle]" :src="leftImageSrc" />
 				<!-- #endif -->
 				<!-- #ifdef APP-NVUE -->
 				<view v-else :style="[{'margin-right':showUpdateTime?'18rpx':'12rpx'}]">
-					<loading-indicator
-						:class="systemInfo.platform==='ios'?'zp-loading-image-ios':'zp-loading-image-android'"
-						:style="[{color:defaultThemeStyle==='white'?'white':'#777777'},imgStyle]" :animating="true">
-					</loading-indicator>
+					<loading-indicator :class="isIos?'zp-loading-image-ios':'zp-loading-image-android'" 
+					:style="[{color:zTheme.indicator[ts]},imgStyle]" :animating="true" />
 				</view>
 				<!-- #endif -->
 			</view>
 			<view class="zp-r-right">
-				<text class="zp-r-right-text"
-					:style="[refresherRightTextStyle,titleStyle]">{{refresherStatusTextMap[status]||defaultText}}
-				</text>
-				<text class="zp-r-right-text zp-r-right-time-text"
-					:style="[refresherRightTextStyle,updateTimeStyle]"
-					v-if="showUpdateTime&&refresherTimeText.length">{{refresherTimeText}}
+				<text class="zp-r-right-text" :style="[rightTextStyle,titleStyle]">{{currentTitle}}</text>
+				<text v-if="showUpdateTime&&refresherTimeText.length" class="zp-r-right-text zp-r-right-time-text" :style="[rightTextStyle,updateTimeStyle]">
+					{{refresherTimeText}}
 				</text>
 			</view>
 		</view>
 	</view>
 </template>
 <script>
-	const systemInfo = uni.getSystemInfoSync();
 	import zStatic from '../js/z-paging-static'
-	import {
-		getRefesrherFormatTimeByKey
-	} from '../js/z-paging-utils'
+	import u from '../js/z-paging-utils'
+	import Enum from '../js/z-paging-enum'
+	
 	export default {
 		name: 'z-paging-refresh',
 		data() {
 			return {
-				systemInfo: systemInfo,
-				base64Arrow: zStatic.base64Arrow,
-				base64ArrowWhite: zStatic.base64ArrowWhite,
-				base64Flower: zStatic.base64Flower,
-				base64FlowerWhite: zStatic.base64FlowerWhite,
-				base64Success: zStatic.base64Success,
-				base64SuccessWhite: zStatic.base64SuccessWhite,
+				R: Enum.Refresher,
+				isIos: uni.getSystemInfoSync().platform === 'ios',
 				refresherTimeText: '',
-				leftImageLoaded: false
+				zTheme: {
+					title: { white: '#efefef', black: '#555555' },
+					arrow: { white: zStatic.base64ArrowWhite, black: zStatic.base64Arrow },
+					flower: { white: zStatic.base64FlowerWhite, black: zStatic.base64Flower },
+					success: { white: zStatic.base64SuccessWhite, black: zStatic.base64Success },
+					indicator: { white: '#eeeeee', black: '#777777' }
+				}
 			};
 		},
-		props: {
-			'status': {
-				default: 0
-			},
-			'defaultThemeStyle': {},
-			'defaultText': {},
-			'pullingText': {},
-			'refreshingText': {},
-			'completeText': {},
-			'showUpdateTime': {
-				default: false
-			},
-			'updateTimeKey': {},
-			'imgStyle': {
-				default: {}
-			},
-			'titleStyle': {
-				default: {}
-			},
-			'updateTimeStyle': {
-				default: {}
-			},
-		},
+		props: ['status', 'defaultThemeStyle', 'defaultText', 'pullingText', 'refreshingText', 'completeText', 'defaultImg', 'pullingImg', 
+			'refreshingImg', 'completeImg', 'showUpdateTime', 'updateTimeKey', 'imgStyle', 'titleStyle', 'updateTimeStyle', 'updateTimeTextMap'
+		],
 		computed: {
-			refresherStatusTextMap() {
-				this.updateTime(this.updateTimeKey);
-				return {
-					0: this.defaultText,
-					1: this.pullingText,
-					2: this.refreshingText,
-					3: this.completeText
-				};
+			ts() {
+				return this.defaultThemeStyle;
 			},
-			refresherLeftImageClass() {
-				if(this.status === 3){
-					return 'zp-r-left-image-no-transform .zp-r-left-image-pre-size';
-				}
-				let refresherLeftImageClass = 'zp-r-left-image ';
-				if (this.status === 0) {
-					if (this.leftImageLoaded) {
-						refresherLeftImageClass += 'zp-r-arrow-down';
-					} else {
-						this.leftImageLoaded = true;
-						refresherLeftImageClass += 'zp-r-arrow-down-no-duration';
-					}
-				} else {
-					refresherLeftImageClass += 'zp-r-arrow-top';
-				}
-				return refresherLeftImageClass + ' zp-r-left-image-pre-size';
+			statusTextArr() {
+				this.updateTime();
+				return [this.defaultText,this.pullingText,this.refreshingText,this.completeText];
 			},
-			refresherRightTextStyle() {
-				let refresherRightTextStyle = {};
-				let color = '#555555';
-				if (this.defaultThemeStyle === 'white') {
-					color = '#efefef';
+			currentTitle() {
+				return this.statusTextArr[this.status] || this.defaultText;
+			},
+			leftImageClass() {
+				if (this.status === this.R.Complete) return 'zp-r-left-image-pre-size';
+				return `zp-r-left-image zp-r-left-image-pre-size ${this.status === this.R.Default ? 'zp-r-arrow-down' : 'zp-r-arrow-top'}`;
+			},
+			leftImageStyle() {
+				const showUpdateTime = this.showUpdateTime;
+				const size = showUpdateTime ? '36rpx' : '30rpx';
+				return {width: size,height: size,'margin-right': showUpdateTime ? '20rpx' : '9rpx'};
+			},
+			leftImageSrc() {
+				const R = this.R;
+				const status = this.status;
+				if (status === R.Default) {
+					if (!!this.defaultImg) return this.defaultImg;
+					return this.zTheme.arrow[this.ts];
+				} else if (status  === R.ReleaseToRefresh) {
+					if (!!this.pullingImg) return this.pullingImg;
+					if (!!this.defaultImg) return this.defaultImg;
+					return this.zTheme.arrow[this.ts];
+				} else if (status  === R.Loading) {
+					if (!!this.refreshingImg) return this.refreshingImg;
+					return this.zTheme.flower[this.ts];;
+				} else if (status  === R.Complete) {
+					if (!!this.completeImg) return this.completeImg;
+					return this.zTheme.success[this.ts];;
 				}
+				return '';
+			},
+			rightTextStyle() {
+				let stl = {};
 				// #ifdef APP-NVUE
-				if (this.showUpdateTime) {
-					refresherRightTextStyle = {
-						'height': '40rpx',
-						'line-height': '40rpx'
-					};
-				} else {
-					refresherRightTextStyle = {
-						'height': '80rpx',
-						'line-height': '80rpx'
-					};
-				}
+				const textHeight = this.showUpdateTime ? '40rpx' : '80rpx';
+				stl = {'height': textHeight, 'line-height': textHeight}
 				// #endif
-				refresherRightTextStyle['color'] = color;
-				return refresherRightTextStyle;
+				stl['color'] = this.zTheme.title[this.ts];
+				return stl;
 			}
 		},
 		methods: {
-			updateTime(updateTimeKey) {
-				if (!updateTimeKey) {
-					updateTimeKey = this.updateTimeKey;
-				}
+			updateTime() {
 				if (this.showUpdateTime) {
-					this.refresherTimeText = getRefesrherFormatTimeByKey(updateTimeKey);
+					this.refresherTimeText = u.getRefesrherFormatTimeByKey(this.updateTimeKey, this.updateTimeTextMap);
 				}
 			}
 		}
@@ -149,6 +112,7 @@
 	.zp-r-container {
 		/* #ifndef APP-NVUE */
 		display: flex;
+		height: 100%;
 		/* #endif */
 		flex-direction: row;
 		justify-content: center;
@@ -168,73 +132,31 @@
 		flex-direction: row;
 		align-items: center;
 		overflow: hidden;
+		/* #ifdef MP-ALIPAY */
+		margin-top: -4rpx;
+		/* #endif */
 	}
 
 	.zp-r-left-image {
-		/* #ifndef APP-NVUE */
-		transform: rotate(180deg);
-		margin-top: 2rpx;
-		/* #endif */
-		/* #ifdef APP-NVUE */
 		transition-duration: .2s;
 		transition-property: transform;
 		color: #666666;
-		/* #endif */
-	}
-	
-	.zp-r-left-image-no-transform {
-		/* #ifndef APP-NVUE */
-		margin-top: 2rpx;
-		/* #endif */
-		/* #ifdef APP-NVUE */
-		transition-duration: .2s;
-		transition-property: transform;
-		color: #666666;
-		/* #endif */
 	}
 	
 	.zp-r-left-image-pre-size{
 		/* #ifndef APP-NVUE */
 		width: 30rpx;
-		width: 30rpx;
+		height: 30rpx;
 		overflow: hidden;
 		/* #endif */
 	}
 
 	.zp-r-arrow-top {
-		/* #ifndef APP-NVUE */
-		animation: refresher-arrow-top .2s linear;
-		-webkit-animation: refresher-arrow-top .2s linear;
-		animation-fill-mode: forwards;
-		-webkit-animation-fill-mode: forwards;
-		/* #endif */
-		/* #ifdef APP-NVUE */
 		transform: rotate(0deg);
-		/* #endif */
 	}
 
 	.zp-r-arrow-down {
-		/* #ifndef APP-NVUE */
-		animation: refresher-arrow-down .2s linear;
-		-webkit-animation: refresher-arrow-down .2s linear;
-		animation-fill-mode: forwards;
-		-webkit-animation-fill-mode: forwards;
-		/* #endif */
-		/* #ifdef APP-NVUE */
 		transform: rotate(180deg);
-		/* #endif */
-	}
-
-	.zp-r-arrow-down-no-duration {
-		/* #ifndef APP-NVUE */
-		animation: refresher-arrow-down 0s linear;
-		-webkit-animation: refresher-arrow-down 0s linear;
-		animation-fill-mode: forwards;
-		-webkit-animation-fill-mode: forwards;
-		/* #endif */
-		/* #ifdef APP-NVUE */
-		transform: rotate(180deg);
-		/* #endif */
 	}
 
 	.zp-r-right {
@@ -256,29 +178,5 @@
 	.zp-r-right-time-text {
 		margin-top: 10rpx;
 		font-size: 24rpx;
-	}
-
-	@keyframes refresher-arrow-top {
-		0% {
-			-webkit-transform: rotate(180deg);
-			transform: rotate(180deg);
-		}
-
-		100% {
-			-webkit-transform: rotate(0deg);
-			transform: rotate(0deg);
-		}
-	}
-
-	@keyframes refresher-arrow-down {
-		0% {
-			-webkit-transform: rotate(0deg);
-			transform: rotate(0deg);
-		}
-
-		100% {
-			-webkit-transform: rotate(180deg);
-			transform: rotate(180deg);
-		}
 	}
 </style>
