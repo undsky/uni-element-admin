@@ -27,7 +27,7 @@ import utils from './common/utils.js';
 Vue.prototype.$utils = utils;
 
 import VXETable from 'vxe-table';
-import 'vxe-table/lib/style.css';
+import './vxe-table.scss';
 
 VXETable.setup({
     i18n: (key, args) => i18n.t(key, args),
