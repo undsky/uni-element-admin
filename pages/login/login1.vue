@@ -1,8 +1,9 @@
 <template>
 	<view class="login-container">
-		<mc-shape-shifter class="hidden-sm-and-down" ref="shapeShifter" style="width: 60vw; height: 100vh;">
+		<mc-shape-shifter class="hidden-sm-and-down" ref="shapeShifter" style="width: 60vw; height: 100vh">
 		</mc-shape-shifter>
-		<div class="content flex flex-align-center flex-justify-center" :style="{width:(isXS ? '100' : '40') + 'vw'}">
+		<div class="content flex flex-align-center flex-justify-center"
+			:style="{ width: (isXS ? '100' : '40') + 'vw' }">
 			<view class="login-box margin-lr-lg">
 				<mc-login theme="warning"></mc-login>
 			</view>
@@ -11,14 +12,16 @@
 </template>
 
 <script>
+	import login1 from '@/static/login1.png';
+
 	export default {
 		data() {
 			return {
 				isXS: false,
-				simulateArr: ['#icon ../../static/login1.png', 'mc-uniAdmin'],
+				simulateArr: ["#icon " + login1, "uni-psyduck-admin"],
 				simulateIndex: 0,
-				timer: null
-			}
+				timer: null,
+			};
 		},
 		methods: {
 			clickHandler() {
@@ -39,11 +42,11 @@
 			},
 			doVisibilitychange() {
 				// 页面变为不可见时触发
-				if (document.visibilityState == 'hidden') {
+				if (document.visibilityState == "hidden") {
 					this.clearTimer();
 				}
 				// 页面变为可见时触发
-				if (document.visibilityState == 'visible') {
+				if (document.visibilityState == "visible") {
 					this.initTimer();
 				}
 			},
@@ -51,8 +54,8 @@
 		onLoad: function() {
 			const {
 				isXS
-			} = getApp().globalData.systemInfo
-			this.isXS = isXS
+			} = getApp().globalData.systemInfo;
+			this.isXS = isXS;
 
 			if (!this.isXS)
 				this.$nextTick(() => {
@@ -60,14 +63,14 @@
 					this.simulateIndex = (this.simulateIndex + 1) % 3;
 					this.initTimer();
 					// 当页面不可见时，清空定时器
-					document.addEventListener('visibilitychange', this.doVisibilitychange);
-				})
+					document.addEventListener("visibilitychange", this.doVisibilitychange);
+				});
 		},
 		beforeDestroy: function() {
 			this.clearTimer();
-			document.removeEventListener('visibilitychange', this.doVisibilitychange);
-		}
-	}
+			document.removeEventListener("visibilitychange", this.doVisibilitychange);
+		},
+	};
 </script>
 
 <style lang="scss" scoped>
@@ -85,7 +88,7 @@
 			.login-box {
 				width: 100%;
 				padding: 50px 15px;
-				background-color: #FFFFFF;
+				background-color: #ffffff;
 			}
 		}
 	}

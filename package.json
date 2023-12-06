@@ -1,65 +1,53 @@
 {
-	"name": "mc-uni-admin",
-	"version": "1.0.0",
-	"repository": "https://gitee.com/mc-uniapp/mc-uni-admin.git",
-	"author": "姜彦汐 <jiangyanxi@live.com>",
-	"license": "MIT",
-	"dependencies": {
-		"@jiaminghi/data-view": "^2.10.0",
-		"@logicflow/core": "^1.1.7",
-		"@logicflow/extension": "^1.1.7",
-		"@npkg/tinymce-plugins": "^0.0.7",
-		"cos-js-sdk-v5": "^1.3.3",
-		"driver.js": "^0.9.8",
-		"element-ui": "^2.15.13",
-		"jsbarcode": "^3.11.5",
-		"keyboardjs": "^2.6.4",
-		"luch-request": "^3.0.7",
-		"nprogress": "^0.2.0",
-		"particles.vue": "^2.20.5",
-		"qrcode": "^1.5.0",
-		"screenfull": "^6.0.0",
-		"sortablejs": "^1.14.0",
-		"svga": "^2.0.6",
-		"tinymce": "^5",
-		"tsparticles": "1.40.1",
-		"uni-simple-router": "^2.0.7",
-		"v-contextmenu": "2.8.1",
-		"vue-cool-lightbox": "^2.7.4",
-		"vue-count-to": "^1.0.13",
-		"vue-cropper": "^0.5.8",
-		"vue-drag-verify-img": "^1.1.0",
-		"vue-drag-verify-img-chip": "^1.1.1",
-		"vue-drag-verify-img-rotate": "^1.1.0",
-		"vue-drag-verify2": "^1.2.0",
-		"vue-i18n": "^8.26.7",
-		"vue-monaco": "^1.2.2",
-		"vuedraggable": "^2.24.3",
-		"vxe-table": "^3",
-		"xe-utils": "^3.5.1",
-		"xgplayer": "^2.31.4",
-		"xgplayer-flv": "^2.4.32",
-		"xgplayer-mp4": "^2.0.0",
-		"xgplayer-music": "^2.3.2"
-	},
-	"devDependencies": {
-		"async-validator": "1.11.5",
-		"compression-webpack-plugin": "^6.1.1",
-		"uni-read-pages": "^1.0.5",
-		"webpack": "^4.46.0"
-	},
-	"uni-app": {
-		"scripts": {
-			"electron": {
-				"title": "electron",
-				"BROWSER": "Chrome",
-				"env": {
-					"UNI_PLATFORM": "h5"
-				},
-				"define": {
-					"ELECTRON": true
-				}
-			}
-		}
-	}
+  "name": "uni-psyduck-admin",
+  "version": "1.0.0",
+  "description": "",
+  "author": "姜彦汐 <https://www.undsky.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@jiaminghi/data-view": "^2.10.0",
+    "driver.js": "^0.9.8",
+    "element-ui": "^2.15.13",
+    "jsbarcode": "^3.11.5",
+    "keyboardjs": "^2.6.4",
+    "luch-request": "^3.0.7",
+    "nprogress": "^0.2.0",
+    "particles.vue": "^2",
+    "qrcode": "^1.5.0",
+    "screenfull": "^6.0.0",
+    "sortablejs": "^1.14.0",
+    "uni-simple-router": "^2.0.7",
+    "v-contextmenu": "2.8.1",
+    "vue-cool-lightbox": "^2.7.4",
+    "vue-count-to": "^1.0.13",
+    "vue-cropper": "^0.5.8",
+    "vue-drag-verify-img": "^1.1.0",
+    "vue-drag-verify-img-chip": "^1.1.1",
+    "vue-drag-verify-img-rotate": "^1.1.0",
+    "vue-drag-verify2": "^1.2.0",
+    "vue-i18n": "^8.26.7",
+    "vuedraggable": "^2.24.3",
+    "vxe-table": "^3",
+    "xe-utils": "^3.5.1"
+  },
+  "devDependencies": {
+    "async-validator": "1.11.5",
+    "compression-webpack-plugin": "^6.1.1",
+    "uni-read-pages": "^1.0.5",
+    "webpack": "^4.46.0"
+  },
+  "uni-app": {
+    "scripts": {
+      "electron": {
+        "title": "electron",
+        "BROWSER": "Chrome",
+        "env": {
+          "UNI_PLATFORM": "h5"
+        },
+        "define": {
+          "ELECTRON": true
+        }
+      }
+    }
+  }
 }

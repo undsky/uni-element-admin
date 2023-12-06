@@ -1,5 +1,5 @@
 {
-    "name" : "mc-uniAdmin",
+    "name" : "uni-psyduck-admin",
     "appid" : "__UNI__1100D83",
     "description" : "",
     "versionName" : "1.0.0",
@@ -72,7 +72,7 @@
         "enable" : false
     },
     "h5" : {
-        "title" : "mc-uniAdmin",
+        "title" : "uni-psyduck-admin",
         "template" : "index.html",
         "router" : {
             "mode" : "hash",

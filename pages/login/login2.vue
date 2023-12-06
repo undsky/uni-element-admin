@@ -5,7 +5,7 @@
 				<div class="login-time">{{ time.txt }}</div>
 				<div class="login-left-box">
 					<div class="response">
-						<div class="logo">mc-uniAdmin</div>
+						<div class="logo">uni-psyduck-admin</div>
 						<h2 class="title">基于 uniapp 的后台框架</h2>
 						<div class="msg">
 							<div class="msg-txt">{{ quotation.content }}</div>
@@ -16,63 +16,81 @@
 					</div>
 				</div>
 			</div>
-			<div class="login-right" :style="{width:isXS ? 'auto' : '450px'}">
+			<div class="login-right" :style="{ width: isXS ? 'auto' : '450px' }">
 				<div class="response">
 					<mc-login></mc-login>
 				</div>
 			</div>
 		</div>
 		<div class="particles">
-			<Particles style="width: 100%; height: 100%;" id="tsparticles" :options="options"></Particles>
+			<Particles style="width: 100%; height: 100%" id="tsparticles" :options="options"></Particles>
 		</div>
 	</div>
 </template>
 
 <script>
-	import particles from './particles'
+	import {
+		noise,
+		brokenLine,
+		mouseTrail
+	} from "./particles";
 	const quotations = [{
-		content: '天行健，君子以自强不息。',
-		from: '《周易》'
-	}, {
-		content: '己所不欲，勿施于人。',
-		from: '《论语》'
-	}, {
-		content: '满招损，谦受益。',
-		from: '《尚书》'
-	}, {
-		content: '学不可以已。',
-		from: '《荀子》'
-	}, {
-		content: '人一能之，己百之；人十能之，己千之。',
-		from: '《中庸》'
-	}, {
-		content: '君子莫大乎与人为善。',
-		from: '《孟子》'
-	}, {
-		content: '强中自有强中手，莫向人前满自夸。',
-		from: '《警世通言》'
-	}]
+			content: "天行健，君子以自强不息。",
+			from: "《周易》",
+		},
+		{
+			content: "己所不欲，勿施于人。",
+			from: "《论语》",
+		},
+		{
+			content: "满招损，谦受益。",
+			from: "《尚书》",
+		},
+		{
+			content: "学不可以已。",
+			from: "《荀子》",
+		},
+		{
+			content: "人一能之，己百之；人十能之，己千之。",
+			from: "《中庸》",
+		},
+		{
+			content: "君子莫大乎与人为善。",
+			from: "《孟子》",
+		},
+		{
+			content: "强中自有强中手，莫向人前满自夸。",
+			from: "《警世通言》",
+		},
+	];
 
 	export default {
 		data() {
 			return {
 				isXS: false,
-				options: particles.noise,
+				options: mouseTrail,
 				time: {
-					txt: '',
+					txt: "",
 					fun: null,
 				},
-				quotation: {}
+				quotation: {},
 			};
 		},
 		methods: {
 			initRandomQuotations() {
-				this.quotation = quotations[Math.floor(Math.random() * quotations.length)];
+				this.quotation =
+					quotations[Math.floor(Math.random() * quotations.length)];
 			},
 			initTime() {
-				this.time.txt = this.$utils.toDateString(new Date(), 'yyyy年MM月dd日 HH时mm分ss秒 星期E 第q季度');
+				this.time.txt = this.$utils.toDateString(
+					new Date(),
+					"yyyy年MM月dd日 HH时mm分ss秒 星期E 第q季度"
+				);
 				this.time.fun = setInterval(() => {
-					this.time.txt = this.$utils.toDateString(new Date(), 'yyyy年MM月dd日 HH时mm分ss秒 星期E 第q季度');
+					this.time.txt = this.$utils.toDateString(
+						new Date(),
+						"yyyy年MM月dd日 HH时mm分ss秒 星期E 第q季度"
+					);
 				}, 1000);
 			},
 		},
@@ -85,12 +103,12 @@
 		onLoad: function() {
 			const {
 				isXS
-			} = getApp().globalData.systemInfo
-			this.isXS = isXS
+			} = getApp().globalData.systemInfo;
+			this.isXS = isXS;
 		},
 		destroyed() {
 			clearInterval(this.time.fun);
-		}
+		},
 	};
 </script>
 

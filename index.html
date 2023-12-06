@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>
-			<%= htmlWebpackPlugin.options.title %>
-		</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title><%= htmlWebpackPlugin.options.title %></title>
+		<link rel="icon" href="<%= BASE_URL %>static/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="<%= BASE_URL %>static/favicon.ico" type="image/x-icon" />
 		<!-- Open Graph data -->
 		<!-- <meta property="og:title" content="Title Here" /> -->
 		<!-- <meta property="og:url" content="http://www.example.com/" /> -->
 		<!-- <meta property="og:image" content="http://example.com/image.jpg" /> -->
 		<!-- <meta property="og:description" content="Description Here" /> -->
 		<script>
-			var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS
-				.supports('top: constant(a)'))
+			var coverSupport =
+				"CSS" in window &&
+				typeof CSS.supports === "function" &&
+				(CSS.supports("top: env(a)") || CSS.supports("top: constant(a)"));
 			document.write(
 				'<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
-				(coverSupport ? ', viewport-fit=cover' : '') + '" />')
+				(coverSupport ? ", viewport-fit=cover" : "") +
+				'" />'
+			);
 		</script>
 		<link rel="stylesheet" href="<%= BASE_URL %>static/index.<%= VUE_APP_INDEX_CSS_HASH %>.css" />
 		<link rel="stylesheet" href="<%= BASE_URL %>static/avue/index.css" />
@@ -26,26 +30,40 @@
 			<strong>Please enable JavaScript to continue.</strong>
 		</noscript>
 		<div id="app"></div>
+		<!-- avue -->
 		<script src="<%= BASE_URL %>static/avue/axios.min.js"></script>
 		<script src="<%= BASE_URL %>static/avue/avue.min.js"></script>
 		<script src="<%= BASE_URL %>static/avue/form-design/index.umd.min.js"></script>
+
+		<!-- tinymce -->
+		<link rel="stylesheet" href="<%= BASE_URL %>static/tinymce/5.10.9/themes/silver/theme.min.js" />
+		<script src="<%= BASE_URL %>static/tinymce/5.10.9/tinymce.min.js"></script>
 		<!-- built files will be auto injected -->
 	</body>
-	<link rel="stylesheet" href="//d.cloud.undsky.com/lib/iconfont/iconfont.css" />
-	
-	<link rel='stylesheet' href='//d.cloud.undsky.com/lib/luckysheet/2.1.13/plugins/css/pluginsCss.css' />
-	<link rel='stylesheet' href='//d.cloud.undsky.com/lib/luckysheet/2.1.13/plugins/plugins.css' />
-	<link rel='stylesheet' href='//d.cloud.undsky.com/lib/luckysheet/2.1.13/css/luckysheet.css' />
-	<link rel='stylesheet' href='//d.cloud.undsky.com/lib/luckysheet/2.1.13/assets/iconfont/iconfont.css' />
-	<script async src="//d.cloud.undsky.com/lib/luckysheet/2.1.13/plugins/js/plugin.js"></script>
-	<script async src="//d.cloud.undsky.com/lib/luckysheet/2.1.13/luckysheet.umd.js"></script>
-	<script async src="//d.cloud.undsky.com/lib/luckyexcel/1.0.1/luckyexcel.umd.js"></script>
+	<link rel="stylesheet" href="<%= BASE_URL %>static/iconfont/iconfont.css" />
+
+	<!-- xgplayer -->
+	<link rel="stylesheet" href="<%= BASE_URL %>static/xgplayer/3.0.10/index.min.css" />
+	<script src="<%= BASE_URL %>static/xgplayer/3.0.10/index.min.js"></script>
+	<script src="<%= BASE_URL %>static/xgplayer/3.0.10/music.min.js"></script>
+
+	<!-- luckysheet -->
+	<link rel='stylesheet' href='<%= BASE_URL %>static/luckysheet/pluginsCss.css' />
+	<link rel='stylesheet' href='<%= BASE_URL %>static/luckysheet/plugins.css' />
+	<link rel='stylesheet' href='<%= BASE_URL %>static/luckysheet/luckysheet.css' />
+	<link rel='stylesheet' href='<%= BASE_URL %>static/luckysheet/iconfont.css' />
+	<script src="<%= BASE_URL %>static/luckysheet/plugin.js"></script>
+	<script src="<%= BASE_URL %>static/luckysheet/luckysheet.umd.js"></script>
+
+	<!-- amap -->
 	<script type="text/javascript">
 		window._AMapSecurityConfig = {
-			securityJsCode: 'fc3e0a96bbb14f5921d61c20b699c498',
-		}
+			securityJsCode: "fc3e0a96bbb14f5921d61c20b699c498",
+		};
 	</script>
 	<script src="https://webapi.amap.com/maps?v=1.4.15&key=2f58b2de5e00bca506d4b1cc60fc96cd"></script>
 	<script src="https://webapi.amap.com/ui/1.1/main.js"></script>
-	<script async src="//d.cloud.undsky.com/lib/aliyun/oss/6.17.1/aliyun-oss-sdk.min.js"></script>
+
+	<!-- aliyun -->
+	<script async src="<%= BASE_URL %>static/aliyun/oss/6.18.1/aliyun-oss-sdk.min.js"></script>
 </html>

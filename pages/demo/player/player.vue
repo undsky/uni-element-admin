@@ -6,29 +6,16 @@
 		</div>
 		<el-divider content-position="left">音乐</el-divider>
 		<div id="vs"></div>
-		<el-divider content-position="left">动画</el-divider>
-		<view>
-			<canvas id="svga" style="width: 375px; height: 375px;"></canvas>
-		</view>
 	</scroll-view>
 </template>
 
 <script>
-	import XGPlayer from 'xgplayer'
-	// import 'xgplayer-mp4'
-
-	import XGMusic from 'xgplayer-music'
+	import demoMp4 from '@/static/demo/demo.mp4'
+	import demoMp3 from '@/static/demo/demo.mp3'
+	import demoGif from '@/static/demo/demo.gif'
 
 	let _player = null;
 	let _music = null;
-
-	import {
-		Parser,
-		Player
-	} from 'svga'
-
-	let _svgaParser = null;
-	let _svgaPlayer = null;
 
 	export default {
 		data() {
@@ -41,9 +28,9 @@
 		},
 		onLoad: async function() {
 			this.$nextTick(async () => {
-				_player = new XGPlayer({
+				_player = new window.Player({
 					id: "mse",
-					url: '//d.cloud.undsky.com/lib/media/demo.mp4',
+					url: demoMp4,
 					autoplay: true,
 					poster: null,
 					playbackRate: [0.5, 0.75, 1, 1.5, 2],
@@ -55,64 +42,41 @@
 					"x5-video-player-fullscreen": "true"
 				})
 
-				_music = new XGMusic({
+				_music = new window.Player({
 					id: 'vs',
-					url: [{
-						src: '//d.cloud.undsky.com/lib/media/demo.mp3',
-						name: '大田俊生仔',
-						vid: '000001',
-						poster: '//d.cloud.undsky.com/lib/img/demo.gif'
-					}],
+					music: {
+						list: [{
+							src: demoMp3,
+							name: '大田俊生仔',
+							vid: '000001',
+							poster: demoGif
+						}]
+					},
+					preloadNext: true, // 预加载下一首
+					switchKeepProgress: false, // 切换歌曲保持进度
 					volume: 0.8,
-					volumeShow: true,
-					preloadNext: true,
-					switchKeepProgress: false
+					height: 50,
+					mediaType: 'audio',
+					presets: ['default', window.MusicPreset],
+					ignores: ['playbackrate'],
+					controls: {
+						initShow: true,
+						mode: 'flex'
+					},
+					marginControls: true,
+					videoConfig: {
+						crossOrigin: "anonymous"
+					}
 				})
-				// _music.setIndex(0)
-
-				_svgaParser = new Parser()
-				const svga = await _svgaParser.load(
-					'//raw.githubusercontent.com/svga/SVGAPlayer-Web/master/tests/samples/halloween.svga'
-				)
-
-				_svgaPlayer = new Player(document.getElementById('svga').getElementsByTagName('canvas')[0])
-				await _svgaPlayer.mount(svga)
-
-				_svgaPlayer.onStart = () => console.log('onStart')
-				_svgaPlayer.onResume = () => console.log('onResume')
-				_svgaPlayer.onPause = () => console.log('onPause')
-				_svgaPlayer.onStop = () => console.log('onStop')
-				_svgaPlayer.onProcess = () => console.log('onProcess', _svgaPlayer.progress)
-				_svgaPlayer.onEnd = () => console.log('onEnd')
-
-				// 开始播放动画
-				_svgaPlayer.start()
-				console.log(_svgaParser)
-
-				// 暂停播放动画
-				// _svgaPlayer.pause()
-
-				// 继续播放动画
-				// _svgaPlayer.resume()
-
-				// 停止播放动画
-				// _svgaPlayer.stop()
-
-				// 清空动画
-				// _svgaPlayer.clear()
-
-				// 销毁
-				// _svgaParser.destroy()
-				// _svgaPlayer.destroy()
+				_music.crossOrigin = "anonymous";
 			})
 		},
 		destroyed: function() {
 			if (_player) {
 				_player.destroy()
 			}
-			if (_svgaPlayer) {
-				_svgaParser.destroy()
-				_svgaPlayer.destroy()
+			if (_music) {
+				_music.destroy()
 			}
 		}
 	}

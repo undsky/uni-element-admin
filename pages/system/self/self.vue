@@ -6,41 +6,40 @@
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			option: {
-				span: 24,
-				data: [
-					{
+	import logo from '@/static/logo.png';
+
+	export default {
+		data() {
+			return {
+				option: {
+					span: 24,
+					data: [{
 						click: function(item) {
 							alert(JSON.stringify(item));
 						},
-						title: 'undsky',
-						subtitle: '女儿奴、全栈开发者',
-						img: '//d.cloud.undsky.com/lib/img/logo.png',
-						color: '#f39c12',
-						list: [
-							{
-								label: '点赞',
-								value: '3,200'
+						title: "undsky",
+						subtitle: "女儿奴、全栈开发者",
+						img: logo,
+						color: "#f39c12",
+						list: [{
+								label: "点赞",
+								value: "3,200",
 							},
 							{
-								label: '关注',
-								value: '13,000'
+								label: "关注",
+								value: "13,000",
 							},
 							{
-								label: '项目',
-								value: '13,000'
-							}
-						]
-					}
-				]
-			}
-		};
-	},
-	methods: {}
-};
+								label: "项目",
+								value: "13,000",
+							},
+						],
+					}, ],
+				},
+			};
+		},
+		methods: {},
+	};
 </script>
 
 <style></style>

@@ -20,12 +20,22 @@
 
 <script>
 	// 图片滑块组件(拼图)
-	import dragVerifyImgChip from 'vue-drag-verify-img-chip';
+	import dragVerifyImgChip from "vue-drag-verify-img-chip";
+
+	import dragChipImgs1 from '@/static/demo/dragChipImgs/1.jpg'
+	import dragChipImgs2 from '@/static/demo/dragChipImgs/2.jpg'
+	import dragChipImgs3 from '@/static/demo/dragChipImgs/3.jpg'
+	import dragChipImgs4 from '@/static/demo/dragChipImgs/4.jpg'
+	import dragChipImgs5 from '@/static/demo/dragChipImgs/5.jpg'
+	import dragChipImgs6 from '@/static/demo/dragChipImgs/6.jpg'
+	import dragChipImgs7 from '@/static/demo/dragChipImgs/7.jpg'
+	import dragChipImgs8 from '@/static/demo/dragChipImgs/8.jpg'
+	import dragChipImgs9 from '@/static/demo/dragChipImgs/9.jpg'
 
 	export default {
 		name: "mc-verify-img-chip",
 		components: {
-			dragVerifyImgChip
+			dragVerifyImgChip,
 		},
 		data() {
 			return {
@@ -35,16 +45,16 @@
 				imgsrcIndexBox: [],
 				imgsrcIndex: 0,
 				imgsrcArr: [
-					'../../static/img/dragChipImgs/1.jpg',
-					'../../static/img/dragChipImgs/2.jpg',
-					'../../static/img/dragChipImgs/3.jpg',
-					'../../static/img/dragChipImgs/4.jpg',
-					'../../static/img/dragChipImgs/5.jpg',
-					'../../static/img/dragChipImgs/6.jpg',
-					'../../static/img/dragChipImgs/7.jpg',
-					'../../static/img/dragChipImgs/8.jpg',
-					'../../static/img/dragChipImgs/9.jpg',
-				]
+					dragChipImgs1,
+					dragChipImgs2,
+					dragChipImgs3,
+					dragChipImgs4,
+					dragChipImgs5,
+					dragChipImgs6,
+					dragChipImgs7,
+					dragChipImgs8,
+					dragChipImgs9,
+				],
 			};
 		},
 		async created() {
@@ -64,13 +74,13 @@
 				this.imgsrcIndexBox = this.imgsrcArr.map((item, index) => index);
 			},
 			refreshChip() {
-				console.log('refreshChip');
+				console.log("refreshChip");
 			},
 			passcallback() {
-				this.$emit('passcallback');
+				this.$emit("passcallback");
 			},
 			passfail() {
-				this.$emit('passfail');
+				this.$emit("passfail");
 			},
 			async doRefresh() {
 				// this.loading = true;
@@ -84,9 +94,9 @@
 			onload() {
 				this.loading = false;
 			},
-			doClick() {}
-		}
-	}
+			doClick() {},
+		},
+	};
 </script>
 
 <style lang="scss" scoped>
