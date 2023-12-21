@@ -197,16 +197,22 @@
 						pid: '',
 						icon: 'el-icon-s-tools',
 					}, {
-						id: 'role',
+						id: 'menu',
 						pid: 'system',
 						icon: '',
-						url: '/pages/system/role/role',
+						url: '/pages/system/menu/menu',
 						keepAlive: true
 					}, {
 						id: 'user',
 						pid: 'system',
 						icon: '',
 						url: '/pages/system/user/user',
+						keepAlive: true
+					}, {
+						id: 'role',
+						pid: 'system',
+						icon: '',
+						url: '/pages/system/role/role',
 						keepAlive: true
 					}
 				]

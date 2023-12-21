@@ -18,8 +18,9 @@ export default {
     index: {
         home: '首页',
         system: '系统管理',
-        role: '角色管理',
+        menu: '菜单管理',
         user: '用户管理',
+        role: '角色管理',
         page: '页面',
         login: '登录',
         login1: '登录1',

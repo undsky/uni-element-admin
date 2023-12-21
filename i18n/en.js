@@ -18,8 +18,9 @@ export default {
     index: {
         home: 'home',
         system: 'system',
-        role: 'role',
+        menu: 'menu',
         user: 'user',
+        role: 'role',
         page: 'page',
         login: 'login',
         login1: 'login1',

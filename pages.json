@@ -1,123 +1,126 @@
 {
-  "pages": [
-    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-    {
-      "path": "pages/index/index"
-    },
-    {
-      "path": "pages/login/login",
-      "style": {
-        "topWindow": false,
-        "leftWindow": false
-      }
-    },
-    {
-      "path": "pages/login/login1",
-      "style": {
-        "topWindow": false,
-        "leftWindow": false
-      }
-    },
-    {
-      "path": "pages/login/login2",
-      "style": {
-        "topWindow": false,
-        "leftWindow": false
-      }
-    },
-    {
-      "path": "pages/demo/richeditor/richeditor"
-    },
-    {
-      "path": "pages/demo/signaturepad/signaturepad"
-    },
-    {
-      "path": "pages/demo/qrcode/qrcode"
-    },
-    {
-      "path": "pages/demo/clipboard/clipboard"
-    },
-    {
-      "path": "pages/demo/map/map"
-    },
-    {
-      "path": "pages/demo/image/image"
-    },
-    {
-      "path": "pages/demo/player/player"
-    },
-    {
-      "path": "pages/demo/basic/basic"
-    },
-    {
-      "path": "pages/demo/notice/notice"
-    },
-    {
-      "path": "pages/demo/other/other"
-    },
-    {
-      "path": "pages/system/role/role"
-    },
-    {
-      "path": "pages/system/user/user"
-    },
-    {
-      "path": "pages/demo/tencentyun/tencentyun"
-    },
-    {
-      "path": "pages/demo/aliyun/aliyun"
-    },
-    {
-      "path": "pages/demo/allplatform/allplatform"
-    },
-    {
-      "path": "pages/demo/captcha/captcha"
-    },
-    {
-      "path": "pages/demo/excel/excel"
-    },
-    {
-      "path": "pages/system/self/self"
-    },
-    {
-      "path": "pages/demo/formdesign/formdesign",
-      "style": {
-        "topWindow": false,
-        "leftWindow": false
-      }
-    },
-    {
-      "path": "pages/system/message/message"
-    },
-    {
-      "path": "pages/wv/wv"
-    },
-    {
-      "path": "pages/demo/datav/datav",
-      "style": {
-        "topWindow": false,
-        "leftWindow": false
-      }
-    }
-  ],
-  "globalStyle": {
-    "navigationBarTitleText": "uni-psyduck-admin",
-    "backgroundColor": "#F8F8F8",
-    "navigationStyle": "custom"
-  },
-  "topWindow": {
-    "path": "windows/topWindow",
-    "style": {
-      "height": "40px"
-    },
-    "matchMedia": {
-      "minWidth": 0
-    }
-  },
-  "leftWindow": {
-    "path": "windows/leftWindow",
-    "style": {
-      "width": "auto"
-    }
-  }
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index"
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
+		},
+		{
+			"path": "pages/login/login1",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
+		},
+		{
+			"path": "pages/login/login2",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
+		},
+		{
+			"path": "pages/demo/richeditor/richeditor"
+		},
+		{
+			"path": "pages/demo/signaturepad/signaturepad"
+		},
+		{
+			"path": "pages/demo/qrcode/qrcode"
+		},
+		{
+			"path": "pages/demo/clipboard/clipboard"
+		},
+		{
+			"path": "pages/demo/map/map"
+		},
+		{
+			"path": "pages/demo/image/image"
+		},
+		{
+			"path": "pages/demo/player/player"
+		},
+		{
+			"path": "pages/demo/basic/basic"
+		},
+		{
+			"path": "pages/demo/notice/notice"
+		},
+		{
+			"path": "pages/demo/other/other"
+		},
+		{
+			"path": "pages/system/menu/menu"
+		},
+		{
+			"path": "pages/system/user/user"
+		},
+		{
+			"path": "pages/system/role/role"
+		},
+		{
+			"path": "pages/demo/tencentyun/tencentyun"
+		},
+		{
+			"path": "pages/demo/aliyun/aliyun"
+		},
+		{
+			"path": "pages/demo/allplatform/allplatform"
+		},
+		{
+			"path": "pages/demo/captcha/captcha"
+		},
+		{
+			"path": "pages/demo/excel/excel"
+		},
+		{
+			"path": "pages/system/self/self"
+		},
+		{
+			"path": "pages/demo/formdesign/formdesign",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
+		},
+		{
+			"path": "pages/system/message/message"
+		},
+		{
+			"path": "pages/wv/wv"
+		},
+		{
+			"path": "pages/demo/datav/datav",
+			"style": {
+				"topWindow": false,
+				"leftWindow": false
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTitleText": "uni-psyduck-admin",
+		"backgroundColor": "#F8F8F8",
+		"navigationStyle": "custom"
+	},
+	"topWindow": {
+		"path": "windows/topWindow",
+		"style": {
+			"height": "40px"
+		},
+		"matchMedia": {
+			"minWidth": 0
+		}
+	},
+	"leftWindow": {
+		"path": "windows/leftWindow",
+		"style": {
+			"width": "auto"
+		}
+	}
 }
