@@ -16,7 +16,7 @@
 	"psyScrollView": {
 		"prefix": "psyScrollView",
 		"body": [
-			"<scroll-view class=\"$main\" scroll-y>",
+			"<scroll-view class=\"$main $padding\" scroll-y>",
 			"$0",
 			"</scroll-view>"
 		]

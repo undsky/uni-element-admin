@@ -101,6 +101,14 @@
 				"topWindow": false,
 				"leftWindow": false
 			}
+		},
+		{
+			"path" : "pages/demo/crud/crud",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
 		}
 	],
 	"globalStyle": {
