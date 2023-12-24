@@ -1,0 +1,479 @@
+{
+	// 注意：本文档仅支持单行注释，并且'//'前不能有任何非空字符！！！
+
+	// 文档：https://hx.dcloud.net.cn/Tutorial/Language/Snippets?id=%e8%87%aa%e5%ae%9a%e4%b9%89%e4%bb%a3%e7%a0%81%e5%9d%97
+	// 例子:
+	// "console.log": {
+	//  "scope":"source.js",
+	//  "prefix": "logtwo",
+	//  "body": [
+	//      "console.log('$1');"
+	// 	],
+	// 	"triggerAssist": false,
+	// 	"description": "Log output to console"
+	// }
+	// admin
+	"psyScrollView": {
+		"prefix": "psyScrollView",
+		"body": [
+			"<scroll-view class=\"$main\" scroll-y>",
+			"$0",
+			"</scroll-view>"
+		]
+	},
+	"psyModal": {
+		"prefix": "psyModal",
+		"body": [
+			"<vxe-modal v-model=\"$modalShow\" title=\"$modalTitle\" width=\"50%\" :position=\"{top:'15vh'}\">",
+			"<template #default>",
+			"$0",
+			"</template>",
+			"</vxe-modal>"
+		]
+	},
+	"psyToolbar": {
+		"prefix": "psyToolbar",
+		"body": [
+			"<vxe-toolbar ref=\"$xToolbar\" custom>",
+			"<template #buttons>",
+			"<view class=\"margin-left\">",
+			"</view>",
+			"</template>",
+			"<template #tools>",
+			"</template>",
+			"</vxe-toolbar>"
+		]
+	},
+	"psyTree": {
+		"prefix": "psyTree",
+		"body": [
+			"<view v-loading=\"${tree}Loading\">",
+			"<vxe-table :data=\"$treeData\" ref=\"$xTree\" :tree-config=\"{ transform: true, expandAll: true }\" :row-config=\"{ isCurrent: true, isHover: true }\">",
+			"<vxe-column field=\"$field\" title=\"$title\" tree-node></vxe-column>",
+			"$0",
+			"</vxe-table>",
+			"</view>"
+		]
+	},
+	"psyTable": {
+		"prefix": "psyTable",
+		"body": [
+			"<view v-loading=\"${table}Loading\">",
+			"<vxe-table :data=\"$tableData\" ref=\"$xTable\" :row-config=\"{ isCurrent: true, isHover: true }\">",
+			"$0",
+			"</vxe-table>",
+			"</view>"
+		]
+	},
+	"psyPager": {
+		"prefix": "psyPager",
+		"body": [
+			"<vxe-pager :current-page=\"${table}Page.currentPage\" :page-size=\"${table}Page.pageSize\" :total=\"${table}Page.total\" @page-change=\"${table}PageChange\"></vxe-pager>"
+		]
+	},
+	"psyTablePager": {
+		"prefix": "psyTablePager",
+		"body": [
+			"<view v-loading=\"${table}Loading\">",
+			"<vxe-table ref=\"$xTable\" :row-config=\"{ isCurrent: true, isHover: true }\">",
+			"$0",
+			"</vxe-table>",
+			"<vxe-pager :current-page=\"${table}Page.currentPage\" :page-size=\"${table}Page.pageSize\" :total=\"${table}Page.total\" @page-change=\"${table}PageChange\"></vxe-pager>",
+			"</view>"
+		]
+	},
+	"psyColumn": {
+		"prefix": "psyColumn",
+		"body": [
+			"<vxe-column field=\"$field\" title=\"$title\"></vxe-column>"
+		]
+	},
+	"psyColumnControl": {
+		"prefix": "psyColumnControl",
+		"body": [
+			"<vxe-table-column title=\"操作\" width=\"150\">",
+			"<template #default=\"{ row }\">",
+			"<el-button type=\"info\" size=\"mini\" @click=\"editRow(row)\">修改</el-button>",
+			"<el-button type=\"danger\" size=\"mini\" @click=\"delRow(row)\">删除</el-button>",
+			"</template>",
+			"</vxe-table-column>"
+		]
+	},
+	"psyForm": {
+		"prefix": "psyForm",
+		"body": [
+			"<avue-form ref=\"${form}\" v-model=\"${form}Value\" :option=\"${form}Option\" @submit=\"${form}Submit\" @reset-change=\"${form}ResetChange\"></avue-form>"
+		]
+	},
+	"psyFormInline": {
+		"prefix": "psyFormInline",
+		"body": [
+			"<avue-form class=\"avue-form-inline\" ref=\"${form}\" v-model=\"${form}Value\" :option=\"${form}Option\" @submit=\"${form}Submit\" @reset-change=\"${form}ResetChange\">",
+			"$0",
+			"</avue-form>"
+		]
+	},
+	"psyFormModal": {
+		"prefix": "psyFormModal",
+		"body": [
+			"<vxe-modal v-model=\"${form}ModalShow\" @hide=\"${form}ModalHide\" title=\"$title\" width=\"50%\" :position=\"{top:'15vh'}\">",
+			"<template #default>",
+			"<avue-form ref=\"${form}\" v-model=\"${form}Value\" :option=\"${form}Option\" @submit=\"${form}Submit\" @reset-change=\"${form}ResetChange\"></avue-form>",
+			"</template>",
+			"</vxe-modal>"
+		]
+	},
+	"psyFormDialog": {
+		"prefix": "psyFormDialog",
+		"body": [
+			"<el-dialog :visible.sync=\"${form}DialogShow\" @close=\"${form}DialogClose\" title=\"$title\">",
+			"<avue-form ref=\"${form}\" v-model=\"${form}Value\" :option=\"${form}Option\" @submit=\"${form}Submit\" @reset-change=\"${form}ResetChange\"></avue-form>",
+			"</el-dialog>"
+		]
+	},
+	"psyFormUploadOn": {
+		"prefix": "psyFormUploadOn",
+		"body": [
+			":upload-before=\"$uploadBefore\" :upload-after=\"$uploadAfter\" :upload-delete=\"$uploadDelete\" :upload-preview=\"$uploadPreview\" :upload-error=\"$uploadError\" :upload-exceed=\"$uploadExceed\""
+		]
+	},
+	"psyFormButton": {
+		"prefix": "psyFormButton",
+		"body": [
+			"<template slot=\"menuForm\">",
+			"<el-button @click=\"search\" type=\"info\">查询</el-button>",
+			"<el-button @click=\"add\" type=\"primary\">添加</el-button>",
+			"<el-button @click=\"edit\" type=\"warning\">修改</el-button>",
+			"<el-button @click=\"del\" type=\"danger\">删除</el-button>",
+			"<el-button @click=\"save\" type=\"success\">保存</el-button>",
+			"</template>"
+		]
+	},
+	"psyButtonSearch": {
+		"prefix": "psyButtonSearch",
+		"body": [
+			"<el-button @click=\"search\" type=\"info\" size=\"small\">查询</el-button>"
+		]
+	},
+	"psyButtonAdd": {
+		"prefix": "psyButtonAdd",
+		"body": [
+			"<el-button @click=\"add\" type=\"primary\" size=\"small\">添加</el-button>"
+		]
+	},
+	"psyButtonEdit": {
+		"prefix": "psyButtonEdit",
+		"body": [
+			"<el-button @click=\"edit\" type=\"warning\" size=\"small\">修改</el-button>"
+		]
+	},
+	"psyButtonDel": {
+		"prefix": "psyButtonDel",
+		"body": [
+			"<el-button @click=\"del\" type=\"danger\" size=\"small\">删除</el-button>"
+		]
+	},
+	"psyButtonSave": {
+		"prefix": "psyButtonSave",
+		"body": [
+			"<el-button @click=\"save\" type=\"success\" size=\"small\">保存</el-button>"
+		]
+	},
+	"psyRow": {
+		"prefix": "psyRow",
+		"body": [
+			"<el-row :gutter=\"${1:0}\">",
+			"$0",
+			"</el-row>"
+		]
+	},
+	"psyCol": {
+		"prefix": "psyCol",
+		"body": [
+			"<el-col :span=\"${1:24/23/22/21/20/19/18/17/16/15/14/13/12/11/10/9/8/7/6/5/4/3/2/1}\">",
+			"$0",
+			"</el-col>"
+		]
+	},
+	"psyLoading": {
+		"prefix": "psyLoading",
+		"body": [
+			"<view v-loading=\"loading\">",
+			"$0",
+			"</view>"
+		]
+	},
+	// javascript
+	"psyGet": {
+		"prefix": "psyGet",
+		"body": [
+			"try {",
+			"const $result = await ${this.\\$http}.get('$url',{${0:params}})",
+			"",
+			"} catch (e) {}"
+		]
+	},
+	"psyGetOptions": {
+		"prefix": "psyGetOptions",
+		"body": [
+			"try {",
+			"const $result = await ${this.\\$http}.get('$url',{${0:params}},$options)",
+			"",
+			"} catch (e) {}"
+		]
+	},
+	"psyPost": {
+		"prefix": "psyPost",
+		"body": [
+			"try {",
+			"const $result = await ${this.\\$http}.post('$url',{${0:data}})",
+			"",
+			"} catch (e) {}"
+		]
+	},
+	"psyPostOptions": {
+		"prefix": "psyPostOptions",
+		"body": [
+			"try {",
+			"const $result = await ${this.\\$http}.post('$url',{${0:data}},$options)",
+			"",
+			"} catch (e) {}"
+		]
+	},
+	"psyNextTick": {
+		"prefix": "psyNextTick",
+		"body": [
+			"this.\\$nextTick(() => {",
+			"$0",
+			"})"
+		]
+	},
+	"psySetTimeout": {
+		"prefix": "psySetTimeout",
+		"body": [
+			"setTimeout(() => {",
+			"$0",
+			"}, 500)"
+		]
+	},
+	"psyExportFunc": {
+		"prefix": "psyExportFunc",
+		"body": [
+			"export async function $func() {",
+			"$0",
+			"}"
+		]
+	},
+	"psyTableData": {
+		"prefix": "psyTableData",
+		"body": [
+			"export const $table = {",
+			"${table}Loading: false,",
+			"${table}Data: [],",
+			"${table}Page: {",
+			"currentPage: 1,",
+			"pageSize: config.pageSize,",
+			"total: 0",
+			"}",
+			"}"
+		]
+	},
+	"psyFormData": {
+		"prefix": "psyFormData",
+		"body": [
+			"export const $form = {",
+			"${form}Value: {},",
+			"${form}Option: {}",
+			"}"
+		]
+	},
+	"psyFormModalData": {
+		"prefix": "psyFormModalData",
+		"body": [
+			"export const ${form}Modal = {",
+			"${form}ModalShow: false,",
+			"${form}ModalTitle: '$title',",
+			"${form}Value: {},",
+			"${form}Option: {}",
+			"}"
+		]
+	},
+	"psyFormDialogData": {
+		"prefix": "psyFormDialogData",
+		"body": [
+			"export const ${form}Dialog = {",
+			"${form}DialogShow: false,",
+			"${form}DialogTitle: '$title',",
+			"${form}Value: {},",
+			"${form}Option: {}",
+			"}"
+		]
+	},
+	"psyFormEvent": {
+		"prefix": "psyFormEvent",
+		"body": [
+			"async ${form}Submit(form, done) {",
+			"$0",
+			"done();",
+			"},",
+			"${form}ResetChange(){},"
+		]
+	},
+	"psyFormModalEvent": {
+		"prefix": "psyFormModalEvent",
+		"body": [
+			"${form}ModalHide() {",
+			"this.\\$refs.${form}.resetForm();",
+			"},",
+			"async ${form}Submit(form, done) {",
+			"$0",
+			"done();",
+			"},",
+			"${form}ResetChange(){},"
+		]
+	},
+	"psyFormDialogEvent": {
+		"prefix": "psyFormDialogEvent",
+		"body": [
+			"${form}DialogClose() {",
+			"this.\\$refs.${form}.resetForm();",
+			"},",
+			"async ${form}Submit(form, done) {",
+			"$0",
+			"done();",
+			"},",
+			"${form}ResetChange(){},"
+		]
+	},
+	"psyFormUploadEvent": {
+		"prefix": "psyFormUploadEvent",
+		"body": [
+			"uploadDelete(column,file) {},",
+			"uploadBefore(file, done, loading,column) {},",
+			"uploadError(error, column) {},",
+			"uploadAfter(res, done, loading,column) {},",
+			"uploadPreview(file,column,done) {},",
+			"uploadExceed(limit, files, fileList, column){},"
+		]
+	},
+	"psyFormInit": {
+		"prefix": "psyFormInit",
+		"body": [
+			"this.\\$refs.${form}.init();"
+		],
+		"description": "重新初始化（多数用于服务端加载或者更新网络字典）"
+	},
+	"psyFormDicInit": {
+		"prefix": "psyFormDicInit",
+		"body": [
+			"this.\\$refs.${form}.dicInit(${1:'cascader'});"
+		],
+		"description": "重新初始化字典，当type为cascader,更新级联字典"
+	},
+	"psyFormClearValidate": {
+		"prefix": "psyFormClearValidate",
+		"body": [
+			"this.\\$refs.${form}.clearValidate();"
+		],
+		"description": "清空表单验证"
+	},
+	"psyFormGetPropRef": {
+		"prefix": "psyFormGetPropRef",
+		"body": [
+			"this.\\$refs.${form}.getPropRef('$prop');"
+		],
+		"description": "获取prop的ref对象Function(prop)"
+	},
+	"psyFormSubmit": {
+		"prefix": "psyFormSubmit",
+		"body": [
+			"this.\\$refs.${form}.submit();"
+		],
+		"description": "提交表单数据"
+	},
+	"psyFormResetForm": {
+		"prefix": "psyFormResetForm",
+		"body": [
+			"this.\\$refs.${form}.resetForm();"
+		],
+		"description": "清空表单数据(只有打开编辑的dialog才可以操作)"
+	},
+	"psyFormValidate": {
+		"prefix": "psyFormValidate",
+		"body": [
+			"this.\\$refs.${form}.validate((valid,done,msg)=>{);",
+			"$0",
+			"done()",
+			"});"
+		],
+		"description": "对整个表单进行校验的方法，validate((valid,done,msg)=>{}),done用于重置表单的禁止状态,msg为错误的校验信息"
+	},
+	"psyMessage": {
+		"prefix": "psyMessage",
+		"body": [
+			"this.\\$message({",
+			"type:'${1:info/success/warning/error/none}',",
+			"message:'$message',",
+			"showClose:true",
+			"})"
+		]
+	},
+	"psyMsgbox": {
+		"prefix": "psyMsgbox",
+		"body": [
+			"await this.\\$msgbox({$0})"
+		]
+	},
+	"psyAlert": {
+		"prefix": "psyAlert",
+		"body": [
+			"this.\\$alert('$message', '$title', {",
+			"type:'${1:info/success/warning/error}',",
+			"})"
+		]
+	},
+	"psyConfirm": {
+		"prefix": "psyConfirm",
+		"body": [
+			"try {",
+			"await this.\\$confirm('$message', '$title', {",
+			"type:'${1:info/success/warning/error}',",
+			"})",
+			"$0",
+			"} catch (e) {}"
+		]
+	},
+	"psyPrompt": {
+		"prefix": "psyPrompt",
+		"body": [
+			"try {",
+			"const {value} = await this.\\$prompt('$message', '$title', {",
+			"type:'${1:info/success/warning/error}',",
+			"})",
+			"$0",
+			"} catch (e) {}"
+		]
+	},
+	"psyNotify": {
+		"prefix": "psyNotify",
+		"body": [
+			"this.\\$notify({",
+			"title:'$title',",
+			"message:'$message',",
+			"type:'${1:info/success/warning/error}',",
+			"})"
+		]
+	},
+	"psyLoading": {
+		"prefix": "psyLoading",
+		"body": [
+			"const loading = this.\\$loading()"
+		]
+	},
+	"psyLoadingClose": {
+		"prefix": "psyLoadingClose",
+		"body": [
+			"loading.close()"
+		]
+	}
+}
