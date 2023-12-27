@@ -29,6 +29,7 @@ export default {
         basic: '基础组件',
         notice: '消息组件',
         other: '其他组件',
+        zhcolor: '中国色',
         allplatform: '全端组件',
         formdesign: '表单设计器',
         table: '表格',

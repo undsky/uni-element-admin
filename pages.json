@@ -71,6 +71,9 @@
 			"path": "pages/demo/aliyun/aliyun"
 		},
 		{
+			"path": "pages/demo/zhcolor/zhcolor"
+		},
+		{
 			"path": "pages/demo/allplatform/allplatform"
 		},
 		{
@@ -103,11 +106,10 @@
 			}
 		},
 		{
-			"path" : "pages/demo/crud/crud",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
+			"path": "pages/demo/crud/crud",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
 			}
 		}
 	],

@@ -81,6 +81,12 @@
 						url: '/pages/demo/allplatform/allplatform',
 						keepAlive: true
 					}, {
+						id: 'zhcolor',
+						pid: 'demo',
+						icon: '',
+						url: '/pages/demo/zhcolor/zhcolor',
+						keepAlive: true
+					}, {
 						id: 'formdesign',
 						pid: 'demo',
 						icon: '',

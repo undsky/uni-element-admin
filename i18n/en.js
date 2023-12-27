@@ -29,6 +29,7 @@ export default {
         basic: 'basic component',
         notice: 'notice component',
         other: 'other component',
+        zhcolor: 'Chinese color',
         allplatform: 'allplatform component',
         formdesign: 'form design',
         table: 'table',
