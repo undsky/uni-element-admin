@@ -1,22 +1,15 @@
 <template>
-	<view>
-		
-	</view>
+	<scroll-view scroll-y="true" class="main padding">
+		用户
+	</scroll-view>
 </template>
-
 <script>
 	export default {
 		data() {
-			return {
-				
-			}
+			return {}
 		},
-		methods: {
-			
-		}
-	}
+		methods: {},
+		onLoad: async function(options) {}
+	};
 </script>
-
-<style>
-
-</style>
+<style lang="scss" scoped></style>

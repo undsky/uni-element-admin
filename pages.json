@@ -65,12 +65,6 @@
 			"path": "pages/system/role/role"
 		},
 		{
-			"path": "pages/demo/tencentyun/tencentyun"
-		},
-		{
-			"path": "pages/demo/aliyun/aliyun"
-		},
-		{
 			"path": "pages/demo/zhcolor/zhcolor"
 		},
 		{

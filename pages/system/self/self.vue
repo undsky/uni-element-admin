@@ -23,15 +23,15 @@
 						color: "#f39c12",
 						list: [{
 								label: "点赞",
-								value: "3,200",
+								value: "9",
 							},
 							{
 								label: "关注",
-								value: "13,000",
+								value: "2",
 							},
 							{
 								label: "项目",
-								value: "13,000",
+								value: "4",
 							},
 						],
 					}, ],

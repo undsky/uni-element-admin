@@ -29,11 +29,7 @@
 </template>
 
 <script>
-	import {
-		noise,
-		brokenLine,
-		mouseTrail
-	} from "./particles";
+	import mouseTrail from "./particles/mouseTrail.js";
 	const quotations = [{
 			content: "天行健，君子以自强不息。",
 			from: "《周易》",
