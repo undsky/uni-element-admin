@@ -1,6 +1,6 @@
 <script>
 	export default {
-		onLaunch: function() {
+		onLaunch: function(options) {
 			let systemInfo = uni.getSystemInfoSync();
 			// #ifdef APP-PLUS
 			systemInfo.env = 'app';
@@ -33,13 +33,18 @@
 			// #ifdef MP-WEIXIN
 			systemInfo.env = 'weixin';
 			// #endif
+			// #ifdef ELECTRON
+			systemInfo.env = 'electron'
+			// #endif
+			systemInfo.launchOptions = options;
 			systemInfo.isXS = systemInfo.screenWidth < 768;
 			this.globalData.systemInfo = systemInfo;
 			console.log(systemInfo);
 			this.globalData.launchPage = this.$Route.fullPath;
+
 			console.log('App Launch');
 		},
-		onShow: function() {
+		onShow: function(options) {
 			console.log('App Show');
 		},
 		onHide: function() {
