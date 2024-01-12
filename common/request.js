@@ -1,102 +1,119 @@
-import Request from 'luch-request'
-import store from '../store/index.js'
-import _config from './config.js'
+import Request from 'luch-request';
+import store from '../store/index.js';
+import _config from './config.js';
 
-const http = new Request(_config.request)
+const http = new Request(_config.request);
 
-http.interceptors.request.use(async config => {
-	if (config.custom.auth) {
-		const token = store.state.auth.token
-		if (!token) {
-			uni.reLaunch({
-				url: '/pages/login/login'
-			})
-			return Promise.reject(config)
-		}
-		config.header.Authorization = 'Bearer ' + token
-	}
-	return config
-}, async config => {
-	return Promise.reject(config)
-})
+http.interceptors.request.use(
+    async (config) => {
+        if (config.custom.auth) {
+            const token = store.state.auth.token;
+            if (!token) {
+                uni.reLaunch({
+                    url: '/pages/login/login'
+                });
+                return Promise.reject(config);
+            }
+            config.header.Authorization = 'Bearer ' + token;
+        }
+        return config;
+    },
+    async (config) => {
+        return Promise.reject(config);
+    }
+);
 
-http.interceptors.response.use(async response => {
-	if ('development' === process.env.NODE_ENV) {
-		console.log(response)
-	}
+http.interceptors.response.use(
+    async (response) => {
+        if ('development' === process.env.NODE_ENV) {
+            console.log(response);
+        }
 
-	const {
-		code,
-		data,
-		message
-	} = response.data
+        const { code, data, msg } = response.data;
 
-	if (200 == code) {
-		return data
-	}
+        if (200 == code) {
+            return data;
+        }
 
-	uni.showToast({
-		icon: 'none',
-		title: `${message || code}`,
-		mask: true
-	})
+        uni.showToast({
+            icon: 'none',
+            title: `${msg || code}`,
+            mask: true
+        });
 
-	return Promise.reject(response)
-}, async response => {
-	if ('UnauthorizedError' == response.data) {
-		store.commit('clearToken')
-		uni.showModal({
-			title: '',
-			content: '授权已过期，请重新登录',
-			showCancel: false,
-			confirmText: '确定',
-			success: res => {},
-			fail: () => {},
-			complete: () => {
-				uni.reLaunch({
-					url: '/pages/login/login'
-				})
-			}
-		});
-	}
+        return Promise.reject(response);
+    },
+    async (response) => {
+        if ('UnauthorizedError' == response.data) {
+            store.commit('clearToken');
+            uni.showModal({
+                title: '',
+                content: '授权已过期，请重新登录',
+                showCancel: false,
+                confirmText: '确定',
+                success: (res) => {},
+                fail: () => {},
+                complete: () => {
+                    uni.reLaunch({
+                        url: '/pages/login/login'
+                    });
+                }
+            });
+        }
 
-	return Promise.reject(response)
-})
+        return Promise.reject(response);
+    }
+);
 
 function get(url, params, options) {
-	return http.get(url, Object.assign({}, {
-		params
-	}, false === options ? {
-		custom: {
-			auth: false
-		}
-	} : options))
+    return http.get(
+        url,
+        Object.assign(
+            {},
+            {
+                params
+            },
+            false === options
+                ? {
+                      custom: {
+                          auth: false
+                      }
+                  }
+                : options
+        )
+    );
 }
 
 async function post(url, data, options) {
-	return await http.post(url, data, false === options ? {
-		custom: {
-			auth: false
-		}
-	} : options)
+    return await http.post(
+        url,
+        data,
+        false === options
+            ? {
+                  custom: {
+                      auth: false
+                  }
+              }
+            : options
+    );
 }
 
 function upload(url, options) {
-	return http.upload(url, options)
+    return http.upload(url, options);
 }
 
 function download(url, options) {
-	return http.download(url, options)
+    return http.download(url, options);
 }
 
 function authUrl(api) {
-	return `${_config.request.baseURL}${api}${-1 == api.indexOf('?') ? '?' : '&'}token=${store.state.auth.token}`
+    return `${_config.request.baseURL}${api}${-1 == api.indexOf('?') ? '?' : '&'}token=${store.state.auth.token}`;
 }
 
 export default {
-	get,
-	post,
-	upload,
-	download,
-	authUrl
-}
+    get,
+    post,
+    upload,
+    download,
+    authUrl
+};
