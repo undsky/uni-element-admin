@@ -86,9 +86,7 @@ export default {
 			immediate: true
 		},
 		finalScrollTop(newVal) {
-			if (!this.useChatRecordMode) {
-				this.renderPropScrollTop = newVal < 6 ? 0 : 10;
-			}
+			this.renderPropScrollTop = newVal < 6 ? 0 : 10;
 		},
 	},
 	computed: {
@@ -342,12 +340,21 @@ export default {
 		},
 		// 通过nodeTop滚动到指定view
 		_scrollIntoViewByNodeTop(nodeTop, offset = 0, animate = false) {
-			this._scrollToY(nodeTop, offset, animate, true);
+			// 如果是聊天记录模式并且列表倒置了，此时nodeTop需要等于scroll-view高度 - nodeTop
+			if (this.isChatRecordModeAndInversion) {
+				this._getNodeClientRect('.zp-scroll-view').then(sNode => {
+					if (sNode) {
+						this._scrollToY(sNode[0].height - nodeTop, offset, animate, true);
+					}
+				})
+			} else {
+				this._scrollToY(nodeTop, offset, animate, true);
+			}
 		},
 		// 滚动到指定位置
 		_scrollToY(y, offset = 0, animate = false, addScrollTop = false) {
 			this.privateScrollWithAnimation = animate ? 1 : 0;
-			this.$nextTick(() => {
+			u.delay(() => {
 				if (this.usePageScroll) {
 					if (addScrollTop && this.pageScrollTop !== -1) {
 					   y += this.pageScrollTop; 
@@ -363,7 +370,7 @@ export default {
 					}
 					this.scrollTop = y - offset;
 				}
-			})
+			}, 10)
 		},
 		// scroll-view滚动中
 		_scroll(e) {

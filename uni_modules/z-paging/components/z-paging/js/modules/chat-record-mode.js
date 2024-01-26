@@ -18,11 +18,33 @@ export default {
 			type: Boolean,
 			default: u.gc('autoHideKeyboardWhenChat', true)
 		},
+		// 使用聊天记录模式中键盘弹出时是否自动调整slot="bottom"高度，默认为是
+		autoAdjustPositionWhenChat: {
+			type: Boolean,
+			default: u.gc('autoAdjustPositionWhenChat', true)
+		},
+		// 使用聊天记录模式中键盘弹出时是否自动滚动到底部，默认为否
+		autoToBottomWhenChat: {
+			type: Boolean,
+			default: u.gc('autoToBottomWhenChat', false)
+		},
+		// 使用聊天记录模式中reload时是否显示chatLoading，默认为否
+		showChatLoadingWhenReload: {
+			type: Boolean,
+			default: u.gc('showChatLoadingWhenReload', false)
+		},
+		// 在聊天记录模式中滑动到顶部状态为默认状态时，以加载中的状态展示，默认为是。若设置为否，则默认会显示【点击加载更多】，然后才会显示loading
+		chatLoadingMoreDefaultAsLoading: {
+			type: Boolean,
+			default: u.gc('chatLoadingMoreDefaultAsLoading', true)
+		},
 	},
 	data() {
 		return {
 			// 键盘高度
-			keyboardHeight: 0
+			keyboardHeight: 0,
+			// 键盘高度是否未改变，此时占位高度变化不需要动画效果
+			isKeyboardHeightChanged: false,
 		}
 	},
 	computed: {
@@ -63,13 +85,21 @@ export default {
 			})
 			return cellStyle;
 		},
+		// 是否是聊天记录列表并且有配置transform
+		isChatRecordModeHasTransform() {
+			return this.useChatRecordMode && this.chatRecordRotateStyle && this.chatRecordRotateStyle.transform;
+		},
 		// 是否是聊天记录列表并且列表未倒置
 		isChatRecordModeAndNotInversion() {
-			return this.chatRecordRotateStyle && this.chatRecordRotateStyle.transform && this.chatRecordRotateStyle.transform === 'scaleY(1)';
+			return this.isChatRecordModeHasTransform && this.chatRecordRotateStyle.transform === 'scaleY(1)';
 		},
-		// 最终的键盘高度
-		finalKeyboardHeight() {
-			return this.keyboardHeight;
+		// 是否是聊天记录列表并且列表倒置
+		isChatRecordModeAndInversion() {
+			return this.isChatRecordModeHasTransform && this.chatRecordRotateStyle.transform === 'scaleY(-1)';
+		},
+		// 最终的聊天记录模式中底部安全区域的高度，如果开启了底部安全区域并且键盘未弹出，则添加底部区域高度
+		chatRecordModeSafeAreaBottom() {
+			return this.safeAreaInsetBottom && !this.keyboardHeight ? this.safeAreaBottom : 0;
 		}
 	},
 	mounted() {
@@ -78,7 +108,15 @@ export default {
 		if (this.useChatRecordMode) {
 			uni.onKeyboardHeightChange(res => {
 				this.$emit('keyboardHeightChange', res);
-				this.keyboardHeight = res.height;
+				if (this.autoAdjustPositionWhenChat) {
+					this.isKeyboardHeightChanged = true;
+					this.keyboardHeight = res.height;
+				}
+				if (this.autoToBottomWhenChat && this.keyboardHeight > 0) {
+					u.delay(() => {
+						this.scrollToBottom(false);
+					})
+				} 
 			})
 		}
 		// #endif
