@@ -59,6 +59,8 @@ export default {
         doneBtnText: '我知道了',
         closeBtnText: '关闭',
         navbar: '导航栏',
-        menubar: '菜单栏'
+        menubar: '菜单栏',
+        dev: '少儿编程',
+        blocklydemo: 'blockly'
     }
 };

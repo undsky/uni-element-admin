@@ -59,6 +59,8 @@ export default {
         doneBtnText: 'Done',
         closeBtnText: 'Close',
         navbar: 'navbar',
-        menubar: 'menubar'
+        menubar: 'menubar',
+        dev: "children's programming",
+        blocklydemo: 'blockly'
     }
 };

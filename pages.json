@@ -105,6 +105,14 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
+		},
+		{
+			"path" : "pages/dev/blocklydemo/blocklydemo",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
 		}
 	],
 	"globalStyle": {

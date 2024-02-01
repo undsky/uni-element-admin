@@ -165,6 +165,16 @@
 						url: '/pages/demo/map/map',
 						keepAlive: true
 					}, {
+						id: 'dev',
+						pid: '',
+						icon: 'el-icon-s-finance',
+					}, {
+						id: 'blocklydemo',
+						pid: 'dev',
+						icon: '',
+						url: '/pages/dev/blocklydemo/blocklydemo',
+						keepAlive: true
+					}, {
 						id: 'login',
 						pid: '',
 						icon: 'el-icon-s-platform',
