@@ -116,7 +116,7 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTitleText": "uni-psyduck-admin",
+		"navigationBarTitleText": "uni-element-admin",
 		"backgroundColor": "#F8F8F8",
 		"navigationStyle": "custom"
 	},

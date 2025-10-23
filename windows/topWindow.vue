@@ -6,7 +6,7 @@
         color: $config.theme.textColor,
       }">
 			<el-avatar v-if="isCollapse" size="small" :src="logo"></el-avatar>
-			<view v-else>uni-psyduck-admin</view>
+			<view v-else>uni-element-admin</view>
 		</view>
 		<view @click="toggleSidebar" class="toggle-sidebar flex flex-justify-center flex-align-center"><i
 				:class="[isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold']"></i></view>

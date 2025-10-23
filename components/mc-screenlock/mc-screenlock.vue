@@ -5,7 +5,7 @@
     }}</el-dropdown-item>
 		<el-tooltip v-else :content="i18n.lockScreen" placement="bottom"><i @click="lock" class="el-icon-lock"></i>
 		</el-tooltip>
-		<el-dialog title="uni-psyduck-admin" :visible="isLock" center append-to-body :close-on-click-modal="false"
+		<el-dialog title="uni-element-admin" :visible="isLock" center append-to-body :close-on-click-modal="false"
 			:close-on-press-escape="false" :show-close="false" :width="isXS ? '90%' : '50%'">
 			<view class="flex flex-column flex-align-center margin-bottom-lg">
 				<el-avatar :size="80" :src="logo"></el-avatar>

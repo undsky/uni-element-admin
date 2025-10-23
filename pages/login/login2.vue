@@ -5,7 +5,7 @@
 				<div class="login-time">{{ time.txt }}</div>
 				<div class="login-left-box">
 					<div class="response">
-						<div class="logo">uni-psyduck-admin</div>
+						<div class="logo">uni-element-admin</div>
 						<h2 class="title">基于 uniapp 的后台框架</h2>
 						<div class="msg">
 							<div class="msg-txt">{{ quotation.content }}</div>

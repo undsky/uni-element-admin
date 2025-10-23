@@ -9,7 +9,7 @@
         :lg="{ span: 8, offset: 8 }"
         :xl="{ span: 8, offset: 8 }"
       >
-        <view class="title"> uni-psyduck-admin </view>
+        <view class="title"> uni-element-admin </view>
         <mc-login></mc-login>
       </el-col>
     </el-row>

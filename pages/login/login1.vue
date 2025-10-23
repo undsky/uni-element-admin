@@ -18,7 +18,7 @@
 		data() {
 			return {
 				isXS: false,
-				simulateArr: ["#icon " + login1, "uni-psyduck-admin"],
+				simulateArr: ["#icon " + login1, "uni-element-admin"],
 				simulateIndex: 0,
 				timer: null,
 			};

@@ -1,5 +1,5 @@
 {
-    "name" : "uni-psyduck-admin",
+    "name" : "uni-element-admin",
     "appid" : "__UNI__1100D83",
     "description" : "",
     "versionName" : "1.0.0",
@@ -72,7 +72,7 @@
         "enable" : false
     },
     "h5" : {
-        "title" : "uni-psyduck-admin",
+        "title" : "uni-element-admin",
         "template" : "index.html",
         "router" : {
             "mode" : "hash",
