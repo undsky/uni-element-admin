@@ -10,6 +10,10 @@
 
 [https://github.com/undsky/uni-element-admin](https://github.com/undsky/uni-element-admin)
 
+### Dcloud 插件市场
+
+[https://ext.dcloud.net.cn/plugin?id=7000](https://ext.dcloud.net.cn/plugin?id=7000)
+
 ### 个人主页
 
 [https://www.undsky.com/](https://www.undsky.com/)
